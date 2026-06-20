@@ -1,0 +1,4 @@
+# 이 파일을 .dev.vars 로 복사 후 실제 값 입력 (.dev.vars 는 gitignore 처리됨)
+# Phase 2: Hyperdrive 로컬 연결 문자열 (MariaDB)
+# 형식: CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_<바인딩명>
+CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="mysql://USER:PASSWORD@HOST:3306/DBNAME?sslMode=REQUIRED"

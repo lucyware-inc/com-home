@@ -1,0 +1,28 @@
+# ============================================================
+# Lucyware Inc. — Cloudflare Pages 설정 파일 (단일 진실 공급원)
+# Phase 1: 정적 사이트  /  Phase 2: Functions + Hyperdrive(MariaDB)
+# 문서: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+# ============================================================
+
+name = "lucyware-web"
+compatibility_date = "2025-09-23"
+compatibility_flags = ["nodejs_compat"]   # mysql2 드라이버 사용 위해 Phase 2 필수, Phase 1부터 명시
+
+# 정적 산출물 디렉터리. 빌드 단계 없음(순수 HTML5) → 프로젝트 루트.
+pages_build_output_dir = "."
+
+# ------------------------------------------------------------
+# [Phase 2 활성화 절차] — 아래 블록 주석 해제 후 값 입력
+#
+# 1) Hyperdrive 구성 생성 (MariaDB는 MySQL 호환 → mysql:// 사용)
+#    npx wrangler hyperdrive create lucyware-mariadb \
+#      --connection-string="mysql://USER:PASSWORD@HOST:3306/DBNAME"
+#
+# 2) 출력된 id 값을 아래 id 에 입력
+# 3) 드라이버: mysql2 >= 3.13.0 / 연결 시 sslMode=REQUIRED
+# ------------------------------------------------------------
+# [[hyperdrive]]
+# binding = "HYPERDRIVE"
+# id = "<wrangler hyperdrive create 가 출력한 ID>"
+# # 로컬 개발 전용. 운영 자격증명을 커밋하지 말 것(.dev.vars 또는 환경변수 사용 권장)
+# localConnectionString = "mysql://USER:PASSWORD@HOST:3306/DBNAME?sslMode=REQUIRED"
