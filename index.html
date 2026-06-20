@@ -1,177 +1,454 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>루씨웨어 | RDBMS 기반 AI · Text2SQL 전문</title>
-  <meta name="description" content="루씨웨어(Lucyware Inc.) — RDBMS 기반 AI, Text2SQL 데이터 파이프라인, MetaDRAG™, SI 컨설팅 전문 기업." />
-  <link rel="icon" href="/assets/img/favicon.ico" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Lucyware | RDBMS 기반 AI · Text2SQL 전문</title>
+  <meta name="description" content="루씨웨어는 RDBMS 기반 AI·Text2SQL 전문 기업으로, 엔터프라이즈 데이터 파이프라인과 SI 컨설팅을 제공합니다." />
+  <meta name="keywords" content="RDBMS, AI, Text2SQL, 데이터 파이프라인, SI 컨설팅, 루씨웨어" />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900&family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#hero">Lucyware</a>
-      <button class="menu-toggle" type="button" aria-label="메뉴 열기">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav-menu" aria-label="주요 섹션">
-        <a href="#hero">Home</a>
-        <a href="#services">Services</a>
-        <a href="#features">Features</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="#hero" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Lucyware</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Solutions</a></li>
+          <li><a href="#references">References</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
+      <a class="btn-getstarted" href="#contact">문의하기</a>
+
     </div>
   </header>
 
-  <main>
-    <section id="hero" class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Enterprise Data & AI</span>
-          <h1>데이터와 AI를 연결하는<br>루씨웨어의 혁신적인 플랫폼</h1>
-          <p>MetaDRAG™ 기반 RDBMS 통합, Text2SQL 자동화, 실무 중심 SI 서비스를 통해 기업의 데이터 가치를 빠르게 실현합니다.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">솔루션 보기</a>
-            <a class="btn btn-secondary" href="#contact">문의하기</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-card">
-            <h2>MetaDRAG™</h2>
-            <p>데이터 자산을 AI로 연결하는 통합 플랫폼.</p>
-          </div>
-          <div class="hero-card accent-card">
-            <h2>Text2SQL</h2>
-            <p>자연어 기반 SQL 변환으로 현업 분석 생산성을 향상.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="main">
 
-    <section id="services" class="section-panel">
+    <section id="hero" class="hero section">
+      <img src="assets/img/hero-bg-abstract.jpg" alt="Hero Background" data-aos="fade-in" class="">
+
       <div class="container">
-        <div class="section-header">
-          <p class="section-label">Services</p>
-          <h2>기업 데이터 혁신을 위한 핵심 서비스</h2>
-          <p>루씨웨어는 데이터 통합, AI 모델링, 운영 자동화까지 엔터프라이즈 수준의 서비스를 제공합니다.</p>
+        <div class="row justify-content-center" data-aos="zoom-out">
+          <div class="col-xl-7 col-lg-9 text-center">
+            <h1>데이터와 AI를 연결하는<br>루씨웨어의 엔터프라이즈 플랫폼</h1>
+            <p>MetaDRAG™ 기반 RDBMS 통합, Text2SQL 자동화, 실무 중심 SI 컨설팅으로 기업의 데이터 전략을 현실로 만듭니다.</p>
+          </div>
         </div>
-        <div class="card-grid">
-          <article class="service-card">
-            <span>01</span>
-            <h3>데이터 통합</h3>
-            <p>RDBMS 자산을 중심으로 안정적인 데이터 파이프라인을 구축합니다.</p>
-          </article>
-          <article class="service-card">
-            <span>02</span>
-            <h3>Text2SQL</h3>
-            <p>자연어 기반 데이터 질의와 분석을 빠르게 전개합니다.</p>
-          </article>
-          <article class="service-card">
-            <span>03</span>
-            <h3>SI 컨설팅</h3>
-            <p>현업 요구를 반영한 시스템 설계와 데이터 아키텍처를 제공합니다.</p>
-          </article>
+        <div class="text-center" data-aos="zoom-out" data-aos-delay="100">
+          <a href="#about" class="btn-get-started">서비스 보기</a>
+          <a href="#contact" class="btn-getstarted" style="margin-left:.75rem;">문의하기</a>
+        </div>
+
+        <div class="row gy-4 mt-5">
+          <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-gear"></i></div>
+              <h4 class="title"><a href="#services">MetaDRAG™</a></h4>
+              <p class="description">RDBMS 데이터를 AI로 연결하는 통합 운영 플랫폼.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-code-slash"></i></div>
+              <h4 class="title"><a href="#services">Text2SQL</a></h4>
+              <p class="description">자연어를 SQL로 변환하여 분석 생산성을 높입니다.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-diagram-3"></i></div>
+              <h4 class="title"><a href="#services">데이터 파이프라인</a></h4>
+              <p class="description">데이터 흐름을 설계하고 자동화하여 안정적인 운영을 지원합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-person-workspace"></i></div>
+              <h4 class="title"><a href="#services">SI 컨설팅</a></h4>
+              <p class="description">현업 중심의 시스템 설계와 데이터 아키텍처 구축을 제공합니다.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </section><!-- /Hero Section -->
 
-    <section id="features" class="section-panel section-alt">
+    <section id="about" class="about section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Lucyware</h2>
+        <p>루씨웨어는 RDBMS 기반 AI와 Text2SQL을 결합해 기업의 데이터 자산을 비즈니스 가치로 전환합니다.</p>
+      </div>
+
       <div class="container">
-        <div class="section-header">
-          <p class="section-label">Features</p>
-          <h2>기업에 필요한 기술적 우위</h2>
-          <p>루씨웨어의 접근 방식은 안정성과 확장성, 그리고 현업 친화성을 동시에 고려합니다.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>데이터 기반 의사결정</h3>
-            <p>정확한 데이터 기반 의사결정 환경을 구축합니다.</p>
-          </article>
-          <article class="feature-card">
-            <h3>AI 자동화</h3>
-            <p>Text2SQL과 AI 모델을 결합한 자동화된 분석 워크플로우.</p>
-          </article>
-          <article class="feature-card">
-            <h3>운영 안정성</h3>
-            <p>24/7 데이터 운영과 모니터링 체계를 지원합니다.</p>
-          </article>
+        <div class="row gy-4">
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <p>기업 환경에 맞춘 데이터 통합, 실무 중심 AI 설계, 운영 자동화를 중심으로 빠르고 안정적인 데이터 혁신을 제공합니다.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span>RDBMS 기반 데이터 활용 최적화</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Text2SQL로 현업 데이터 접근성 향상</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Phase 1 정적 사이트부터 Phase 2 API 연동까지 단계적 확장</span></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="Lucyware About">
+          </div>
+
         </div>
       </div>
-    </section>
+    </section><!-- /About Section -->
 
-    <section id="process" class="section-panel">
-      <div class="container process-grid">
-        <div>
-          <div class="section-header">
-            <p class="section-label">Process</p>
-            <h2>루씨웨어의 작업 방식</h2>
-            <p>문제 정의부터 운영 안정화까지 명확한 단계로 프로젝트를 진행합니다.</p>
+    <section id="stats" class="stats section light-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="99" data-purecounter-duration="1" class="purecounter"></span>
+              <p>가동률</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+              <p>PoC/프로토타입 주기 (주)</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+              <p>24/7 모니터링</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+              <p>누적 프로젝트</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Stats Section -->
+
+    <section id="services" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Solutions</h2>
+        <p>루씨웨어가 제공하는 핵심 솔루션을 확인해보세요.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <div class="icon"><i class="bi bi-cpu"></i></div>
+              <h3>MetaDRAG™</h3>
+              <p>RDBMS 데이터를 AI와 연결하여 실시간 분석과 자동화를 지원합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <div class="icon"><i class="bi bi-file-code"></i></div>
+              <h3>Text2SQL</h3>
+              <p>현업 사용자가 자연어로 데이터 질의를 수행할 수 있는 환경을 구축합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <div class="icon"><i class="bi bi-shield-lock"></i></div>
+              <h3>SI Consulting</h3>
+              <p>데이터 아키텍처 설계부터 시스템 통합까지 엔터프라이즈 표준을 제공합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <div class="icon"><i class="bi bi-box-seam"></i></div>
+              <h3>데이터 파이프라인</h3>
+              <p>정제, 적재, 분석까지 안정적인 데이터 흐름을 자동화합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <div class="icon"><i class="bi bi-bar-chart-line"></i></div>
+              <h3>운영 안정성</h3>
+              <p>24/7 모니터링과 장애 대응 체계를 통해 안정적인 서비스 운영을 지원합니다.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item item-pink position-relative">
+              <div class="icon"><i class="bi bi-people"></i></div>
+              <h3>현업 협업</h3>
+              <p>실무 중심의 요구 분석과 단계별 실행으로 고객과 함께 성장합니다.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Services Section -->
+
+    <section id="references" class="portfolio section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>References</h2>
+        <p>기업 고객의 데이터 혁신 사례를 통해 신뢰를 보여드립니다.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="Reference 1">
+            <div class="portfolio-info">
+              <h4>제조사 데이터 통합</h4>
+              <p>RDBMS 기반 실시간 보고서 자동화</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="Reference 2">
+            <div class="portfolio-info">
+              <h4>분석 환경 전환</h4>
+              <p>Text2SQL로 현업 접근성 향상</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="Reference 3">
+            <div class="portfolio-info">
+              <h4>AI 데이터 랩</h4>
+              <p>데이터 파이프라인과 AI 모델을 결합한 PoC</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /References Section -->
+
+    <section id="process" class="team section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Approach</h2>
+        <p>루씨웨어의 프로젝트 진행 방식</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-info">
+                <h4>Research</h4>
+                <span>데이터 현황과 요구를 진단합니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-info">
+                <h4>Strategy</h4>
+                <span>실행 가능한 데이터 전략과 아키텍처를 설계합니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-info">
+                <h4>Build</h4>
+                <span>시스템 구현과 테스트를 통합하여 진행합니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-info">
+                <h4>Launch</h4>
+                <span>운영 전환과 지속 개선을 지원합니다.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Process Section -->
+
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>문의 내용을 남겨주시면 빠르게 답변드리겠습니다.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>Seoul, Korea</p>
+              </div>
+            </div>
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+82 10-1234-5678</p>
+              </div>
+            </div>
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email</h3>
+                <p>contact@lucyware.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200" onsubmit="return false;">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="이름" required="">
+                </div>
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="이메일" required="">
+                </div>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="제목" required="">
+                </div>
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="문의 내용을 입력해 주세요" required=""></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">문의가 전송되었습니다. 감사합니다!</div>
+                  <button type="submit">문의 보내기</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="process-cards">
-          <article class="process-card">
-            <span>Research</span>
-            <p>요구 분석과 데이터 현황 진단을 빠르게 수행합니다.</p>
-          </article>
-          <article class="process-card">
-            <span>Strategy</span>
-            <p>실행 가능한 로드맵과 단계별 전략을 수립합니다.</p>
-          </article>
-          <article class="process-card">
-            <span>Build</span>
-            <p>시스템 설계, 구현, 테스트를 통합하여 진행합니다.</p>
-          </article>
-          <article class="process-card">
-            <span>Launch</span>
-            <p>운영 전환과 안정화를 지원하며 지속 개선합니다.</p>
-          </article>
-        </div>
       </div>
-    </section>
+    </section><!-- /Contact Section -->
 
-    <section id="contact" class="section-panel">
-      <div class="container contact-panel">
-        <div class="section-header">
-          <p class="section-label">Contact</p>
-          <h2>문의하실 내용을 남겨주세요</h2>
-          <p>현재는 정적 문의 폼으로 제공되며, Phase 2에서 `/api/contact` 연동을 진행합니다.</p>
-        </div>
-        <form class="contact-form" onsubmit="return false;">
-          <div class="form-row">
-            <label>
-              이름
-              <input type="text" name="name" placeholder="홍길동" />
-            </label>
-            <label>
-              이메일
-              <input type="email" name="email" placeholder="contact@lucyware.com" />
-            </label>
-          </div>
-          <label>
-            회사명
-            <input type="text" name="company" placeholder="회사명 입력" />
-          </label>
-          <label>
-            문의 내용
-            <textarea name="message" rows="5" placeholder="문의 내용을 입력해 주세요"></textarea>
-          </label>
-          <button class="btn btn-primary" type="submit">문의 보내기</button>
-          <p class="form-note">※ 현 단계는 정적 마크업입니다. Phase 2에서 `/api/contact` 연동 예정.</p>
-        </form>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Lucyware Inc. All rights reserved.</p>
+  <footer id="footer" class="footer light-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="#hero" class="logo d-flex align-items-center">
+            <span class="sitename">Lucyware</span>
+          </a>
+          <p>루씨웨어는 RDBMS 기반 AI·Text2SQL 전문 영역에서 기업의 데이터 혁신을 구현합니다.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Solutions</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">MetaDRAG™</a></li>
+            <li><a href="#services">Text2SQL</a></li>
+            <li><a href="#services">SI Consulting</a></li>
+            <li><a href="#services">Data Pipeline</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Seoul, Korea</p>
+          <p>+82 10-1234-5678</p>
+          <p>contact@lucyware.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>2026</span> <strong class="px-1 sitename">Lucyware</strong> All Rights Reserved</p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
   </footer>
 
-  <script src="/assets/js/main.js"></script>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
