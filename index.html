@@ -9,23 +9,199 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <!-- ================= IA 구조 (Claude Design 시안 반영 위치) =================
-       1) Hero         : 핵심 가치제안 (RDBMS 기반 AI · Text2SQL 전문)
-       2) Solutions    : MetaDRAG™ · SI 컨설팅 · 데이터 파이프라인
-       3) Tech&Approach: SI 역량 · 기술 스택
-       4) References   : 프로젝트 실적 (B2B 신뢰 핵심)
-       5) About/Contact: 회사 정보 + 문의 폼 (Phase 2 /api/contact 연동)
-  ============================================================================ -->
-  <header><!-- 내비게이션 --></header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#hero">Lucyware</a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" aria-label="주요 섹션">
+        <a href="#hero">Home</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#tech">Tech</a>
+        <a href="#references">References</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section id="hero"><!-- Hero --></section>
-    <section id="solutions"><!-- Solutions --></section>
-    <section id="tech"><!-- Tech & Approach --></section>
-    <section id="references"><!-- References --></section>
-    <section id="about"><!-- About --></section>
-    <section id="contact"><!-- Contact (문의 폼) --></section>
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">RDBMS 기반 AI · Text2SQL 전문</span>
+          <h1>MetaDRAG™로 데이터와 AI를 연결하는<br>루씨웨어의 엔터프라이즈 솔루션</h1>
+          <p>루씨웨어는 기업 데이터웨어하우스, Text2SQL, SI 컨설팅을 결합하여 실무 중심의 데이터 파이프라인을 제공합니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#solutions">솔루션 살펴보기</a>
+            <a class="btn btn-secondary" href="#contact">문의하기</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <h2>MetaDRAG™</h2>
+            <p>RDBMS 기반 AI 통합과 Text2SQL 자동화를 함께 제공합니다.</p>
+          </div>
+          <div class="hero-card accent-card">
+            <h2>AI + 데이터</h2>
+            <p>기업 시스템 데이터를 AI로 연결해 비즈니스 가치를 빠르게 도출합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="section-panel">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Solutions</p>
+          <h2>핵심 영역별 전문 서비스</h2>
+          <p>루씨웨어는 MetaDRAG™, SI 컨설팅, 데이터 파이프라인 세 가지 영역을 중심으로 고객의 데이터 혁신을 지원합니다.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>MetaDRAG™</h3>
+            <p>RDBMS 기반 AI와 Text2SQL을 결합한 맞춤형 데이터 플랫폼.</p>
+          </article>
+          <article class="card">
+            <h3>SI 컨설팅</h3>
+            <p>현업 요구를 반영한 시스템 설계와 데이터 아키텍처 구축.</p>
+          </article>
+          <article class="card">
+            <h3>데이터 파이프라인</h3>
+            <p>신뢰 가능한 데이터 흐름과 자동화된 분석 환경을 제공합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section-panel section-alt">
+      <div class="container tech-grid">
+        <div>
+          <div class="section-header">
+            <p class="section-label">Tech & Approach</p>
+            <h2>기술 역량으로 신뢰를 쌓다</h2>
+            <p>데이터와 AI가 연결되는 구조를 설계하고, 안정적인 운영을 위한 엔터프라이즈 표준을 제공합니다.</p>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>RDBMS 기반</strong>
+              <p>기존 데이터베이스 자산을 최대한 활용하는 설계.</p>
+            </div>
+            <div class="feature-item">
+              <strong>Text2SQL</strong>
+              <p>자연어를 SQL로 변환해 빠른 데이터 조회를 지원.</p>
+            </div>
+            <div class="feature-item">
+              <strong>SI 통합</strong>
+              <p>데이터 파이프라인과 시스템 통합을 함께 관리합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-panel">
+          <div class="stat-card">
+            <span>99.9%</span>
+            <p>가용성 기반 안정성</p>
+          </div>
+          <div class="stat-card">
+            <span>8주</span>
+            <p>데이터 PoC 및 프로토타입 완성</p>
+          </div>
+          <div class="stat-card">
+            <span>24/7</span>
+            <p>데이터 운영 모니터링 가능</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references" class="section-panel">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">References</p>
+          <h2>검증된 실적과 고객 신뢰</h2>
+          <p>기업 실무 중심의 데이터 혁신과 AI 도입 경험을 바탕으로 안정적인 서비스를 제공합니다.</p>
+        </div>
+        <div class="reference-grid">
+          <article class="reference-card">
+            <p>“MetaDRAG™ 도입으로 내부 데이터 워크플로우를 빠르게 표준화했습니다.”</p>
+            <strong>제조사 A</strong>
+          </article>
+          <article class="reference-card">
+            <p>“Text2SQL 기반 분석이 현업의 데이터 접근성을 크게 높였습니다.”</p>
+            <strong>금융사 B</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-panel section-alt">
+      <div class="container about-grid">
+        <div>
+          <div class="section-header">
+            <p class="section-label">About</p>
+            <h2>루씨웨어는 데이터와 AI를 연결하는 파트너입니다.</h2>
+            <p>기업의 RDBMS 자산을 기반으로 AI 서비스를 구현하고, 현업 중심의 데이터 경험을 함께 만듭니다.</p>
+          </div>
+        </div>
+        <div class="about-points">
+          <div class="about-item">
+            <h3>전문성</h3>
+            <p>RDBMS·Text2SQL·AI 통합에 대한 실무 경험과 기술력을 보유합니다.</p>
+          </div>
+          <div class="about-item">
+            <h3>신뢰</h3>
+            <p>데이터 품질과 운영 안정성을 최우선으로 설계합니다.</p>
+          </div>
+          <div class="about-item">
+            <h3>확장성</h3>
+            <p>다양한 기업 환경에 맞춘 확장 가능한 데이터 파이프라인을 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-panel">
+      <div class="container contact-panel">
+        <div class="section-header">
+          <p class="section-label">Contact</p>
+          <h2>문의하실 내용을 남겨주세요</h2>
+          <p>Phase 2에서는 /api/contact 연동을 통해 실시간 문의 처리와 Text2SQL 기반 데이터 조회를 지원할 예정입니다.</p>
+        </div>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <label>
+              이름
+              <input type="text" name="name" placeholder="홍길동" />
+            </label>
+            <label>
+              이메일
+              <input type="email" name="email" placeholder="contact@lucyware.com" />
+            </label>
+          </div>
+          <label>
+            회사명
+            <input type="text" name="company" placeholder="회사명 입력" />
+          </label>
+          <label>
+            문의 내용
+            <textarea name="message" rows="5" placeholder="문의 내용을 입력해 주세요"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">문의 보내기</button>
+          <p class="form-note">※ 현 단계는 정적 마크업입니다. Phase 2에서 `/api/contact` 연동 예정.</p>
+        </form>
+      </div>
+    </section>
   </main>
-  <footer><!-- 회사 정보 · 카피라이트 --></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Lucyware Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
