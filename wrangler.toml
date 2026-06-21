@@ -11,7 +11,20 @@ compatibility_flags = ["nodejs_compat"]   # mysql2 드라이버 사용 위해 Ph
 # 정적 산출물 디렉터리. 빌드 단계 없음(순수 HTML5) → 프로젝트 루트.
 pages_build_output_dir = "."
 
-# ------------------------------------------------------------
+# ============================================================
+# 환경변수 (Secrets와 별도)
+# 로컬: .dev.vars 파일에서 로드
+# 운영: Cloudflare Pages 대시보드 → Settings → Environment Variables 에서 설정
+# ============================================================
+[env.development]
+vars = { NAVER_CLIENT_ID = "wqjlpu2rl3" }
+
+[env.production]
+# 운영 환경의 실제 NAVER_CLIENT_ID는 Cloudflare 대시보드에서 설정
+# (예: Settings → Environment Variables → Add variable)
+# vars = { NAVER_CLIENT_ID = "your-production-client-id" }
+
+# ============================================================
 # [Phase 2 활성화 절차] — 아래 블록 주석 해제 후 값 입력
 #
 # 1) Hyperdrive 구성 생성 (MariaDB는 MySQL 호환 → mysql:// 사용)
@@ -20,7 +33,7 @@ pages_build_output_dir = "."
 #
 # 2) 출력된 id 값을 아래 id 에 입력
 # 3) 드라이버: mysql2 >= 3.13.0 / 연결 시 sslMode=REQUIRED
-# ------------------------------------------------------------
+# ============================================================
 # [[hyperdrive]]
 # binding = "HYPERDRIVE"
 # id = "<wrangler hyperdrive create 가 출력한 ID>"
