@@ -3,10 +3,6 @@
 # 사용법: 이 파일을 .dev.vars로 복사 후 실제 값 입력
 # ============================================================
 
-# Naver Maps API 클라이언트 ID (로컬 테스트용)
-# https://console.ncloud.com → Maps → Application 에서 발급받은 ID 입력
-NAVER_CLIENT_ID=wqjlpu2rl3
-
 # [Phase 2] Hyperdrive 로컬 연결 문자열 (MariaDB)
 # 형식: mysql://USER:PASSWORD@HOST:3306/DBNAME?sslMode=REQUIRED
 CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="mysql://USER:PASSWORD@HOST:3306/DBNAME?sslMode=REQUIRED"
