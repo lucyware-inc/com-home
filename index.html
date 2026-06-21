@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
 </head>
 
 <body class="index-page">
@@ -323,8 +324,26 @@
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="mb-4" id="map" data-aos="fade-up" data-aos-delay="200">
           <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <script>
+            // 3. 지도 초기화 및 옵션 설정
+            var mapOptions = {
+                // 중심부 좌표 설정 (위도, 경도)
+                center: new naver.maps.LatLng(37.5666102, 126.9783881), // 예: 서울시청
+                zoom: 16, // 확대 레벨
+                mapTypeControl: true // 일반ㆍ위성 지도 전환 컨트롤 표시
+            };
+
+            // 4. 지도 객체 생성
+            var map = new naver.maps.Map('map', mapOptions);
+
+            // 5. (선택사항) 지정한 위치에 마커 추가
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.5666102, 126.9783881),
+                map: map
+            });
+          </script>
         </div>
 
         <div class="row gy-4">
@@ -424,13 +443,13 @@
           <h4>Contact Us</h4>
           <p>Seoul, Korea</p>
           <p>+82 10-1234-5678</p>
-          <p>contact@lucyware.com</p>
+          <p>info@lucyware.com</p>
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>2026</span> <strong class="px-1 sitename">Lucyware</strong> All Rights Reserved</p>
+      <p>© <span>2026</span> <strong class="px-1 sitename">Lucyware, Inc.</strong> All Rights Reserved</p>
       <div class="credits">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
@@ -439,7 +458,14 @@
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
-
+  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wqjlpu2rl3"></script>
+    <style>
+        /* 2. 지도가 담길 컨테이너 크기 지정 */
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
