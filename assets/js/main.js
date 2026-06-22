@@ -221,6 +221,11 @@
    Make sure to set your Naver Client ID in the script tag in `index.html`.
 */
 function initNaverMap() {
+  // If an embedded iframe is present (share/embed mode), skip JS API initialization
+  const mapContainer = document.getElementById('naver-map');
+  if (mapContainer && mapContainer.querySelector('iframe')) {
+    return;
+  }
   try {
     // Try to resolve place coordinates via server proxy geocode endpoint
     async function resolveCoords(query) {
