@@ -216,3 +216,50 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/* Naver Map initialization: centers on previous Google Maps coordinates.
+   Make sure to set your Naver Client ID in the script tag in `index.html`.
+*/
+function initNaverMap() {
+  try {
+    // Try to resolve place coordinates via server proxy geocode endpoint
+    async function resolveCoords(query) {
+      try {
+        const res = await fetch('/api/naver-geocode?q=' + encodeURIComponent(query));
+        if (!res.ok) return null;
+        const json = await res.json();
+        const addr = json.addresses && json.addresses[0];
+        if (addr && addr.x && addr.y) {
+          return { lat: parseFloat(addr.y), lng: parseFloat(addr.x) };
+        }
+        return null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    const fallback = { lat: 37.514489451431544, lng: 127.06061684577553 };
+    (async () => {
+      const placeQuery = '루씨웨어 서울 강남구 영동대로 602';
+      const coords = await resolveCoords(placeQuery) || fallback;
+      const center = new naver.maps.LatLng(coords.lat, coords.lng);
+      const map = new naver.maps.Map('naver-map', {
+        center: center,
+        zoom: 15,
+        mapTypeControl: true
+      });
+      new naver.maps.Marker({
+        position: center,
+        map: map,
+        title: 'Lucyware'
+      });
+    })();
+  } catch (e) {
+    console.warn('Naver Map init failed:', e);
+  }
+}
+
+(function waitForNaver(){
+  if (window.naver && window.naver.maps) initNaverMap();
+  else setTimeout(waitForNaver, 150);
+})();
