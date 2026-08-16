@@ -1,0 +1,179 @@
+---
+layout: layouts/page.njk
+title: 회사소개
+eyebrow: Company
+lead: 루씨웨어는 기업이 이미 가진 데이터를 AI 가 읽을 수 있는 형태로 만들고, 그 위에서 실제 업무가 돌아가게 만듭니다.
+description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기업 정보입니다.
+---
+
+<section class="section">
+  <div class="container prose stack">
+    <h2>무엇을 하는 회사인가</h2>
+    <p>
+      AI 를 도입하려는 기업이 멈추는 자리는 거의 같습니다. 모델이 부족해서가 아니라
+      <strong>자기 데이터가 무엇인지 정리되어 있지 않아서</strong>입니다.
+      수십 년 쌓인 테이블에는 줄임말 이름과 뜻을 잃은 코드값이 남아 있고,
+      그것을 아는 사람은 몇 명뿐입니다.
+    </p>
+    <p>
+      루씨웨어는 그 앞단을 다룹니다. 메타데이터를 정리해 데이터에 의미를 돌려주고,
+      그 위에 AI 를 올려 현업이 자기 말로 데이터에 닿게 만듭니다.
+      화려한 시연이 아니라 <strong>매일 쓰이는 것</strong>을 만드는 것이 목표입니다.
+    </p>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Core Values</span>
+      <h2>일할 때 지키는 것</h2>
+      <p class="section-head__lead">
+        기술 선택이 갈릴 때 우리가 무엇을 기준으로 정하는지에 대한 이야기입니다.
+      </p>
+    </div>
+
+    <div class="grid" style="--col-min: 17rem">
+      <article class="card reveal">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg></div>
+        <h3>구조를 먼저 본다</h3>
+        <p>모델을 바꿔 성능을 올리기 전에 데이터를 정리합니다. 순서를 바꾸면 잠깐 되고 오래 못 갑니다.</p>
+      </article>
+
+      <article class="card reveal" style="--reveal-delay: 80ms">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></div>
+        <h3>근거를 함께 낸다</h3>
+        <p>답만 주는 시스템은 검증할 수 없습니다. 어떤 데이터로 나온 값인지 항상 보이게 만듭니다.</p>
+      </article>
+
+      <article class="card reveal" style="--reveal-delay: 160ms">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg></div>
+        <h3>작게 붙여 본다</h3>
+        <p>전사 계획을 오래 그리기보다 아픈 업무 하나를 짧게 만들어 봅니다. 되는 것만 넓힙니다.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg></div>
+        <h3>데이터는 고객의 것</h3>
+        <p>밖으로 내보내지 않는 구성을 우선합니다. 편의를 위해 경계를 넘지 않습니다.</p>
+      </article>
+
+      <article class="card reveal" style="--reveal-delay: 80ms">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></div>
+        <h3>쓰는 사람 기준</h3>
+        <p>현업이 안 쓰면 실패입니다. 화면과 말은 업무 담당자가 이미 쓰는 것을 따릅니다.</p>
+      </article>
+
+      <article class="card reveal" style="--reveal-delay: 160ms">
+        <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg></div>
+        <h3>남는 것을 만든다</h3>
+        <p>프로젝트가 끝나도 표준과 메타데이터는 고객에게 남습니다. 다음 시스템이 그 위에서 시작합니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="location">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Location</span>
+      <h2>오시는 길</h2>
+    </div>
+
+    {#
+      네이버 지도 API 로 그린다. 스크립트가 막히거나 도메인 등록이 안 되어 있으면
+      아래 대체 안내가 그대로 남는다 — 빈 회색 상자를 보여주지 않는다.
+    #}
+    <div class="map" id="naver-map">
+      <div class="map__fallback">
+        <p>{{ site.contact.address }}</p>
+        <p><a href="{{ site.contact.mapUrl }}" target="_blank" rel="noopener">네이버 지도에서 열기</a></p>
+      </div>
+    </div>
+
+    <div class="grid" style="--col-min: 15rem">
+      <div class="info-item">
+        <svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+        <div>
+          <h3>Address</h3>
+          <p>{{ site.contact.address }}</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+        <div>
+          <h3>Call</h3>
+          <p><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+        <div>
+          <h3>Email</h3>
+          <p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head section-head--start" style="max-width: none">
+      <span class="section-head__eyebrow">Company Info</span>
+      <h2>기업 정보</h2>
+    </div>
+
+    {#
+      _TODO 대표자 · 설립일 · 사업자등록번호 확인 후 항목을 추가한다.
+      확인되지 않은 값은 비워 두지 말고 아예 행을 만들지 않는다 —
+      빈 칸은 「없다」 가 아니라 「관리가 안 된다」 로 읽힌다.
+    #}
+    <dl class="deflist">
+      <div>
+        <dt>회사명</dt>
+        <dd>{{ site.legalName }} ({{ site.legalNameEn }})</dd>
+      </div>
+      <div>
+        <dt>사업 분야</dt>
+        <dd>메타데이터 기반 AI 솔루션 개발, 시스템 통합(SI) 및 컨설팅, 데이터 파이프라인 구축</dd>
+      </div>
+      <div>
+        <dt>주소</dt>
+        <dd>{{ site.contact.address }}</dd>
+      </div>
+      <div>
+        <dt>대표 전화</dt>
+        <dd><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></dd>
+      </div>
+      <div>
+        <dt>이메일</dt>
+        <dd><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wqjIpu2rl3&submodules=geocoder"></script>
+<script>
+  /* 주소 문자열로 좌표를 찾아 지도를 그린다.
+     좌표를 코드에 박아 두면 이사했을 때 지도만 옛 자리에 남는다. */
+  (function () {
+    if (!window.naver || !naver.maps || !naver.maps.Service) return;
+
+    const el = document.getElementById("naver-map");
+    if (!el) return;
+
+    naver.maps.Service.geocode({ query: {{ site.contact.addressForMap | dump | safe }} }, function (status, res) {
+      if (status !== naver.maps.Service.Status.OK) return;   // 실패하면 대체 안내가 남는다
+      const item = res.v2.addresses && res.v2.addresses[0];
+      if (!item) return;
+
+      const pos = new naver.maps.LatLng(Number(item.y), Number(item.x));
+      const map = new naver.maps.Map(el, { center: pos, zoom: 17 });
+      new naver.maps.Marker({ position: pos, map: map, title: {{ site.legalName | dump | safe }} });
+    });
+  })();
+</script>

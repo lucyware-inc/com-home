@@ -1,0 +1,76 @@
+<header class="header" id="site-header">
+  <div class="container header__inner">
+
+    {# 로고는 어느 페이지에서나 원본 하나다.
+       홈 헤더는 어두운 배너 위에서 시작해 스크롤하면 흰 바에 얹히므로,
+       두 벌을 바꿔 끼우는 대신 원본에 흰 외곽선을 둘러 양쪽을 함께 버틴다
+       (.header__logo img 의 filter 참고).
+
+       width·height 는 viewBox 비율(2980:494 ≒ 6.03:1)에서 계산한 실제 값이다.
+       어림수를 넣으면 글꼴·이미지가 늦게 올 때 헤더가 한 번 튄다. #}
+    <a class="header__logo" href="/" aria-label="{{ site.legalName }} 홈">
+      <img src="{{ site.logo.light }}" alt="{{ site.name }}" width="169" height="28">
+    </a>
+
+    <button class="nav__toggle" type="button"
+            aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <svg class="icon nav__toggle-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+      <svg class="icon nav__toggle-close" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="주 메뉴">
+      <ul class="nav__list">
+        {% for item in site.nav %}
+          {% set active = item | navActive(page.url) %}
+
+          {% if item.children %}
+            {# 하위가 있는 항목은 링크가 아니라 버튼이다.
+               갈 곳이 없는 것을 <a href="#"> 로 두면 새 탭으로 열거나 주소를 복사할 때
+               아무 데도 닿지 않는 링크가 된다. #}
+            <li class="nav__item nav__item--menu">
+              <button class="nav__link nav__trigger" type="button"
+                      aria-expanded="false" aria-controls="menu-{{ item.id }}"
+                      {% if active %}aria-current="true"{% endif %}>
+                {{ item.label }}
+                <svg class="icon icon--sm nav__caret" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+              </button>
+
+              <div class="nav__panel" id="menu-{{ item.id }}">
+                <p class="nav__panel-head">{{ item.labelKo }}</p>
+                <ul class="nav__sublist">
+                  {% for child in item.children %}
+                    <li>
+                      <a class="nav__sublink" href="{{ child.url }}"
+                         {% if page.url | isUnder(child.url) %}aria-current="page"{% endif %}>
+                        <span class="nav__sublink-name">{{ child.label }}</span>
+                        <span class="nav__sublink-desc">{{ child.desc }}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+
+          {% else %}
+            <li class="nav__item">
+              <a class="nav__link" href="{{ item.url }}"
+                 {% if active %}aria-current="true"{% endif %}>
+                {{ item.label }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+    </nav>
+
+    {# CTA 는 nav 밖에 둔다. 모바일에서 메뉴를 닫아도 헤더 바에 남아야 한다.
+       다만 좁은 화면에서는 긴 라벨이 로고·햄버거와 함께 한 줄에 들어가지 않는다
+       (360px 기준 434px 필요). 라벨만 줄이고 버튼은 남긴다. #}
+    <a class="btn btn--primary header__cta" href="/contact/">
+      <span class="header__cta-full">문의 · PoC 신청</span>
+      <span class="header__cta-short">문의</span>
+    </a>
+
+  </div>
+</header>

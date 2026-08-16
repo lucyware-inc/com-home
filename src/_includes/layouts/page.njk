@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+---
+{#
+  하위 페이지 공통 뼈대 — 페이지 머리 + 본문 + 전환 유도.
+  front matter 로 받는 값:
+    title       (필수) h1 이자 <title>
+    eyebrow     h1 위 한 줄 (섹션 이름)
+    lead        h1 아래 요약
+    productLogo 제품 페이지일 때 h1 대신 놓을 로고 경로 (밝은 배경용을 쓴다)
+    accent      제품색. 머리 위에 4px 띠로만 쓰인다 — 배경은 칠하지 않는다
+    hideCta     하단 전환 유도 띠를 감춘다
+#}
+<section class="page-head{% if accent %} page-head--accent{% endif %}"
+         {% if accent %}style="--page-accent: {{ accent }}"{% endif %}>
+  <div class="container">
+    <div class="page-head__inner">
+      {% if eyebrow %}<span class="page-head__eyebrow">{{ eyebrow }}</span>{% endif %}
+
+      {% if productLogo %}
+        <img class="page-head__logo" src="{{ productLogo }}" alt="{{ title }}" height="36">
+        <h1 class="sr-only">{{ title }}</h1>
+      {% else %}
+        <h1>{{ title }}</h1>
+      {% endif %}
+
+      {% if lead %}<p class="page-head__lead">{{ lead }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+
+{{ content | safe }}
+
+{% if not hideCta %}
+  {% include "partials/cta.njk" %}
+{% endif %}

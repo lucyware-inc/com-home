@@ -1,0 +1,54 @@
+<footer class="footer on-dark">
+  <div class="container grid footer__grid">
+
+    <div class="footer__about">
+      {# 푸터는 늘 어두우므로 한글 로고타이프의 반전판을 쓴다.
+         874:126 ≒ 6.94:1 — 높이 28px 에 맞춘 폭이 194px 이다. #}
+      <a class="footer__logo" href="/" aria-label="{{ site.legalName }} 홈">
+        <img src="{{ site.logo.krReverse }}" alt="{{ site.legalName }}" width="194" height="28">
+      </a>
+      <p>{{ site.description }}</p>
+    </div>
+
+    {% for item in site.nav %}
+      {% if item.children %}
+        <div class="footer__links">
+          <h4>{{ item.label }}</h4>
+          <ul>
+            {% for child in item.children %}
+              <li><a href="{{ child.url }}">{{ child.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="footer__links">
+      <h4>Company</h4>
+      <ul>
+        {% for item in site.nav %}
+          {% if not item.children %}
+            <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% for link in site.footerLinks %}
+          <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer__contact">
+      <h4>Contact</h4>
+      <ul class="stack" style="--flow: var(--space-2)">
+        <li>{{ site.contact.address }}</li>
+        <li><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></li>
+        <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {{ build.year }} {{ site.legalNameEn }} All rights reserved.</p>
+  </div>
+</footer>

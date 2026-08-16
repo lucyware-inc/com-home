@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} — {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Open Graph — 카카오톡·링크드인 공유 시 쓰인다 -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.legalName }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} — {{ site.tagline }}{% endif %}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="ko_KR">
+
+  <link rel="icon" href="{{ site.logo.symbol }}" type="image/svg+xml">
+
+  <!-- 본문 글꼴 — Pretendard.
+       static 판이 아니라 variable + dynamic-subset 을 쓴다.
+       static 은 굵기마다 한글 전체가 든 805KB 를 통째로 받아 400·600·700 만 써도
+       2.4MB 가 나간다. dynamic-subset 은 92조각으로 나뉘어 페이지에 실제로 쓰인
+       글자가 든 조각(각 36KB 안팎)만 받고, 하나의 가변 폰트가 모든 굵기를 덮는다.
+       base.css 의 --font-sans 첫 항목이 "Pretendard Variable" 이므로 이쪽이 맞다. -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css">
+
+  {% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {% if extraCss %}<link rel="stylesheet" href="{{ extraCss }}">{% endif %}
+
+  <!-- JS 가 살아 있을 때만 진입 애니메이션을 건다.
+       스크립트가 죽으면 .no-js 규칙이 내용을 그대로 보여준다 -->
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  {% include "partials/icons.njk" %}
+  {% include "partials/header.njk" %}
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <a href="#" class="to-top" aria-label="맨 위로">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+  </a>
+
+  <script src="/assets/js/site.js" defer></script>
+  {% if extraJs %}<script src="{{ extraJs }}" defer></script>{% endif %}
+</body>
+
+</html>

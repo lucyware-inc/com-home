@@ -1,0 +1,114 @@
+---
+layout: layouts/page.njk
+title: MetaDRAG™
+eyebrow: Solutions
+productLogo: /assets/img/Logo/metadrag-wordmark-light.svg
+accent: "#0091AA"
+lead: 데이터베이스의 구조를 읽어 AI 가 쓸 수 있는 형태로 정리하고, 그 위에서 사람의 질문에 답하게 만드는 메타데이터 플랫폼입니다.
+description: MetaDRAG™ 는 RDBMS 메타데이터를 표준화하고 AI 질의의 근거로 삼는 플랫폼입니다. ERD 문서 대신 화면에서 설계하고, 정리된 스키마 위에서 Text2SQL 을 검증합니다.
+---
+
+<section class="section">
+  <div class="container prose stack">
+    <h2>왜 메타데이터부터인가</h2>
+    <p>
+      기업 데이터베이스에 AI 를 붙일 때 가장 먼저 부딪히는 것은 모델의 성능이 아니라
+      <strong>데이터가 무엇인지 아무도 정확히 모른다는 사실</strong>입니다.
+      테이블 이름은 줄임말이고, 같은 뜻의 컬럼이 시스템마다 다른 이름으로 있으며,
+      코드값의 의미는 오래 다닌 사람의 머릿속에 있습니다.
+    </p>
+    <p>
+      이 상태에서 자연어 질의를 붙이면 AI 는 모르는 것을 모른다고 하지 않고
+      그럴듯한 SQL 을 지어냅니다. 틀린 숫자가 맞는 모양으로 나오는 것이
+      데이터 프로젝트에서 가장 비싼 실패입니다.
+    </p>
+    <p>
+      MetaDRAG™ 는 그 앞단을 맡습니다. 스키마를 수집해 사람이 읽을 수 있는 의미를
+      붙이고, 이름·도메인·코드 표준을 한 곳에서 관리한 다음,
+      <strong>정리된 메타데이터를 AI 질의의 근거로 넘깁니다.</strong>
+    </p>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Features</span>
+      <h2>무엇을 하는가</h2>
+    </div>
+
+    <div class="grid" style="--col-min: 17rem">
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
+        <div>
+          <h3>스키마 수집과 동기화</h3>
+          <p>운영 중인 데이터베이스에서 테이블·컬럼·제약을 읽어 옵니다. 바뀌면 차이를 보여주고, 사람이 확인한 뒤 반영합니다.</p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+        <div>
+          <h3>화면에서 하는 설계</h3>
+          <p>ERD 문서를 따로 그리고 실제 DB 와 어긋나게 두지 않습니다. 설계와 현물이 같은 자리에 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+        <div>
+          <h3>이름 · 도메인 표준</h3>
+          <p>같은 뜻에 같은 이름을 씁니다. 표준을 한 곳에 두면 새 시스템이 늘어도 갈라지지 않습니다.</p>
+        </div>
+      </div>
+
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <div>
+          <h3>의미 기반 검색</h3>
+          <p>「매출이 들어 있는 컬럼」 처럼 뜻으로 찾습니다. 이름을 정확히 알아야 찾을 수 있으면 검색이 아닙니다.</p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
+        <div>
+          <h3>AI 질의의 근거 공급</h3>
+          <p>정리된 메타데이터를 컨텍스트로 넘겨 질의를 만듭니다. 추측이 아니라 실제 구조 위에서 답합니다.</p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+        <div>
+          <h3>영향도 추적</h3>
+          <p>컬럼 하나를 바꾸면 어디가 깨지는지 먼저 봅니다. 바꾸고 나서 아는 것과는 값이 다릅니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose stack">
+    <h2>이런 곳에 맞습니다</h2>
+    <ul class="checklist stack">
+      <li>
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
+        <span>오래 운영한 시스템이 여러 개이고, 같은 데이터가 여기저기 다른 이름으로 있는 곳</span>
+      </li>
+      <li>
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
+        <span>데이터 요청을 받을 때마다 담당자가 SQL 을 새로 짜고 있는 곳</span>
+      </li>
+      <li>
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
+        <span>AI 도입을 검토했으나 「우리 데이터로는 안 될 것 같다」 에서 멈춘 곳</span>
+      </li>
+      <li>
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
+        <span>차세대 · 마이그레이션을 앞두고 현행 구조를 정확히 파악해야 하는 곳</span>
+      </li>
+    </ul>
+  </div>
+</section>

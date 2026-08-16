@@ -1,0 +1,29 @@
+---
+layout: layouts/page.njk
+---
+{#
+  준비중 페이지.
+  빈 페이지를 두지 않는다 — 무엇을 준비하는지 알리고, 지금 필요한 사람에게는
+  기다리지 않아도 되는 다음 걸음(문의)을 준다.
+  front matter: soonBody (준비 내용 설명), soonHeading
+#}
+<section class="section">
+  <div class="container soon">
+    <div class="soon__mark">
+      <svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>
+    </div>
+
+    <div class="soon__body">
+      <h2>{{ soonHeading or "준비하고 있습니다" }}</h2>
+      <p>{{ soonBody }}</p>
+    </div>
+
+    <div class="cluster" style="justify-content:center">
+      <a class="btn btn--primary" href="/contact/">
+        먼저 문의하기
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+      <a class="btn btn--ghost" href="/">홈으로</a>
+    </div>
+  </div>
+</section>
