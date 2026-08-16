@@ -1,0 +1,281 @@
+---
+layout: layouts/base.njk
+bodyClass: home
+extraJs: /assets/js/home.js
+description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metadata 기반 AI Transformation 전문 기업입니다. Lucyware.AI · MetaDRAG™ · flexelf 와 ubiQloud · ubiQation 을 제공합니다.
+---
+
+{#
+  홈 — 어두운 배너로 열고 밝은 본문으로 내려간 뒤 어두운 푸터로 닫는다.
+
+  배너 첫 장은 회사가 무엇을 하는지를 걸고, 자동으로 제품 다섯 장이 이어진다.
+  제품 슬라이드의 배경은 로고 색을 그대로 칠하지 않는다 — 옅은 빛 하나와
+  작은 라벨에만 제품색을 두어, 글자는 어느 장에서나 같은 조건으로 읽힌다.
+#}
+
+{% set slides = [
+  {
+    key: "metadrag", label: "MetaDRAG™", tag: "Metadata Platform",
+    logo: "/assets/img/Logo/metadrag-wordmark-dark.svg",
+    title: "데이터를 아는 AI 는 스키마부터 읽습니다",
+    lead: "테이블·컬럼·관계를 정리해 의미를 돌려주고, 그 위에서 질의가 만들어집니다. 정리 없이 올린 AI 는 그럴듯한 오답을 냅니다.",
+    url: "/solutions/metadrag/",
+    accent: "#0091AA", glow: "rgb(0 145 170 / 0.20)",
+    cards: ["스키마", "표준", "질의"]
+  },
+  {
+    key: "lucyware-ai", label: "Lucyware.AI", tag: "AI Portal",
+    logo: "/assets/img/Logo/lucyware_ai_signature_gradient_reverse.svg",
+    title: "사내 데이터에, 쓰던 말 그대로",
+    lead: "요청서를 쓰고 며칠 기다리던 숫자를 지금 물어봅니다. 어떤 표를 어떻게 읽어 나온 값인지 근거와 함께 보여 드립니다.",
+    url: "/solutions/lucyware-ai/",
+    accent: "#7B5BE6", glow: "rgb(123 91 230 / 0.20)",
+    cards: ["질문", "근거", "답"]
+  },
+  {
+    key: "flexelf", label: "flexelf", tag: "Automation",
+    logo: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
+    title: "현장 업무의 모양에 맞춰 늘어납니다",
+    lead: "업무마다 다른 절차를 시스템에 억지로 맞추지 않습니다. 쓰던 방식을 그대로 담아 자동화합니다.",
+    url: "/solutions/flexelf/",
+    accent: "#7D9EC9", glow: "rgb(125 158 201 / 0.20)",
+    cards: ["절차", "규칙", "실행"]
+  },
+  {
+    key: "ubiqloud", label: "ubiQloud", tag: "Cloud ERP",
+    logo: "/assets/img/Logo/ubiQloud_DarkMode.svg",
+    title: "흩어진 업무를 한 곳으로",
+    lead: "회계·영업·구매가 각자의 엑셀에 있으면 같은 숫자가 세 개가 됩니다. 하나의 원장 위에서 돌아가게 합니다.",
+    url: "/services/ubiqloud/",
+    accent: "#4F74B3", glow: "rgb(79 116 179 / 0.22)",
+    cards: ["원장", "연결", "보고"]
+  },
+  {
+    key: "ubiqation", label: "ubiQation", tag: "Build & Operate",
+    logo: "/assets/img/Logo/ubiQation_logo_reverse.svg",
+    title: "세우는 것에서 끝내지 않습니다",
+    lead: "설계와 구축을 지나 운영까지 함께 갑니다. 넘겨받을 사람이 없어 멈추는 프로젝트를 많이 봤습니다.",
+    url: "/services/ubiqation/",
+    accent: "#ED7D31", glow: "rgb(237 125 49 / 0.18)",
+    cards: ["설계", "구축", "운영"]
+  }
+] %}
+
+<div class="banner" data-banner>
+  <canvas class="banner__canvas" id="banner-canvas" aria-hidden="true"></canvas>
+
+  <div class="banner__track" role="group" aria-roledescription="캐러셀" aria-label="루씨웨어 소개">
+
+    {# ---- 첫 장: 회사 메시지 ---- #}
+    <section class="banner__slide banner__slide--lead"
+             role="group" aria-roledescription="슬라이드"
+             aria-label="1 / {{ slides.length + 1 }} · 루씨웨어">
+      <div class="container">
+        <div class="banner__copy stack" style="max-width: 46rem">
+          <span class="banner__tag rise">Metadata driven AI</span>
+
+          <h1 class="banner__title rise" style="--rise-delay: 120ms">
+            데이터를 아는 <em>AI</em>,<br>
+            물어보면 답하는 시스템
+          </h1>
+
+          <p class="banner__lead rise" style="--rise-delay: 240ms">
+            쌓아 둔 데이터가 어디에 무엇으로 들어 있는지 —
+            그 메타데이터를 AI 에 물려 기업의 질문에 답하게 만듭니다.
+          </p>
+
+          <div class="cluster rise" style="--rise-delay: 360ms; --cluster-gap: var(--space-4)">
+            <a class="btn btn--primary btn--lg" href="/solutions/metadrag/">
+              MetaDRAG™ 보기
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="/contact/">문의 · PoC 신청</a>
+          </div>
+
+          <div class="banner__facts rise" style="--rise-delay: 480ms">
+            <div class="banner__fact"><b>5</b><span>제품 · 서비스</span></div>
+            <div class="banner__fact"><b>8주</b><span>PoC 기본 주기</span></div>
+            <div class="banner__fact"><b>사내</b><span>데이터 보관 구성</span></div>
+            <div class="banner__fact"><b>1~2일</b><span>문의 회신</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# ---- 이어지는 제품 장 ---- #}
+    {% for s in slides %}
+      <section class="banner__slide banner__slide--product"
+               role="group" aria-roledescription="슬라이드"
+               aria-label="{{ loop.index + 1 }} / {{ slides.length + 1 }} · {{ s.label }}"
+               style="--slide-accent: {{ s.accent }}; --slide-glow: {{ s.glow }}">
+        <div class="container banner__inner">
+
+          <div class="banner__copy stack">
+            <span class="banner__tag">{{ s.tag }}</span>
+            <img class="banner__logo" src="{{ s.logo }}" alt="{{ s.label }}" height="32">
+            <h2 class="banner__title">{{ s.title }}</h2>
+            <p class="banner__lead">{{ s.lead }}</p>
+            <div class="cluster">
+              <a class="btn btn--primary" href="{{ s.url }}">
+                자세히 보기
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+              <a class="btn btn--ghost" href="/contact/">문의하기</a>
+            </div>
+          </div>
+
+          {# 사진 대신 우리가 다루는 것 — 표와 관계 — 를 도형으로 그린다 #}
+          <div class="banner__art" aria-hidden="true">
+            <svg class="banner__wire" viewBox="0 0 400 300" preserveAspectRatio="none">
+              <path d="M120 70 C 200 90, 210 110, 285 140" />
+              <path d="M285 165 C 250 210, 200 215, 160 240" />
+            </svg>
+            {% for c in s.cards %}
+              <div class="banner__card banner__card--{{ loop.index }}">
+                <h4>{{ c }}</h4>
+                <div class="banner__rows">
+                  <span class="banner__row banner__row--w70"></span>
+                  <span class="banner__row banner__row--hot banner__row--w45"></span>
+                  <span class="banner__row"></span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </section>
+    {% endfor %}
+
+  </div>
+
+  <div class="banner__controls">
+    <button class="banner__btn" type="button" data-banner-prev aria-label="이전 슬라이드">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+    </button>
+
+    <div class="banner__dots">
+      <button class="banner__dot" type="button" aria-label="루씨웨어 소개" aria-current="true"></button>
+      {% for s in slides %}
+        <button class="banner__dot" type="button" aria-label="{{ s.label }}" aria-current="false"></button>
+      {% endfor %}
+    </div>
+
+    <button class="banner__btn" type="button" data-banner-next aria-label="다음 슬라이드">
+      <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+    </button>
+
+    <button class="banner__btn banner__pause" type="button" data-banner-pause
+            aria-pressed="false" aria-label="배너 자동 넘김 멈추기">
+      <svg class="icon banner__icon-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
+      <svg class="icon banner__icon-play" aria-hidden="true"><use href="#i-play"></use></svg>
+    </button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Products</span>
+      <h2>다섯 가지를 한눈에</h2>
+      <p class="section-head__lead">
+        배너가 하나씩 보여준 것을 나란히 놓았습니다. 필요한 것부터 열어 보세요.
+      </p>
+    </div>
+
+    <div class="grid" style="--col-min: 15rem">
+      {% for group in site.nav %}
+        {% if group.children %}
+          {% for child in group.children %}
+            <a class="card reveal" href="{{ child.url }}" style="--reveal-delay: {{ loop.index0 * 60 }}ms">
+              <img class="card__logo" src="{{ child.logo }}" alt="" height="22">
+              <h3 class="sr-only">{{ child.label }}</h3>
+              <p>{{ child.desc }}</p>
+              <span class="link-arrow" style="margin-block-start: auto">
+                자세히 보기
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </span>
+            </a>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container alt">
+    <div class="alt__copy stack">
+      <span class="section-head__eyebrow">Why metadata</span>
+      <h2>AI 가 멈추는 자리는 모델이 아닙니다</h2>
+      <p>
+        도입을 검토하다 멈추는 이유는 거의 같습니다. 모델이 부족해서가 아니라
+        자기 데이터가 무엇인지 정리되어 있지 않아서입니다. 줄임말 테이블 이름과
+        뜻을 잃은 코드값을 아는 사람은 회사에 몇 명뿐입니다.
+      </p>
+      <p>
+        루씨웨어는 그 앞단을 다룹니다. 정리된 메타데이터가 있어야 AI 가 추측을 멈춥니다.
+      </p>
+      <a class="link-arrow" href="/solutions/metadrag/">
+        MetaDRAG™ 가 하는 일
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </div>
+    <div class="alt__media" aria-hidden="true">
+      <div class="alt__badge">
+        <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
+        <strong>스키마 → 표준 → 질의</strong>
+        <span>정리된 구조 위에서만 답이 검증됩니다</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container alt alt--flip">
+    <div class="alt__copy stack">
+      <span class="section-head__eyebrow">How we work</span>
+      <h2>전사 계획보다 아픈 업무 하나부터</h2>
+      <p>
+        큰 그림을 오래 그리면 착수 전에 상황이 바뀝니다. 가장 아픈 업무 하나를 골라
+        짧게 만들어 보고, 화면으로 확인한 다음 넓힙니다.
+      </p>
+      <p>
+        검증된 것만 확장하기 때문에 어긋나도 손실이 한 업무에 머뭅니다.
+      </p>
+      <a class="link-arrow" href="/contact/">
+        PoC 범위 상담하기
+        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+    </div>
+    <div class="alt__media" aria-hidden="true">
+      <div class="alt__badge">
+        <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+        <strong>진단 · 설계 · PoC · 확장</strong>
+        <span>되는 것을 확인한 뒤에 넓힙니다</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container figures">
+    <div>
+      <span class="figure__num">5</span>
+      <span class="figure__label">제품 · 서비스</span>
+    </div>
+    <div>
+      <span class="figure__num">8주</span>
+      <span class="figure__label">PoC 기본 주기</span>
+    </div>
+    <div>
+      <span class="figure__num">100%</span>
+      <span class="figure__label">데이터 사내 보관 구성 가능</span>
+    </div>
+    <div>
+      <span class="figure__num">1~2일</span>
+      <span class="figure__label">문의 회신</span>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}
