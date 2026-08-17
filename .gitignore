@@ -24,3 +24,6 @@ desktop.ini
 
 # Claude Code (개인 설정만 제외, settings.json 은 공유)
 .claude/settings.local.json
+
+# 이미지 원본(최적화 전). 배포·커밋에 넣지 않는다
+assets/_originals/

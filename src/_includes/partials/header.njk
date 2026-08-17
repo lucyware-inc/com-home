@@ -36,7 +36,7 @@
               </button>
 
               <div class="nav__panel" id="menu-{{ item.id }}">
-                <p class="nav__panel-head">{{ item.labelKo }}</p>
+                <p class="nav__panel-head" data-en="{{ item.label }}">{{ item.labelKo }}</p>
                 <ul class="nav__sublist">
                   {% for child in item.children %}
                     <li>
@@ -64,13 +64,23 @@
 
     </nav>
 
-    {# CTA 는 nav 밖에 둔다. 모바일에서 메뉴를 닫아도 헤더 바에 남아야 한다.
-       다만 좁은 화면에서는 긴 라벨이 로고·햄버거와 함께 한 줄에 들어가지 않는다
-       (360px 기준 434px 필요). 라벨만 줄이고 버튼은 남긴다. #}
-    <a class="btn btn--primary header__cta" href="/contact/">
-      <span class="header__cta-full">문의 · PoC 신청</span>
-      <span class="header__cta-short">문의</span>
-    </a>
+    {# 한국어 ↔ English — 헤더 맨 오른쪽이다 (2026-08-17 사용자 지시).
+       nav 밖에 둔다: 모바일에서 햄버거를 닫아도 헤더 바에 남아야 한다.
+       마크업에서도 마지막이라 데스크톱·모바일 어느 쪽에서든 끝에 온다.
+
+       테두리만 주고 채우지 않는다 — 메뉴 글자들 사이에서 색 덩어리 하나가
+       시선을 먼저 가져가면 정작 읽어야 할 메뉴가 뒤로 밀린다.
+
+       버튼에 적히는 글자는 「지금 언어」 가 아니라 「누르면 갈 언어」 다. 현재 언어를
+       적으면 KO 라는 글자를 보고 한국어로 바꾸는 버튼으로 읽는 사람이 생긴다 —
+       목적지를 그 나라 말로 적으면 누구도 반대로 읽지 않는다.
+       JS 가 죽으면 아무 일도 일어나지 않아야 하므로 <button> 이다(링크가 아니다).
+       hidden 으로 시작해 site.js 가 켠다 — 눌러도 안 바뀌는 버튼을 보이지 않게. #}
+    <button class="lang-switch" type="button" data-lang-switch hidden
+            lang="en" aria-label="Switch to English">
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#i-globe"></use></svg>
+      <span class="lang-switch__label" data-lang-label>EN</span>
+    </button>
 
   </div>
 </header>

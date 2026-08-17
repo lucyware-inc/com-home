@@ -36,12 +36,23 @@
   {% if extraCss %}<link rel="stylesheet" href="{{ extraCss }}">{% endif %}
 
   <!-- JS 가 살아 있을 때만 진입 애니메이션을 건다.
-       스크립트가 죽으면 .no-js 규칙이 내용을 그대로 보여준다 -->
-  <script>document.documentElement.classList.remove('no-js');</script>
+       스크립트가 죽으면 .no-js 규칙이 내용을 그대로 보여준다.
+
+       언어 선택은 여기서 미리 <html lang> 에 반영한다. site.js 는 defer 라
+       본문을 그린 뒤에 도는데, 거기서 처음 언어를 바꾸면 방문자가 한국어 화면을
+       한 번 보고 나서 영어로 갈리는 것을 목격한다. -->
+  <script>
+    document.documentElement.classList.remove('no-js');
+    try {
+      if (localStorage.getItem('lucyware-lang') === 'en') {
+        document.documentElement.lang = 'en';
+      }
+    } catch (e) { /* 시크릿 모드 등 저장소가 막힌 경우 — 기본값 한국어로 둔다 */ }
+  </script>
 </head>
 
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
-  <a class="skip-link" href="#main">본문 바로가기</a>
+  <a class="skip-link" href="#main" data-en="Skip to content">본문 바로가기</a>
 
   {% include "partials/icons.njk" %}
   {% include "partials/header.njk" %}

@@ -27,5 +27,14 @@
     <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.1a4 4 0 010 7.8"/></symbol>
     <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    {# 언어 전환 — lucide `globe` (ISC). 2026-08-17 사용자가 고른 것이다.
+       세 번 갈아 끼우고 온 자리라 이유를 남긴다:
+         `languages`(한자 획 + A) — 글자 두 종류를 그린 모양이라 18px 로 줄이면
+           무슨 글자인지 안 보이고 획만 남는다.
+         `earth`(대륙 실루엣) — 원 안에 곡선이 셋 더 들어가 작은 크기에서 지저분하다.
+       globe 는 원 + 경선 + 적도선 셋뿐이라 줄여도 형태가 무너지지 않는다.
+       안 쓰는 후보는 남기지 않는다 — 이 스프라이트는 모든 페이지에 인라인으로
+       실리므로, 두면 11개 페이지가 함께 무거워진다. #}
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
   </defs>
 </svg>

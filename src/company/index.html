@@ -104,7 +104,10 @@ description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기�
         <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
         <div>
           <h3>Call</h3>
-          <p><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></p>
+          <p><a href="{{ site.contact.tel | telUri }}">{{ site.contact.tel }}</a></p>
+          {% if site.contact.fax %}
+            <p class="info-item__note">팩스 {{ site.contact.fax }}</p>
+          {% endif %}
         </div>
       </div>
 
@@ -146,8 +149,14 @@ description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기�
       </div>
       <div>
         <dt>대표 전화</dt>
-        <dd><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></dd>
+        <dd><a href="{{ site.contact.tel | telUri }}">{{ site.contact.tel }}</a></dd>
       </div>
+      {% if site.contact.fax %}
+        <div>
+          <dt>팩스</dt>
+          <dd>{{ site.contact.fax }}</dd>
+        </div>
+      {% endif %}
       <div>
         <dt>이메일</dt>
         <dd><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></dd>
