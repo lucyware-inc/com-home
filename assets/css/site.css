@@ -1503,8 +1503,11 @@ textarea.field__control {
   display: block;
   width: 100%;
   height: auto;
-  /* 원본은 16:9. 폭을 줄인 만큼 좌우를 잘라 세로 높이를 지킨다 */
-  aspect-ratio: 4 / 3;
+  /* 원본은 16:9(1200×675). 그대로 두면 옆 글에 비해 납작해 보여 살짝만 세운다.
+     4:3 까지 세웠더니 좌우를 25% 잘라내며 사진이 1.33배로 당겨져, 전시 현장이
+     아니라 확대된 한 조각만 보였다. 3:2 는 잘림 15%·확대 1.18배로 그친다.
+     비율을 더 세우려면 그만큼 사진이 확대된다는 것을 먼저 본다. */
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center 45%;
 }
