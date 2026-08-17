@@ -1325,6 +1325,25 @@ textarea.field__control {
   color: var(--text-strong);
 }
 
+/* 한 프로세스 안에 항목이 또 갈라지는 경우(센서 종류 · DB 종류).
+   들여쓰기와 왼쪽 선으로 「이것들은 위 항목에 딸린 것」 을 보여준다 —
+   같은 층으로 늘어놓으면 프로세스가 셋인지 일곱인지 알 수 없다. */
+.stage__sub {
+  display: grid;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+  padding-inline-start: var(--space-4);
+  border-inline-start: 2px solid var(--border);
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.stage__sub b {
+  color: var(--text);
+  font-weight: 700;
+}
+
 /* 산출물은 그 단계가 남기는 것이라 맨 아래에 붙인다.
    카드 높이가 달라도 이 줄은 바닥에 정렬된다. */
 .stage__artifact {

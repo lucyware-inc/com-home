@@ -100,7 +100,7 @@ export default {
         {
           label: "flexelf™",
           url: "/products/flexelf/",
-          desc: "현장에 맞춰 늘어나는 업무 자동화",
+          desc: "시선을 읽는 온디바이스 AI 사이니지",
           logo: "/assets/img/Logo/flexelf_logo_TM.svg",
           logoDark: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
         },

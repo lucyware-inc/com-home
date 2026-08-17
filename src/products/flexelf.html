@@ -1,38 +1,199 @@
 ---
 layout: layouts/page.njk
-title: flexelf
+title: flexelf™
 eyebrow: Products
 productLogo: /assets/img/Logo/flexelf_logo_TM.svg
 accent: "#5877AB"
-lead: 현장의 업무를 그대로 담아내는 유연한 업무 자동화 도구입니다.
-description: flexelf 는 루씨웨어의 업무 자동화 솔루션입니다. 상세 소개를 준비하고 있습니다.
+lead: flexelf AI Browser 기술을 바탕으로, 하드웨어 패키지 · 멀티모달 AI 알고리즘 · 서비스 플랫폼 세 레이어를 묶은 시선인식 AI 사이니지입니다.
+description: flexelf™ 는 flexelf AI Browser 기술 기반의 시선인식 AI 사이니지입니다. 온디바이스 하드웨어 패키지, LMM·RNN·R-CNN·LMA 를 쓰는 대화형 멀티모달 AI 알고리즘, Dual Framework 와 FIDO2 통합 DB 로 이루어진 서비스 플랫폼 세 레이어로 구성됩니다.
 ---
 
-{#
-  _TODO 내용 확정 필요 — 아래는 로고와 이름만 가지고 세운 뼈대다.
-  확인이 필요한 것:
-    1. flexelf 가 정확히 무엇을 하는 제품인가 (한 문장 정의)
-    2. 어떤 문제를 풀려고 만들었는가 (도입 배경)
-    3. 대표 기능 4~6가지
-    4. 어떤 고객·업종에 맞는가
-    5. Lucyware.AI · MetaDRAG® 와 어떻게 이어지는가
-  확정 전까지는 지어낸 기능을 적지 않는다 — 홈페이지의 제품 설명은
-  영업 자리에서 그대로 약속이 된다.
-#}
 <section class="section">
   <div class="container prose stack">
-    <h2>소개를 준비하고 있습니다</h2>
+    <h2>무엇인가</h2>
     <p>
-      flexelf 의 상세 소개 페이지를 정리하고 있습니다.
-      지금 검토가 필요하시면 문의를 남겨 주세요 — 자료와 함께 직접 설명드립니다.
+      <strong>flexelf AI Browser 기술 기반의 시선인식 AI 사이니지</strong>는
+      온디바이스(On-device) 하드웨어 패키지, 대화형 멀티모달 AI 알고리즘, 그리고
+      고성능 서비스 플랫폼의 <strong>3대 레이어</strong>로 구성된 차세대 인텔리전스
+      키오스크 시스템입니다.
     </p>
+    <p>
+      사용자가 디스플레이를 바라보는 순간 시선과 행동을 정밀하게 감지하고(LMA · LMM),
+      음성과 객체를 함께 추론해(RNN · R-CNN) 맞춤형 콘텐츠와 서비스를 인터랙티브하게
+      제공합니다.
+    </p>
+    <p>
+      <strong>판단은 기기 안에서 끝납니다.</strong> 센서에서 읽은 것을 서버로 보내고
+      답을 기다리면 사람이 이미 지나간 뒤에 반응합니다. 온디바이스로 처리하는 이유가
+      그것입니다.
+    </p>
+  </div>
+</section>
 
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Architecture</span>
+      <h2>세 레이어로 이루어집니다</h2>
+      <p class="section-head__lead">
+        아래에서 위로 쌓입니다 — 감지하는 것, 해석하는 것, 서비스로 만드는 것.
+      </p>
+    </div>
+
+    <div class="grid" style="--col-min: 19rem">
+      <div class="stage reveal">
+        <span class="stage__no">01</span>
+        <h3>사이니지 패키지</h3>
+        <p class="stage__engine">Hardware &amp; Runtime · On-device AI</p>
+        <ul class="stage__list">
+          <li>
+            <strong>flexelf 전용 웹브라우저</strong>
+            움직임 인식과 웹 서비스를 유기적으로 연동하고 반응형 사용자 경험(UX)을
+            제공하는 런타임 환경입니다.
+          </li>
+          <li>
+            <strong>On-device AI 컴퓨팅 장치</strong>
+            인공지능 GPU 컴퓨터와 센서 모듈을 직접 제어해 초저지연(Low-latency)
+            데이터 처리를 수행합니다.
+          </li>
+          <li>
+            <strong>하드웨어 · 센서 레이어</strong>
+            <ul class="stage__sub">
+              <li><b>Vision Sensor (RGB, IR)</b> 정밀 시선 추적과 안면 인식용 고성능 비전 카메라</li>
+              <li><b>접근 · 거리 센서</b> 사용자의 물리적 접근과 상호작용 거리 측정</li>
+              <li><b>음성 · 초음파 센서</b> 대화형 인터페이스 구축과 객체 감지 지원</li>
+              <li><b>통신 · 디스플레이</b> BLE · 5G 통신 모듈, Full HD 이상 High-bitrate DID</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>역할</span>
+          초저지연 센서 데이터 수집과 현장 구동성 확보
+        </p>
+      </div>
+
+      <div class="stage stage--core reveal" style="--reveal-delay: 80ms">
+        <span class="stage__no">02</span>
+        <h3>AI 알고리즘</h3>
+        <p class="stage__engine">Intelligence Engine · 대화형 멀티모달</p>
+        <ul class="stage__list">
+          <li>
+            <strong>LMM 기반 시선 · 안면 인식</strong>
+            거대 멀티모달 모델(LMM)로 시선 위치, 주시 시간, 표정 변화를 실시간 분석합니다.
+          </li>
+          <li>
+            <strong>RNN 기반 음성 인식 · 번역</strong>
+            순환 신경망(RNN)으로 다국어 음성 인식과 실시간 대화형 번역을 지원합니다.
+          </li>
+          <li>
+            <strong>R-CNN 객체 인식</strong>
+            Region-based CNN 으로 주변 객체와 제품, 사용자 특성을 자동 식별합니다.
+          </li>
+          <li>
+            <strong>LMA 기반 움직임 인식</strong>
+            라반 운동 분석(Laban Movement Analysis) 프레임워크로 제스처와 행동 패턴을
+            정밀 추적합니다.
+          </li>
+          <li>
+            <strong>빅데이터 수집 알고리즘</strong>
+            실시간 시선·행동 데이터를 축적해 AI 모델 재학습 데이터로 쌓습니다.
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>역할</span>
+          시선 · 행동 · 음성을 함께 추론해 타깃 맞춤형 UX 제공
+        </p>
+      </div>
+
+      <div class="stage reveal" style="--reveal-delay: 160ms">
+        <span class="stage__no">03</span>
+        <h3>서비스 플랫폼</h3>
+        <p class="stage__engine">Framework &amp; Database</p>
+        <ul class="stage__list">
+          <li>
+            <strong>Dual S/W Framework</strong>
+            키오스크 하드웨어를 구동하는 <b>On-device S/W Framework</b> 와 AI 알고리즘을
+            연동·서빙하는 <b>인공지능 서비스 Framework</b> 를 나눠 안정성을 확보합니다.
+          </li>
+          <li>
+            <strong>통합 데이터베이스 체계</strong>
+            <ul class="stage__sub">
+              <li><b>운영 DB</b> 장치·센서 정보, 통합 시스템 로그, 시스템 기준정보</li>
+              <li><b>AI · 데이터 자산 DB</b> 멀티모달 AI Dataset, 마이데이터 수집정보</li>
+              <li><b>보안 · 인증 DB</b> FIDO2 기반 생체 2차 인증 정보</li>
+            </ul>
+          </li>
+          <li>
+            <strong>FIDO2 생체 2차 인증</strong>
+            얼굴을 읽는 장치가 공공장소에 서 있으므로, 인증과 데이터 보안은 선택이 아닙니다.
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>역할</span>
+          시스템 확장성과 데이터 보안성 · 거버넌스 완성
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Summary</span>
+      <h2>한 장으로 보는 구성</h2>
+    </div>
+
+    <div class="scroll-x">
+      <table class="compare compare--plain">
+        <thead>
+          <tr>
+            <th scope="col">구분</th>
+            <th scope="col">주요 핵심 기술 · 컴포넌트</th>
+            <th scope="col">비즈니스 가치와 역할</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">패키지 (HW)</th>
+            <td>flexelf 브라우저, Vision · 거리 · 음성 센서, GPU 컴퓨터</td>
+            <td><strong>초저지연 센서 데이터 수집과 현장 구동성 확보</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">알고리즘 (AI)</th>
+            <td>LMM, RNN, R-CNN, LMA, 빅데이터 수집 엔진</td>
+            <td><strong>시선 · 행동 · 음성 통합 추론으로 타깃 맞춤형 UX 제공</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">플랫폼 (SW)</th>
+            <td>Dual Framework, 마이데이터, FIDO2 통합 DB</td>
+            <td><strong>시스템 확장성, 데이터 보안성과 거버넌스 완성</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container prose stack">
+    <h2>현장에서 이렇게 돕니다</h2>
+    <p>
+      사람이 화면 앞으로 다가오면 접근 센서가 먼저 알아차리고, 비전 센서가 시선이
+      어디에 머무는지 읽습니다. 오래 본 상품이 있으면 그것을 크게 띄우고,
+      말을 걸면 그 언어로 답합니다.
+    </p>
+    <p>
+      쌓인 시선·행동 데이터는 다시 모델을 학습시키는 자료가 됩니다. 무엇을 얼마나
+      보았는지가 남으므로, <strong>매장에서 사람이 세고 있던 것을 장치가 대신
+      셉니다.</strong>
+    </p>
     <div class="cluster" style="margin-block-start: var(--space-6)">
       <a class="btn btn--primary" href="/contact/">
-        flexelf 문의하기
+        도입 상담하기
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
       </a>
-      <a class="btn btn--ghost" href="/products/metadrag/">MetaDRAG® 보기</a>
+      <a class="btn btn--ghost" href="/solutions/lucyware-ai/">Lucyware.AI 보기</a>
     </div>
   </div>
 </section>
