@@ -4,36 +4,217 @@ title: ubiQation
 eyebrow: Products
 productLogo: /assets/img/Logo/ubiQation_logo.svg
 accent: "#ED7D31"
-lead: 기업의 업무 시스템을 설계하고 구축해 운영까지 맡는 서비스입니다.
-description: ubiQation 은 루씨웨어의 시스템 구축·운영 서비스입니다. 상세 소개를 준비하고 있습니다.
+lead: ubiQation 은 MetaDRAG® · flexelf™ · ubiQloud 로 이어지는 지능형 솔루션 생태계를 개발·배포·운영하기 위한 통합 엔터프라이즈 AI 개발 프레임워크입니다.
+description: ubiQation 은 MetaDRAG® · flexelf™ · ubiQloud 로 이어지는 지능형 솔루션 생태계를 개발·배포·운영하는 통합 엔터프라이즈 AI 개발 프레임워크입니다. SDK·API 메쉬, 에이전트 오케스트레이션 런타임, MLOps·DataOps 파이프라인, 보안·거버넌스 코어 네 모듈로 세 제품을 하나의 개발 환경에서 조율합니다.
 ---
 
-{#
-  _TODO 내용 확정 필요.
-  주의 — 이름 혼동이 있는 자리다. 사내 기록(C:\VSCode_Source\CLAUDE.md)에는
-  「lucyware.ai 는 2026-08-15 ubiqation 에서 개명」 이라고 남아 있으나,
-  사용자 확인 결과 홈페이지의 ubiQation 은 Lucyware.AI 와 별개의 서비스다.
-  개명된 것은 사내 AI Portal 프로젝트 쪽이며 이 페이지의 서비스와 다르다.
-  확인이 필요한 것:
-    1. ubiQation 서비스의 한 문장 정의
-    2. Lucyware.AI 와 이름이 겹치는 문제를 어떻게 안내할 것인가
-    3. 제공 범위 (컨설팅 · 구축 · 운영 중 어디까지)
-    4. 대표 수행 사례 (References 페이지와 연결)
-#}
+{# **이름이 겹치는 자리다.** 사내 기록(C:\VSCode_Source\CLAUDE.md)에는
+   「lucyware.ai 는 2026-08-15 ubiqation 에서 개명」 이라고 남아 있으나,
+   그것은 사내 AI Portal **프로젝트** 이야기이고 이 페이지의 ubiQation 서비스와
+   다르다 (2026-08-16 사용자 확인). 둘을 같은 것으로 묶지 않는다.
+
+   이 페이지도 ubiQloud 와 같이 다른 제품 페이지의 용어에 묶여 있다 —
+   Context Object · M³ Dataset · On-device AI 는 저쪽에서 정의한 말이다. #}
 <section class="section">
   <div class="container prose stack">
-    <h2>소개를 준비하고 있습니다</h2>
+    <h2>무엇인가</h2>
     <p>
-      ubiQation 의 상세 소개 페이지를 정리하고 있습니다.
-      필요하신 범위를 알려 주시면 수행 방식과 일정을 함께 정리해 드립니다.
+      <strong>ubiQation</strong> 은 <strong>MetaDRAG®</strong> ·
+      <strong>flexelf™</strong> · <strong>ubiQloud</strong> 로 이어지는 지능형 솔루션
+      생태계를 개발·배포·운영하기 위한 차세대
+      <strong>통합 엔터프라이즈 AI 개발 프레임워크</strong>입니다.
     </p>
+    <p>
+      백엔드의 시맨틱 데이터 파이프라인(MetaDRAG®), 프론트엔드의 멀티모달 엣지
+      인터랙션(flexelf™), 그리고 최상위 비즈니스 애플리케이션(ubiQloud)을
+      <strong>단일 개발 환경에서 유기적으로 조율(Orchestration)하고 표준화</strong>하는
+      핵심 기반입니다.
+    </p>
+    <p>
+      <strong>세 층을 따로 만들면 잇는 데서 다시 시간이 듭니다.</strong> 센서가 읽은
+      것과 온톨로지가 아는 것과 화면이 보여줄 것은 결국 한 흐름인데, 각자 다른 규약으로
+      만들면 그 사이를 메우는 코드가 프로젝트마다 새로 생깁니다. 그 자리를 프레임워크가
+      가져갑니다.
+    </p>
+  </div>
+</section>
 
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Modules</span>
+      <h2>네 개의 핵심 모듈</h2>
+      <p class="section-head__lead">
+        잇는 것, 부리는 것, 계속 굴리는 것, 그리고 전부에 같은 잠금을 거는 것.
+      </p>
+    </div>
+
+    {# 넷이라 3열 격자에 넣으면 마지막 하나가 혼자 남는다. 24rem 으로 잡아
+       2×2 가 되게 한다 — 넷이 한 묶음으로 읽혀야 한다. #}
+    <div class="grid" style="--col-min: 24rem">
+      <div class="stage reveal">
+        <span class="stage__no">01</span>
+        <h3>유기적 SDK · API 메쉬</h3>
+        <p class="stage__engine">Unified SDK &amp; API Mesh</p>
+        <p class="stage__body">
+          flexelf™ 의 온디바이스 센서 데이터(시선 · 음성 · 제스처)와 MetaDRAG® 의
+          비즈니스 맥락 객체(Context Object)를 표준화된 프로토콜로 실시간
+          인터네트워킹하는 개발 킷을 제공합니다.
+        </p>
+      </div>
+
+      <div class="stage reveal" style="--reveal-delay: 80ms">
+        <span class="stage__no">02</span>
+        <h3>에이전트 오케스트레이션 엔진</h3>
+        <p class="stage__engine">Agentic Workflow Runtime</p>
+        <p class="stage__body">
+          ubiQloud Agentic ERP 위에서 도는 자율형 AI 에이전트의 생성, 상태 관리,
+          트랜잭션 수행 권한과 의사결정 워크플로우를 통합 제어합니다.
+        </p>
+      </div>
+
+      <div class="stage reveal" style="--reveal-delay: 160ms">
+        <span class="stage__no">03</span>
+        <h3>통합 MLOps · DataOps 파이프라인</h3>
+        <p class="stage__engine">Lifecycle Management</p>
+        <p class="stage__body">
+          멀티모달 AI 모델(LMM · RNN · R-CNN)의 재학습 프로세스와 온톨로지 스키마
+          변경 사항을 지속적으로 빌드·검증·배포(CI/CD)하는 라이프사이클 관리 환경을
+          갖춥니다.
+        </p>
+      </div>
+
+      <div class="stage reveal" style="--reveal-delay: 240ms">
+        <span class="stage__no">04</span>
+        <h3>엔터프라이즈 보안 · 거버넌스 코어</h3>
+        <p class="stage__engine">Enterprise Governance Core</p>
+        <p class="stage__body">
+          FIDO2 기반 생체 인증, 역할 기반 접근 제어(RBAC), 추적 가능성(Data Lineage)을
+          제품군 전체 레이어에 일괄 적용하는 보안 아키텍처를 제공합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Ecosystem</span>
+      <h2>어느 층에서 무엇을 받치는가</h2>
+      <p class="section-head__lead">
+        아래에서 위로 쌓입니다. 맨 아래가 ubiQation 입니다.
+      </p>
+    </div>
+
+    {# 층을 정리한 표이지 두 쪽을 견주는 표가 아니다 — 마지막 열에 색을 주면
+       거기가 「우리 쪽」 이라는 뜻이 되는데, 네 층 모두 우리 것이다. #}
+    <div class="scroll-x">
+      <table class="compare compare--plain">
+        <thead>
+          <tr>
+            <th scope="col">레이어</th>
+            <th scope="col">제품</th>
+            <th scope="col">ubiQation 의 역할과 연계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">App Layer</th>
+            <td><a href="/products/ubiqloud/">ubiQloud</a> — Agentic ERP</td>
+            <td>
+              <strong class="compare__lead">애플리케이션 구동 런타임과 비즈니스 템플릿 제공</strong>
+              자율형 에이전트 트랜잭션 오케스트레이션
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Edge &amp; Interactive Layer</th>
+            <td><a href="/products/flexelf/">flexelf™</a> — 시선인식 AI 사이니지</td>
+            <td>
+              <strong class="compare__lead">멀티모달 엣지 인터페이스 링커</strong>
+              On-device AI · 센서 파이프라인과 프레임워크 사이의 통합 이벤트 제어
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Data &amp; Semantic Layer</th>
+            <td><a href="/products/metadrag/">MetaDRAG®</a> — 시맨틱 데이터 파이프라인</td>
+            <td>
+              <strong class="compare__lead">지식 마트 통합 바인딩</strong>
+              M<sup>3</sup> 데이터셋과 온톨로지 객체를 API 형태로 앱 레이어에 프로비저닝
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Foundation Layer</th>
+            <td>ubiQation — 개발 프레임워크</td>
+            <td>
+              <strong class="compare__lead">전체 시스템의 인프라 · DevOps · 보안 · SDK 표준화 베이스</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Value</span>
+      <h2>도입하면 무엇이 달라지는가</h2>
+    </div>
+
+    <div class="grid" style="--col-min: 18rem">
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+        <div>
+          <h3>개발 생산성과 연동성</h3>
+          <p>
+            데이터(MetaDRAG®)부터 인터랙션(flexelf™), 비즈니스 로직(ubiQloud)까지
+            파편화 없는 단일 프레임워크에서 개발하고 넓힙니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
+        <div>
+          <h3>안정적인 웹3 · AI 아키텍처</h3>
+          <p>
+            모듈화된 마이크로서비스와 엣지 컴퓨팅 표준을 지켜 시스템 단위의
+            고가용성과 성능을 유지합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+        <div>
+          <h3>유연한 커스터마이징</h3>
+          <p>
+            기업별 고유 ERP 프로세스나 산업별 센서 장비가 늘어도, 프레임워크
+            컴포넌트를 조합하는 것만으로 빠르게 세웁니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose stack">
+    <h2>어디서부터 시작하는가</h2>
+    <p>
+      프레임워크는 그 위에 무엇을 올릴지가 정해진 다음에 값이 생깁니다. 만들려는
+      업무 하나를 먼저 정하고, 그 하나가 <strong>어느 층까지 닿는지</strong>를 함께
+      그려 봅니다. 데이터만 필요한지, 현장 단말까지 가는지에 따라 붙일 모듈이
+      달라집니다.
+    </p>
     <div class="cluster" style="margin-block-start: var(--space-6)">
       <a class="btn btn--primary" href="/contact/">
-        ubiQation 문의하기
+        ubiQation 도입 상담하기
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
       </a>
-      <a class="btn btn--ghost" href="/products/ubiqloud/">ubiQloud 보기</a>
+      <a class="btn btn--ghost" href="/solutions/lucyware-ai/">Lucyware.AI 보기</a>
     </div>
   </div>
 </section>
