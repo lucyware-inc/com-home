@@ -190,7 +190,7 @@ CSS 도 닿지 않기 때문이다.
 | Solution › Lucyware.AI | `/solutions/lucyware-ai/` | |
 | Products › MetaDRAG® | `/products/metadrag/` | |
 | Products › flexelf | `/products/flexelf/` | |
-| Products › ubiQloud | `/products/ubiqloud/` | 본문 내용 미확정 |
+| Products › ubiQloud | `/products/ubiqloud/` | |
 | Products › ubiQation | `/products/ubiqation/` | 본문 내용 미확정 |
 | Company | `/company/` | 비전·핵심가치 + 오시는 길·기업정보 |
 | References | `/references/` | 본문 준비중 |
@@ -208,13 +208,23 @@ CSS 도 닿지 않기 때문이다.
   - **세 레이어의 이름은 패키지 · 알고리즘 · 플랫폼이다. 바꾸지 않는다.**
     같은 자료에 「지능형 미디어 단말 · 멀티모달 인텔리전스 엔진 · 인터랙티브 서비스
     플랫폼」 이라는 대체 용어가 함께 왔지만, 그것으로 카드 제목을 갈면 **홈 배너의
-    도형 라벨**(`site.js` 의 `cards: ["패키지","알고리즘","플랫폼"]`)과 어긋난다.
-    배너에서 본 낱말과 들어가서 읽는 낱말이 다르면 다른 얘기로 읽힌다.
+    도형 라벨**(`src/index.html` 배너 슬라이드의 `cards: ["패키지","알고리즘","플랫폼"]`)과
+    어긋난다. 배너에서 본 낱말과 들어가서 읽는 낱말이 다르면 다른 얘기로 읽힌다.
     대체 용어는 카드 부제(`.stage__engine`)에 영문명으로 둔다 — 거기가 원래
     `Intelligence Engine` 같은 이름을 이미 들고 있던 자리다.
   - **한 층에 이름을 둘 달지 않는다.** 「추천 대체 용어」 표를 그대로 화면에 옮기면
     방문자는 두 이름이 서로 다른 것인지 판단해야 한다. 그 표는 이름을 고르라는
     안내이지 페이지에 실을 내용이 아니다.
+- **ubiQloud 는 클라우드 ERP 가 아니라 Agentic ERP 다** (2026-08-17 내용 확정).
+  **우리 제품 둘을 부품으로 쓴다** — 뒤는 MetaDRAG®(시맨틱 데이터 거버넌스),
+  앞은 flexelf™(멀티모달 인터랙션)이고, 둘이 맞물려 AI 에이전트가 발주 승인·재고
+  예측·리포트 작성 같은 트랜잭션을 자율 실행한다.
+  - **그래서 이 페이지의 용어는 두 제품 페이지에 묶여 있다.** `M³ Dataset` ·
+    `Business Context Object` · `LMA` · `RNN` 은 저쪽에서 정의한 말이다. 여기서
+    다르게 부르면 같은 것을 두 이름으로 파는 것이 된다. **MetaDRAG®·flexelf™ 의
+    용어를 고치면 이 페이지도 함께 본다.**
+  - 옛 문구(「흩어진 업무를 한 곳으로」 · 「하나의 원장 위에서」 · `Cloud ERP` 태그)를
+    다시 보게 되면 그것이 오래된 쪽이다. 홈 배너 장과 GNB 설명도 함께 바꿨다.
 - **Solution 과 Products 는 층이 다르다** (2026-08-17 사용자 지시). Lucyware.AI 는
   파는 물건 하나가 아니라 **네 제품이 모여 이루는 그림**이고, 나머지 넷은 그 그림을
   이루는 물건이다. 그래서 상위 메뉴가 단수(Solution)이고 아래에 하나만 있다 —

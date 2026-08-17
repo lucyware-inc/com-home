@@ -107,7 +107,7 @@ export default {
         {
           label: "ubiQloud®",
           url: "/products/ubiqloud/",
-          desc: "중견·중소기업을 위한 클라우드 ERP",
+          desc: "맥락을 읽고 스스로 실행하는 Agentic ERP",
           logo: "/assets/img/Logo/ubiQloud_MainLogo.svg",
           logoDark: "/assets/img/Logo/ubiQloud_DarkMode.svg",
         },
