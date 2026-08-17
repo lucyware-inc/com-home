@@ -18,17 +18,25 @@ compatibility_flags = ["nodejs_compat"]   # mysql2 드라이버 사용 위해 Ph
 pages_build_output_dir = "dist"
 
 # ============================================================
-# [Phase 2 활성화 절차] — 아래 블록 주석 해제 후 값 입력
+# [Phase 2] Hyperdrive → 사내 MariaDB
 #
-# 1) Hyperdrive 구성 생성 (MariaDB는 MySQL 호환 → mysql:// 사용)
-#    npx wrangler hyperdrive create lucyware-mariadb \
-#      --connection-string="mysql://USER:PASSWORD@HOST:3306/DBNAME"
+# 문의 폼(/api/contact)이 이 바인딩으로 문의 테이블에 INSERT 한다.
+# **바인딩이 없으면 함수가 503 을 돌려주고 화면은 메일 앱을 여는 예전 경로로
+# 넘어간다** — 준비가 안 된 동안에도 문의를 잃지 않는다.
 #
-# 2) 출력된 id 값을 아래 id 에 입력
-# 3) 드라이버: mysql2 >= 3.13.0 / 연결 시 sslMode=REQUIRED
+# 준비 절차는 docs/CONTACT_SETUP.md 에 순서대로 적었다. 요약하면:
+#   1) 경유 서버에 cloudflared 를 띄워 DB 대역을 Cloudflare 사설망에 연결
+#   2) npx wrangler hyperdrive create lucyware-mariadb \
+#        --connection-string="mysql://USER:PASSWORD@DB주소:3306/DBNAME" \
+#        --access-client-id=... --access-client-secret=...
+#   3) 출력된 id 를 아래 id 에 넣고 주석을 푼다
+#
+# **Cloudflare 대시보드에서 바인딩을 걸어도 된다.** GitHub 연동으로 배포하는
+# 지금 구성에서는 대시보드 설정이 실제로 먹는 자리이므로, 이 파일을 고치는 것과
+# 대시보드 중 한쪽만 쓴다 — 두 곳이 어긋나면 어느 것이 참인지 알 수 없다.
 # ============================================================
 # [[hyperdrive]]
 # binding = "HYPERDRIVE"
 # id = "<wrangler hyperdrive create 가 출력한 ID>"
-# # 로컬 개발 전용. 운영 자격증명을 커밋하지 말 것(.dev.vars 또는 환경변수 사용 권장)
-# localConnectionString = "mysql://USER:PASSWORD@HOST:3306/DBNAME?sslMode=REQUIRED"
+# # 로컬 개발 전용. 운영 자격증명을 커밋하지 말 것(.dev.vars 사용)
+# localConnectionString = "mysql://USER:PASSWORD@127.0.0.1:13307/DBNAME"

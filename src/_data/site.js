@@ -20,9 +20,9 @@ export default {
 
   // 회사소개 페이지의 「기업 정보」 와 연혁이 함께 읽는다. 같은 날짜를 두 곳에
   // 적어 두면 한쪽만 고쳤을 때 어느 것이 참인지 알 수 없어진다.
-  ceo: "Tim (정희석)",
+  ceo: "정희석 (Tim CHUNG)",
   founded: "2022년 11월 22일",
-  tagline: "Lumen cyberware everywhere",
+  tagline: "Lumen cyberware everywhere!",
   description:
     "루씨웨어는 Metadata 기반 AI Transformation 전문 기업입니다. RDBMS 메타데이터를 AI 와 연결해 기업의 데이터 자산을 비즈니스 가치로 전환합니다.",
   descriptionEn:
