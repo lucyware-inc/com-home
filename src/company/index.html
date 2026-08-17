@@ -348,9 +348,18 @@ description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기�
       if (!el || !window.naver || !naver.maps) return;
 
       /* 대체 안내 위에 덮는 판. 지도가 그려지면 안내를 가리고, 인증이 실패하면
-         이 판만 걷어내 안내가 도로 보이게 한다. */
+         이 판만 걷어내 안내가 도로 보이게 한다.
+
+         **판이 둘인 이유**: 네이버 라이브러리는 자기가 그릴 요소의 인라인
+         position 을 relative 로 덮어쓴다. 덮개에 직접 그리게 하면 덮개의
+         position: absolute 가 밀려나 높이가 0 이 되고, 인증과 타일이 모두
+         정상인데도 화면에는 아무것도 안 보인다. 안쪽 판을 하나 더 두어
+         라이브러리가 그것만 만지게 한다. */
       const canvas = document.createElement("div");
       canvas.className = "map__canvas";
+      const plot = document.createElement("div");
+      plot.className = "map__plot";
+      canvas.appendChild(plot);
       el.appendChild(canvas);
 
       /* 네이버가 인증 실패를 알려주는 약속된 이름이다. 이 함수가 없으면
@@ -360,7 +369,7 @@ description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기�
       };
 
       const pos = new naver.maps.LatLng({{ site.contact.lat }}, {{ site.contact.lng }});
-      const map = new naver.maps.Map(canvas, { center: pos, zoom: 17 });
+      const map = new naver.maps.Map(plot, { center: pos, zoom: 17 });
       new naver.maps.Marker({ position: pos, map: map, title: {{ site.legalName | dump | safe }} });
     })();
   </script>
