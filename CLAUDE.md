@@ -12,7 +12,7 @@
 
 - **회사**: 루씨웨어(Lucyware Inc.) — RDBMS 기반 AI · Text2SQL 전문 IT/SI 기업
 - **목적**: 기업 홈페이지 구축
-- **핵심 제품**: MetaDRAG™
+- **핵심 제품**: MetaDRAG®
 
 ## 아키텍처 — 정적 우선 → API 확장 (2단계)
 
@@ -80,7 +80,7 @@ HTML 을 생성해 그 중복을 없앤다. **방문자에게 내려가는 것�
 | `lucyware_signature_color` | `lucyware_signature_reverse` | 회사 로고 (헤더 / 푸터) |
 | `lucyware_symbol_color` | — | 심볼 (파비콘) |
 | `lucyware_ai_signature_gradient` | `..._gradient_reverse` | Lucyware.AI |
-| `metadrag-wordmark-light` | `metadrag-wordmark-dark` | MetaDRAG™ |
+| `metadrag-wordmark-light` | `metadrag-wordmark-dark` | MetaDRAG® |
 | `flexelf_logo_TM` | `flexelf_logo_TM_reverse` | flexelf |
 | `ubiQloud_MainLogo` | `ubiQloud_DarkMode` | ubiQloud |
 | `ubiQation_logo` | `ubiQation_logo_reverse` | ubiQation |
@@ -134,7 +134,7 @@ MetaDRAG 18.1px · ubiQation 29.0px 로 거의 두 배가 벌어졌다. `height`
 |---|---|---|
 | Home | `/` | |
 | Solution › Lucyware.AI | `/solutions/lucyware-ai/` | |
-| Products › MetaDRAG™ | `/products/metadrag/` | |
+| Products › MetaDRAG® | `/products/metadrag/` | |
 | Products › flexelf | `/products/flexelf/` | 본문 내용 미확정 |
 | Products › ubiQloud | `/products/ubiqloud/` | 본문 내용 미확정 |
 | Products › ubiQation | `/products/ubiqation/` | 본문 내용 미확정 |
@@ -149,7 +149,7 @@ MetaDRAG 18.1px · ubiQation 29.0px 로 거의 두 배가 벌어졌다. `height`
   이루는 물건이다. 그래서 상위 메뉴가 단수(Solution)이고 아래에 하나만 있다 —
   「항목이 하나뿐이니 드롭다운을 없애자」 는 판단을 하지 않는다. 층이 사라진다.
 - **`/services/` 는 없어졌다.** ubiQloud·ubiQation 이 `/products/` 로 옮겨졌고,
-  MetaDRAG™·flexelf 도 `/solutions/` 에서 함께 넘어왔다. 옛 주소는 저장소 루트의
+  MetaDRAG®·flexelf 도 `/solutions/` 에서 함께 넘어왔다. 옛 주소는 저장소 루트의
   `_redirects` 가 301 로 넘긴다 — 이미 밖에 나간 링크를 끊지 않기 위한 것이므로
   **지우지 않는다.** Cloudflare Pages 가 산출물 루트의 이 파일을 읽는다.
 - **Lucyware.AI 의 URL 만은 `/solutions/` 그대로다.** 메뉴 라벨이 단수가 되었다고

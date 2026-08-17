@@ -697,7 +697,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   MetaDRAG™ 제품 구역
+   MetaDRAG® 제품 구역
    제품 로고 실측 팔레트(딥네이비·오렌지·시안)를 이 구역에서만 쓴다.
    -------------------------------------------------------------------------- */
 .product {
@@ -1209,6 +1209,82 @@ textarea.field__control {
 .prose > h2:first-child,
 .prose > h3:first-child {
   margin-block-start: 0;
+}
+
+/* --------------------------------------------------------------------------
+   비교표
+   좁은 화면에서 표가 페이지를 밀지 않게 **표만** 가로로 스크롤시킨다.
+   본문이 통째로 좌우로 흔들리면 읽던 자리를 잃는다.
+   -------------------------------------------------------------------------- */
+.table-scroll {
+  overflow-x: auto;
+  /* 스크롤 컨테이너는 키보드 초점을 받을 수 있어야 한다 — 마우스 없이도
+     가로로 넘겨 볼 수 있어야 하고, 그때 어디에 있는지 보여야 한다 */
+  scrollbar-width: thin;
+}
+
+.table-scroll:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+.compare {
+  width: 100%;
+  min-width: 44rem; /* 이보다 좁아지면 칸마다 서너 줄로 접힌다 — 그때는 스크롤 */
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+/* 정렬은 공통 규칙을 따른다 — 헤더는 가운데, 그 외 텍스트는 왼쪽.
+   첫 열(구분)은 행의 이름이라 왼쪽에 붙여 세로로 훑어 읽히게 둔다. */
+.compare th,
+.compare td {
+  padding: var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare thead th {
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-strong);
+  background-color: var(--bg-subtle);
+  border-bottom: 2px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+/* 행 이름 칸. 폭을 잡아 두지 않으면 긴 값 쪽이 이 칸을 눌러 두 줄로 접는다 */
+.compare tbody th {
+  width: 9rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+/* 오른쪽 열이 우리 쪽이다. 옅은 바탕으로 어느 쪽이 무엇인지 눈에 띄게 한다 —
+   글자를 굵게 하는 것만으로는 표가 길어질수록 어느 열인지 놓친다.
+
+   **제품색(front matter 의 accent)을 쓰지 않는다.** 그 색은 머리 위 4px 띠
+   하나에만 쓴다는 것이 이 사이트의 규칙이고, 본문까지 번지면 페이지마다
+   다른 사이트처럼 보인다. 여기서는 회사 브랜드색 계열의 옅은 바탕을 쓴다. */
+.compare tbody td:last-child {
+  background-color: var(--orange-50);
+  color: var(--text-strong);
+}
+
+/* .on-dark 는 --orange-50 을 갈아끼우지 않는다. 이 표가 어두운 구역에 놓이면
+   거의 흰 바탕에 흰 글자가 된다 — 지금은 그렇게 쓰는 자리가 없지만,
+   컴포넌트가 저 혼자 옮겨 갔을 때 조용히 깨지게 두지 않는다. */
+.on-dark .compare tbody td:last-child {
+  background-color: rgb(255 255 255 / 0.06);
+}
+
+.compare tbody tr:last-child th,
+.compare tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* --------------------------------------------------------------------------
