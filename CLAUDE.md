@@ -163,7 +163,7 @@ viewBox 를 넘으면 잘린다 — 눈으로는 「좀 긴가?」 로만 보인
 | Home | `/` | |
 | Solution › Lucyware.AI | `/solutions/lucyware-ai/` | |
 | Products › MetaDRAG® | `/products/metadrag/` | |
-| Products › flexelf | `/products/flexelf/` | 본문 내용 미확정 |
+| Products › flexelf | `/products/flexelf/` | |
 | Products › ubiQloud | `/products/ubiqloud/` | 본문 내용 미확정 |
 | Products › ubiQation | `/products/ubiqation/` | 본문 내용 미확정 |
 | Company | `/company/` | 비전·핵심가치 + 오시는 길·기업정보 |
@@ -172,6 +172,10 @@ viewBox 를 넘으면 잘린다 — 눈으로는 「좀 긴가?」 로만 보인
 | Careers | `/careers/` | 본문 준비중 |
 | Contact / PoC | `/contact/` | |
 
+- **flexelf 는 업무 자동화 도구가 아니다** (2026-08-17 내용 확정). 「현장에 맞춰
+  늘어나는 업무 자동화」 로 적혀 있던 것을 **시선인식 AI 사이니지**(온디바이스
+  키오스크)로 바로잡았다. 홈 배너 첫 장의 전시 현장 사진이 바로 이 제품이다 —
+  옛 문구를 다시 보게 되면 그것이 오래된 쪽이다.
 - **Solution 과 Products 는 층이 다르다** (2026-08-17 사용자 지시). Lucyware.AI 는
   파는 물건 하나가 아니라 **네 제품이 모여 이루는 그림**이고, 나머지 넷은 그 그림을
   이루는 물건이다. 그래서 상위 메뉴가 단수(Solution)이고 아래에 하나만 있다 —
