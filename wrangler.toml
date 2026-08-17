@@ -4,7 +4,10 @@
 # 문서: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
 # ============================================================
 
-name = "lucyware-web"
+# Cloudflare Pages 의 실제 프로젝트 이름과 같아야 한다. 저장소 이름을 따라
+# `com-home` 으로 만들어졌다 — 여기에 다른 이름을 적어 두면 나중에 wrangler 로
+# 직접 배포할 때 엉뚱한 프로젝트를 새로 만든다 (2026-08-18 확인).
+name = "com-home"
 compatibility_date = "2025-09-23"
 compatibility_flags = ["nodejs_compat"]   # mysql2 드라이버 사용 위해 Phase 2 필수, Phase 1부터 명시
 

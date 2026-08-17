@@ -934,6 +934,7 @@
 }
 
 .map {
+  position: relative;   /* .map__canvas 가 이 상자를 기준으로 덮는다 */
   width: 100%;
   height: clamp(18rem, 14rem + 20vw, 28rem);
   background-color: var(--bg-subtle);
@@ -941,6 +942,14 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   margin-block-end: var(--space-6);
+}
+
+/* 지도가 그려지는 판. 대체 안내를 지우는 대신 그 위에 덮는다 —
+   지도 그리기가 어느 단계에서 실패하든 아래 안내가 그대로 남아 있다.
+   실패하면 JS 가 이 요소만 걷어낸다. */
+.map__canvas {
+  position: absolute;
+  inset: 0;
 }
 
 /* 지도 API 가 뜨지 않을 때 보이는 대체 안내. 빈 상자를 남기지 않는다 */
