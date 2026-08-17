@@ -24,7 +24,9 @@ layout: layouts/base.njk
       {% if eyebrow %}<span class="page-head__eyebrow">{{ eyebrow }}</span>{% endif %}
 
       {% if productLogo %}
-        <img class="page-head__logo" src="{{ productLogo }}" alt="{{ title }}" height="36">
+        {# 홈 배너의 제품 로고와 같은 50px 다. 바꿀 때는 site.css 의
+           .page-head__logo 와 .banner__logo 를 함께 본다. #}
+        <img class="page-head__logo" src="{{ productLogo }}" alt="{{ title }}" height="50">
         <h1 class="sr-only"{% if titleEn %} data-en="{{ titleEn }}"{% endif %}>{{ title }}</h1>
       {% else %}
         <h1{% if titleEn %} data-en="{{ titleEn }}"{% endif %}>{{ title }}</h1>
