@@ -1270,29 +1270,6 @@ textarea.field__control {
 }
 
 /* --------------------------------------------------------------------------
-   워크플로우 도식 (MetaDRAG® 제품 페이지)
-   .architecture 와 달리 **밝은 면**이다 — 이쪽은 우리가 그린 것이라 페이지에
-   맞췄다. 제품 페이지 머리가 밝은 면이라는 것이 이 사이트의 규칙이다.
-   -------------------------------------------------------------------------- */
-.workflow {
-  margin: 0;
-  /* 900px 로 그렸다. 그보다 줄이면 11px 짜리 글자가 읽히지 않으므로,
-     좁은 화면에서는 .scroll-x 안에서 옆으로 넘겨 본다. */
-  min-width: 56.25rem;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background-color: var(--bg-subtle);
-}
-
-.workflow img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* --------------------------------------------------------------------------
    단계 카드 — 「무엇을 · 어떻게 · 무엇이 나오는가」 를 한 칸에 담는다
    -------------------------------------------------------------------------- */
 .stage {
@@ -1406,9 +1383,13 @@ textarea.field__control {
   background-color: rgb(255 255 255 / 0.1);
 }
 
-/* 행 이름 칸. 폭을 잡아 두지 않으면 긴 값 쪽이 이 칸을 눌러 두 줄로 접는다 */
+/* 행 이름 칸. 폭을 잡아 두지 않으면 긴 값 쪽이 이 칸을 눌러 두 줄로 접는다.
+   **접히면 표가 깨져 보인다** — 「03 Implementation」 이 9rem 칸에서 두 줄로
+   내려가면서 그 행만 키가 커졌다. 행 이름은 짧고 개수도 적으므로 줄바꿈을
+   막는 것이 맞다. 넘치면 표 전체가 .scroll-x 안에서 옆으로 넘어간다. */
 .compare tbody th {
-  width: 9rem;
+  width: 11rem;
+  white-space: nowrap;
   font-weight: 700;
   color: var(--text-strong);
 }
