@@ -23,8 +23,17 @@ export default {
   descriptionEn:
     "Lucyware turns RDBMS metadata into an AI-ready foundation, connecting enterprise data assets to business value.",
 
-  // 운영 도메인. 정규 URL(canonical)·OG 태그가 이 값을 쓴다
-  url: "https://lucyware.com",
+  /**
+   * 운영 도메인. 정규 URL(canonical)·OG 태그가 이 값을 쓴다.
+   *
+   * **www 를 붙인 주소가 최종 주소다.** apex(lucyware.com)는 301 로 www 에
+   * 넘긴다. 여기에 apex 를 적어 두었더니 canonical 이 「따라가면 다른 곳으로
+   * 넘어가는 주소」 를 가리켰다 — 정규 주소는 그 자체가 200 이어야 한다.
+   * 검색엔진이 대개 한 번 더 따라가 주기는 하지만, 기댈 일이 아니다.
+   *
+   * 도메인 앞단(리다이렉트)이 바뀌면 이 값도 함께 본다.
+   */
+  url: "https://www.lucyware.com",
 
   /**
    * 번호는 **국내 표기 한 벌만** 적는다. 영어 화면에 나가는 국제표기와 눌러서 거는
