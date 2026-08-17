@@ -336,12 +336,12 @@ description: 루씨웨어(주)의 비전과 핵심 가치, 오시는 길과 기�
 
 {# 키가 없으면 스크립트를 아예 내보내지 않는다. 빈 키로 부르면 네이버가
    인증 실패 화면을 대신 그려 넣어, 우리 대체 안내보다 나쁜 것이 남는다.
-   키는 Cloudflare Pages 의 NAVER_MAP_KEY_ID 에서 빌드 시점에 들어온다. #}
-{% if env.naverMapKeyId %}
+   키는 site.js 가 들고 있다 — 왜 커밋해도 되는 값인지는 그쪽 주석에 적었다. #}
+{% if site.map.naverKeyId %}
   {# 주소는 `submodules=geocoder` 없이 부른다 — 좌표를 site.js 가 들고 있어
      지오코딩이 필요 없다. 예전 주소(openapi.map.naver.com)와 예전 파라미터
      (ncpClientId)는 더 이상 쓰지 않는다. 신규 발급 키는 이 형식만 받는다. #}
-  <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId={{ env.naverMapKeyId }}"></script>
+  <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId={{ site.map.naverKeyId }}"></script>
   <script>
     (function () {
       const el = document.getElementById("naver-map");
