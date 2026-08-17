@@ -127,7 +127,10 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
 
           <div class="banner__copy stack">
             <span class="banner__tag">{{ s.tag }}</span>
-            <img class="banner__logo" src="{{ s.logo }}" alt="{{ s.label }}" height="32">
+            {# height 만 적고 width 는 비운다 — 로고마다 폭이 달라서 한 값으로
+               적을 수 없고, 세로만 잡혀 있으면 아래 글이 밀리지 않는다.
+               높이를 바꿀 때는 site.css 의 .banner__logo 와 함께 고친다. #}
+            <img class="banner__logo" src="{{ s.logo }}" alt="{{ s.label }}" height="60">
             <h2 class="banner__title">{{ s.title }}</h2>
             <p class="banner__lead">{{ s.lead }}</p>
             <div class="cluster">
