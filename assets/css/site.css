@@ -832,6 +832,92 @@
 }
 
 /* --------------------------------------------------------------------------
+   대표 메시지 — 한 문장 인용과 서명
+   -------------------------------------------------------------------------- */
+
+/* 메시지를 여는 한 문장. 본문보다 크게 두되 **제목만큼 키우지 않는다** —
+   제목 자리를 뺏으면 그 아래 본문이 부제처럼 읽힌다. 왼쪽 선은 인용이라는
+   표시다. 따옴표를 글자로 넣으면 번역·줄바꿈마다 자리가 흔들린다. */
+.quote {
+  margin: 0;
+  padding-inline-start: var(--space-5);
+  border-inline-start: 3px solid var(--brand-orange);
+  font-size: var(--text-lead);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  color: var(--text-strong);
+}
+
+/* 서명. 이름과 직함을 두 줄로 나눈다 — 한 줄로 이으면 어디까지가 직함인지
+   좁은 화면에서 끊어지는 자리가 매번 달라진다. */
+.signature {
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-5);
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.signature span {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   연혁 — 세로선 하나에 시점을 꿴다
+   -------------------------------------------------------------------------- */
+
+/* **padding 은 목록이 아니라 항목이 갖는다.** base.css 의 `ol[class]` 리셋이
+   (0,1,1) 이라 `.timeline` (0,1,0) 의 padding 을 0 으로 되돌린다. 이기려고
+   선택자를 겹치기보다, 애초에 목록에 주지 않고 항목에서 밀어 그 싸움을 피한다. */
+.timeline {
+  border-inline-start: 2px solid var(--border);
+}
+
+.timeline__item {
+  position: relative;
+  padding-inline-start: var(--space-6);
+  padding-block-end: var(--space-6);
+}
+
+.timeline__item:last-child {
+  padding-block-end: 0;
+}
+
+/* 선 위에 점을 얹는다. 속을 비우지 않고 채운 점이라 구역 배경색이 무엇이든
+   그대로 선다 — 비우면 안쪽 색을 배경과 맞춰야 하고, 이 컴포넌트가 다른
+   구역으로 옮겨가는 순간 조용히 어긋난다. */
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -6px;
+  inset-block-start: 0.45em;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--border-strong);
+}
+
+/* 지금 서 있는 자리. 지나온 시점과 색으로 가른다 */
+.timeline__item--now::before {
+  background-color: var(--brand-orange);
+}
+
+.timeline__when {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.timeline p {
+  margin-block-start: var(--space-1);
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
    Contact
    -------------------------------------------------------------------------- */
 .contact__grid {
@@ -1398,6 +1484,13 @@ textarea.field__control {
   text-transform: uppercase;
   color: var(--accent-text);
   margin-block-end: var(--space-1);
+}
+
+/* 이 칸에서는 색만으로 링크를 알릴 수 없다 — 바로 위 라벨(제품 · Artifact)이
+   같은 강조색이라, 둘 다 오렌지면 어느 쪽이 눌리는지 알 수 없다. 밑줄을 준다. */
+.stage__artifact a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .compare {
