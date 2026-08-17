@@ -314,7 +314,9 @@
       const steps = Array.from(svg.querySelectorAll("[data-step]"));
       if (steps.length < 2) return;
 
-      const INTERVAL = Number(svg.dataset.flowCycle) || 7000;
+      /* 간격은 도식 파일이 들고 있다. 여기 값은 속성이 비었을 때의 대비책일 뿐이라
+         파일의 값을 고치는 것으로 충분하다 — 두 곳을 함께 고치지 않는다 */
+      const INTERVAL = Number(svg.dataset.flowCycle) || 3000;
       let index = 0;
       let timer = null;
       let inView = false;

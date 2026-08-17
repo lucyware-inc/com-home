@@ -12,7 +12,7 @@
      페이지 안에서는 CSS 가 토큰 값으로 덮어쓴다.
      (XML 주석 안에는 하이픈 두 개를 연달아 쓸 수 없다.) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" width="520" height="400"
-     class="alt__diagram dgm dgm--md" data-flow-cycle="7000"
+     class="alt__diagram dgm dgm--md" data-flow-cycle="3000"
      role="img" aria-label="MetaDRAG 3단계 파이프라인. 01 Design 이 Standard Metadata Repository 를, 02 Integration 이 M³ Dataset 을, 03 Implementation 이 Business Context Object 를 만듭니다."
      style="font-family: 'Pretendard Variable', Pretendard, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;">
   <defs>
