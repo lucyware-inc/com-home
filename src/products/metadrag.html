@@ -4,12 +4,19 @@ title: MetaDRAG®
 eyebrow: Products
 productLogo: /assets/img/Logo/metadrag-wordmark-light.svg
 accent: "#0091AA"
-lead: 데이터베이스의 구조를 읽어 AI 가 쓸 수 있는 형태로 정리하고, 그 위에서 사람의 질문에 답하게 만드는 메타데이터 플랫폼입니다.
-description: MetaDRAG® 는 RDBMS 메타데이터를 표준화하고 AI 질의의 근거로 삼는 플랫폼입니다. ERD 문서 대신 화면에서 설계하고, 정리된 스키마 위에서 Text2SQL 을 검증합니다.
+lead: 데이터 표준화 설계부터 온톨로지 기반 시맨틱 엔진 구현까지 세 단계를 거쳐, 레거시 데이터를 지능형 비즈니스 객체로 바꾸는 엔터프라이즈 데이터 엔지니어링 프레임워크입니다.
+description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 메타데이터를 설계하고, Master·Meta·Mart 를 M³ 데이터셋으로 합성한 뒤, 온톨로지로 비즈니스 맥락 객체를 만드는 엔터프라이즈 데이터 엔지니어링 프레임워크입니다.
 ---
 
 <section class="section">
   <div class="container prose stack">
+    <h2>무엇인가</h2>
+    <p>
+      <strong>MetaDRAG®</strong> 는 데이터 표준화 설계부터 온톨로지 기반의 시맨틱 엔진
+      구현까지 <strong>3단계</strong>를 거쳐 기업의 레거시 데이터를 지능형 비즈니스
+      객체로 전환하는 <strong>엔터프라이즈 데이터 엔지니어링 프레임워크</strong>입니다.
+    </p>
+
     <h2>왜 메타데이터부터인가</h2>
     <p>
       기업 데이터베이스에 AI 를 붙일 때 가장 먼저 부딪히는 것은 모델의 성능이 아니라
@@ -23,10 +30,206 @@ description: MetaDRAG® 는 RDBMS 메타데이터를 표준화하고 AI 질의�
       데이터 프로젝트에서 가장 비싼 실패입니다.
     </p>
     <p>
-      MetaDRAG® 는 그 앞단을 맡습니다. 스키마를 수집해 사람이 읽을 수 있는 의미를
-      붙이고, 이름·도메인·코드 표준을 한 곳에서 관리한 다음,
-      <strong>정리된 메타데이터를 AI 질의의 근거로 넘깁니다.</strong>
+      MetaDRAG® 는 그 앞단을 맡습니다. 표준을 세워 메타데이터를 정리하고,
+      흩어진 데이터를 하나의 층으로 합성한 다음,
+      <strong>의미와 관계가 명시된 객체로 바꿔 AI 에 넘깁니다.</strong>
     </p>
+  </div>
+</section>
+
+{# 워크플로우는 900px 로 그렸다. 그보다 좁아지면 글자가 읽히지 않으므로
+   줄이지 않고 .scroll-x 안에서 옆으로 넘겨 본다. #}
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Workflow</span>
+      <h2>세 단계로 지나갑니다</h2>
+      <p class="section-head__lead">
+        앞 단계의 산출물이 다음 단계의 입력이 됩니다. 건너뛰면 뒤에서 메웁니다.
+      </p>
+    </div>
+
+    <div class="scroll-x">
+      <figure class="workflow">
+        <img src="/assets/img/Portfolio/metadrag_workflow.svg"
+             alt="MetaDRAG 워크플로우. 1단계 Design 은 Data Standardization Designer 가
+                  DAMA-DMBOK 설계·표준 데이터 모델링·OECD 품질 관리를 거쳐 Standard
+                  Metadata Repository 를 만들고, 2단계 Integration 은 M³ Synthesizer 가
+                  마스터·메타·마트 데이터를 합성해 M³ Dataset 을 만들며, 3단계
+                  Implementation 은 Semantic Engine 이 온톨로지 클래스·관계·규칙을
+                  세워 Business Context Object 를 만듭니다."
+             width="900" height="540" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Stages</span>
+      <h2>단계별로 무엇을 하는가</h2>
+    </div>
+
+    <div class="grid" style="--col-min: 19rem">
+      <div class="stage reveal">
+        <span class="stage__no">01</span>
+        <h3>Design</h3>
+        <p class="stage__engine">Data Standardization Designer</p>
+        <ul class="stage__list">
+          <li>
+            <strong>DAMA-DMBOK Architecture</strong>
+            글로벌 데이터 관리 표준 프레임워크 체계를 기반으로 데이터 거버넌스 구조를 설계합니다.
+          </li>
+          <li>
+            <strong>Standard Data Modeling</strong>
+            기업 전반의 용어와 도메인을 체계화하는 표준 데이터 모델링을 수행합니다.
+          </li>
+          <li>
+            <strong>OECD Data Quality Control</strong>
+            OECD 데이터 품질 관리 기준을 적용해 신뢰성·정밀성·완전성을 검증합니다.
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>Artifact</span>
+          Standard Metadata Repository
+        </p>
+      </div>
+
+      <div class="stage stage--core reveal" style="--reveal-delay: 80ms">
+        <span class="stage__no">02</span>
+        <h3>Integration</h3>
+        <p class="stage__engine">M<sup>3</sup> Synthesizer</p>
+        <ul class="stage__list">
+          <li>
+            <strong>Master Data Integration</strong>
+            기업의 핵심 기준 정보인 마스터 데이터를 통합 관리합니다.
+          </li>
+          <li>
+            <strong>Meta Data Mapping</strong>
+            표준 메타데이터 저장소와 연계해 데이터 간의 구조적 의미를 사상(Mapping)합니다.
+          </li>
+          <li>
+            <strong>Mart Data Structuring</strong>
+            분석과 RAG 에 최적화된 주제별 데이터 마트를 합성합니다.
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>Artifact</span>
+          M<sup>3</sup> Dataset — Master · Meta · Mart
+        </p>
+      </div>
+
+      <div class="stage reveal" style="--reveal-delay: 160ms">
+        <span class="stage__no">03</span>
+        <h3>Implementation</h3>
+        <p class="stage__engine">Semantic Engine</p>
+        <ul class="stage__list">
+          <li>
+            <strong>Ontology Classes</strong>
+            데이터 엔티티를 의미론적 범주(Class)로 개체화합니다.
+          </li>
+          <li>
+            <strong>Ontology Relations</strong>
+            엔티티 간의 다차원 연관 관계(Relation)를 정의해 지식 네트워크를 구축합니다.
+          </li>
+          <li>
+            <strong>Ontology Rules</strong>
+            비즈니스 로직과 추론 규칙(Rule)을 이식해 인공지능이 이해할 수 있는 상태로 완성합니다.
+          </li>
+        </ul>
+        <p class="stage__artifact">
+          <span>Artifact</span>
+          Business Context Object
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Pipeline</span>
+      <h2>한 장으로 보는 파이프라인</h2>
+    </div>
+
+    <div class="scroll-x">
+      <table class="compare compare--plain">
+        <thead>
+          <tr>
+            <th scope="col">단계</th>
+            <th scope="col">전담 모듈</th>
+            <th scope="col">주요 프로세스</th>
+            <th scope="col">최종 산출물</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">01 Design</th>
+            <td>Data Standardization Designer</td>
+            <td>DAMA-DMBOK 기반 설계 · 표준 모델링 · OECD 품질 제어</td>
+            <td><strong>Standard Metadata Repository</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">02 Integration</th>
+            <td>M<sup>3</sup> Synthesizer</td>
+            <td>Master Data + Meta Data + Mart Data 융합 합성</td>
+            <td><strong>M<sup>3</sup> Dataset</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">03 Implementation</th>
+            <td>Semantic Engine</td>
+            <td>Ontology Classes · Relations · Rules 시맨틱 구축</td>
+            <td><strong>Business Context Object</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Why MetaDRAG®</span>
+      <h2>무엇이 다른가</h2>
+    </div>
+
+    <div class="grid" style="--col-min: 18rem">
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+        <div>
+          <h3>표준화된 고품질 거버넌스</h3>
+          <p>
+            DAMA-DMBOK 과 OECD 표준 품질 기준을 적용해 정밀한 메타데이터 기반을
+            세웁니다. 표준 없이 모은 메타데이터는 또 하나의 정리되지 않은 더미입니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+        <div>
+          <h3>M<sup>3</sup> 다차원 데이터 합성</h3>
+          <p>
+            마스터·메타·마트 데이터를 유기적으로 연결해 데이터 유실 없는 통합 레이어를
+            만듭니다. 셋 중 하나만 빠져도 그 자리에서 맥락이 끊깁니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
+        <div>
+          <h3>실시간 맥락 추론</h3>
+          <p>
+            단순히 데이터를 저장하는 데서 그치지 않고 비즈니스 규칙과 관계성이 명시된
+            객체로 바꿉니다. RAG 의 환각을 근본에서 줄이는 자리가 여기입니다.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -34,7 +237,10 @@ description: MetaDRAG® 는 RDBMS 메타데이터를 표준화하고 AI 질의�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Features</span>
-      <h2>무엇을 하는가</h2>
+      <h2>제품에서 하는 일</h2>
+      <p class="section-head__lead">
+        위의 세 단계를 사람이 화면에서 밟아 나가는 방식입니다.
+      </p>
     </div>
 
     <div class="grid" style="--col-min: 17rem">
