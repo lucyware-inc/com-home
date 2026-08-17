@@ -86,7 +86,7 @@ export default function (eleventyConfig) {
    *   {{ "assets/img/Portfolio/foo.svg" | inlineSvg | safe }}
    *
    * 왜 필요한가: `<img>` 로 부른 SVG 는 별도 문서라 사이트의 CSS 도 JS 도 그
-   * 안에 닿지 않는다. 홈의 요약 도식 둘은 초점이 7초마다 한 칸씩 내려가야 해서
+   * 안에 닿지 않는다. 홈의 요약 도식 둘은 초점이 3초마다 한 칸씩 내려가야 해서
    * 바깥에서 클래스를 붙일 수 있어야 한다 — 그래서 펴 넣는다.
    * 대신 파일의 색·글꼴이 사이트 토큰을 그대로 따르게 되는 이득도 함께 온다.
    *
