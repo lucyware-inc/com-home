@@ -191,7 +191,7 @@ CSS 도 닿지 않기 때문이다.
 | Products › MetaDRAG® | `/products/metadrag/` | |
 | Products › flexelf | `/products/flexelf/` | |
 | Products › ubiQloud | `/products/ubiqloud/` | |
-| Products › ubiQation | `/products/ubiqation/` | 본문 내용 미확정 |
+| Products › ubiQation | `/products/ubiqation/` | |
 | Company | `/company/` | 비전·핵심가치 + 오시는 길·기업정보 |
 | References | `/references/` | 본문 준비중 |
 | Insights | `/insights/` | 본문 준비중 |
@@ -238,6 +238,19 @@ CSS 도 닿지 않기 때문이다.
 - **ubiQation 은 Lucyware.AI 와 별개 서비스다** (2026-08-16 사용자 확인). 상위
   `C:\VSCode_Source\CLAUDE.md` 의 「lucyware.ai 는 ubiqation 에서 개명」 은 사내 AI Portal
   **프로젝트** 이야기이며 이 홈페이지의 ubiQation 서비스와 다르다. 헷갈리기 쉬운 자리다.
+- **ubiQation 은 구축·운영 서비스가 아니라 개발 프레임워크다** (2026-08-17 내용 확정).
+  MetaDRAG®·flexelf™·ubiQloud 를 개발·배포·운영하는 **Foundation Layer** 이고,
+  모듈 넷(SDK·API 메쉬 · 에이전트 오케스트레이션 런타임 · MLOps·DataOps 파이프라인 ·
+  보안·거버넌스 코어)으로 세 제품을 한 개발 환경에서 조율한다.
+  - 옛 문구(「설계와 구축을 지나 운영까지」 · `Build & Operate` 태그 · 라벨
+    설계·구축·운영)를 다시 보게 되면 그것이 오래된 쪽이다.
+  - **네 제품은 나란하지 않다 — 층이 있다.** ubiQation 이 맨 아래이고 그 위에
+    MetaDRAG®(데이터) → flexelf™(엣지) → ubiQloud(앱)가 쌓인다. 홈의 Products 격자는
+    지금도 넷을 나란히 놓지만, 그것은 「살 수 있는 물건 넷」 이라는 뜻이지 같은 층이라는
+    뜻이 아니다. 층 관계는 ubiQation 페이지의 Ecosystem 표가 들고 있다.
+  - **Lucyware.AI 와 층이 다르다.** Lucyware.AI 는 네 제품이 모여 이루는 **그림**이고
+    ubiQation 은 그 제품들을 **만드는 바닥**이다. 둘 다 「전체를 아우른다」 고 말하므로
+    같은 것으로 묶기 쉬운데, 하나는 파는 그림이고 하나는 짓는 도구다.
 - **GNB·푸터에 「준비중」 배지를 달지 않는다** (2026-08-16 사용자 지시). 메뉴는 다 같은
   무게로 보이고, 아직 채워지지 않은 것은 페이지에 들어가서 알게 된다. 대신 그 페이지를
   빈 화면으로 두지 않는다 — 무엇을 준비하는지 쓰고 문의로 이어 준다.

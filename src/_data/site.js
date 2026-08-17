@@ -114,7 +114,7 @@ export default {
         {
           label: "ubiQation®",
           url: "/products/ubiqation/",
-          desc: "업무 시스템 구축·운영 서비스",
+          desc: "세 제품을 받치는 엔터프라이즈 AI 개발 프레임워크",
           logo: "/assets/img/Logo/ubiQation_logo.svg",
           logoDark: "/assets/img/Logo/ubiQation_logo_reverse.svg",
         },
