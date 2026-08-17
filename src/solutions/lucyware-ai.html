@@ -4,12 +4,26 @@ title: Lucyware.AI
 eyebrow: Solution
 productLogo: /assets/img/Logo/lucyware_ai_signature_gradient.svg
 accent: "#7B5BE6"
-lead: 사내 데이터에 자연어로 묻고 근거와 함께 답을 받는 기업용 AI 포털입니다.
-description: Lucyware.AI 는 기업 내부 데이터에 자연어로 질의하는 AI 포털입니다. 메타데이터를 근거로 질의를 만들고, 실행된 SQL 과 함께 답을 보여줍니다.
+lead: 레거시 DB와 문서 자산을 온톨로지 기반 지식 모델로 재구성해, 근거를 추적할 수 있는 엔터프라이즈 RAG 를 만드는 지식 인텔리전스 플랫폼입니다.
+description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온톨로지 기반 지식 모델로 재구성해 고신뢰성 엔터프라이즈 RAG 를 구축하는 지식 인텔리전스 플랫폼입니다. 벡터 검색과 지식 그래프 탐색을 함께 써서 다단계 질의에 답하고, 답의 출처를 데이터 리니지로 되짚습니다.
 ---
 
 <section class="section">
   <div class="container prose stack">
+    <h2>무엇인가</h2>
+    <p>
+      <strong>Lucyware.AI</strong> 는 파편화된 기업의 레거시(Legacy) DB와 다양한 문서
+      자산을 온톨로지(Ontology) 기반의 지식 모델로 재구성하여, 고성능·고신뢰성
+      엔터프라이즈 RAG(Retrieval-Augmented Generation) 시스템을 구축하는
+      <strong>지식 인텔리전스 플랫폼</strong>입니다.
+    </p>
+    <p>
+      기존 벡터(Vector) 단독 기반 RAG 에는 고유한 한계가 있습니다 — 맥락 상실,
+      환각(Hallucination), 정형·비정형 데이터 간 연계성 부족입니다. 이를 해결하기 위해
+      기업 고유의 비즈니스 로직과 엔티티 간 관계(Relationship)를
+      <strong>다차원적 데이터 마트로 구조화</strong>하는 것이 핵심 메커니즘입니다.
+    </p>
+
     <h2>현업과 데이터 사이의 거리</h2>
     <p>
       데이터는 있는데 묻는 방법이 없습니다. 숫자 하나를 확인하려면 요청서를 쓰고
@@ -20,13 +34,114 @@ description: Lucyware.AI 는 기업 내부 데이터에 자연어로 질의하�
       <strong>어떤 테이블을 어떻게 읽어 나온 숫자인지</strong>를 답과 함께 봅니다.
       근거가 보이지 않는 답은 검증할 수 없고, 검증할 수 없는 답은 업무에 못 씁니다.
     </p>
+  </div>
+</section>
 
-    <h2>MetaDRAG™ 위에서 돕니다</h2>
-    <p>
-      질의를 만드는 근거는 <a href="/products/metadrag/">MetaDRAG™</a> 가 정리한
-      메타데이터입니다. 스키마를 모른 채 학습한 모델이 이름을 추측하는 것과,
-      정리된 구조를 읽고 질의를 조립하는 것은 결과가 다릅니다.
-    </p>
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Technology</span>
+      <h2>핵심 기술</h2>
+      <p class="section-head__lead">
+        벡터 검색 하나로는 닿지 않는 자리를 온톨로지가 받칩니다.
+      </p>
+    </div>
+
+    {# 넷이므로 2×2 로 세운다. 기본 --col-min 으로는 3열이 되어 마지막 하나가
+       둘째 줄에 혼자 남는다 — 넷을 하나의 묶음으로 읽히게 하려는 구역이다. #}
+    <div class="grid grid--2">
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
+        <div>
+          <h3>시멘틱 레거시 데이터 파이프라인</h3>
+          <p>
+            RDBMS·NoSQL·ERP/CRM 등 이종의 레거시 DB와 PDF·Office 문서 같은 비정형
+            데이터를 수집하고, 데이터 간의 사상(Mapping)을 통해 의미론적(Semantic)
+            구조로 자동 가공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+        <div>
+          <h3>온톨로지 기반 지식 그래프 데이터 마트</h3>
+          <p>
+            엔티티(Entity)·속성(Attribute)·관계성(Relationship)을 명시적으로 정의한
+            도메인 특화 데이터 마트를 구축합니다. 단순 임베딩이 아니라 의미론적
+            추론(Reasoning)이 가능한 기반이 됩니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <div>
+          <h3>하이브리드 RAG 엔진</h3>
+          <p>
+            고차원 벡터 유사도 검색(Dense Retrieval)과 온톨로지 그래프
+            탐색(Graph Traversal)을 결합합니다. 단편적 검색으로는 풀기 어려운 복잡한
+            다단계 질문(Multi-hop Query)에 정확한 맥락을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 240ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
+        <div>
+          <h3>추적 가능성과 거버넌스</h3>
+          <p>
+            생성된 답변의 근거가 되는 레거시 데이터와 문서의 정확한
+            출처(Data Lineage)를 제공하며, 기존 기업 보안 체계 및 역할 기반 권한
+            제어(RBAC)와 연동됩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  {# 표는 3열이라 prose(46rem)에 넣으면 칸마다 서너 줄로 접힌다.
+     이 구역만 컨테이너 폭을 그대로 쓴다. #}
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Comparison</span>
+      <h2>일반 Vector RAG 와 무엇이 다른가</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">구분</th>
+            <th scope="col">일반 Vector 기반 RAG</th>
+            <th scope="col">Lucyware.AI (온톨로지 기반 RAG)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">데이터 구조화</th>
+            <td>단순 텍스트 청킹(Chunking) 및 벡터화</td>
+            <td><strong>비즈니스 로직을 반영한 온톨로지 데이터 마트 구성</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">맥락 이해도</th>
+            <td>단어 간 수학적 유사도 기반 — 단편적 정보</td>
+            <td><strong>엔티티 간 연관 관계 추론 기반 — 구조적·맥락적 정보</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">복잡 질의 대응</th>
+            <td>연관 데이터를 통합 탐색할 때 정보 유실이 생김</td>
+            <td><strong>지식 그래프 탐색을 통한 정확한 연계 답변</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">신뢰성과 출처</th>
+            <td>환각 위험이 있고 출처 검증이 제한적</td>
+            <td><strong>데이터 리니지(Lineage) 기반의 높은 투명성과 검증 가능성</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -86,5 +201,61 @@ description: Lucyware.AI 는 기업 내부 데이터에 자연어로 질의하�
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__eyebrow">Impact</span>
+      <h2>도입하면 무엇이 달라지는가</h2>
+    </div>
+
+    <div class="grid" style="--col-min: 18rem">
+      <div class="feature reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
+        <div>
+          <h3>수십 년 쌓인 암묵지를 자산으로</h3>
+          <p>
+            레거시 시스템에 방치되어 있던 대용량 DB와 문서 데이터를 인공지능이 바로
+            활용할 수 있는 지식 자산으로 전환합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 80ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+        <div>
+          <h3>답변 정확도가 달라진다</h3>
+          <p>
+            복잡한 산업 도메인 특화 데이터에 대한 질문에도 환각 없는 고품질 답변을
+            만듭니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature reveal" style="--reveal-delay: 160ms">
+        <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
+        <div>
+          <h3>넓힐 때 다시 만들지 않는다</h3>
+          <p>
+            사업 영역이 넓어져도 온톨로지 스키마와 마트 레이어를 고치는 것으로
+            확장합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container prose stack">
+    <h2>MetaDRAG® 위에서 돕니다</h2>
+    <p>
+      온톨로지를 세우려면 먼저 지금 있는 데이터가 무엇인지 알아야 합니다. 그 바탕이
+      <a href="/products/metadrag/">MetaDRAG®</a> 가 정리한 메타데이터입니다.
+      스키마를 모른 채 학습한 모델이 이름을 추측하는 것과, 정리된 구조를 읽고 질의를
+      조립하는 것은 결과가 다릅니다.
+    </p>
   </div>
 </section>
