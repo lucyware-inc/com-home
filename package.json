@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "mysql2": "^3.23.3"
   }
 }
