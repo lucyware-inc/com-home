@@ -1,9 +1,10 @@
 /**
- * 홈 배너 — 배경 그래프 + 슬라이드 넘김
+ * 홈 — 배너 배경 그래프 · 슬라이드 넘김 · 요약 도식의 초점 이동
  *
- * 둘 다 「없어도 되는」 것으로 만든다. 슬라이드 내용은 전부 문서에 들어 있고
+ * 셋 다 「없어도 되는」 것으로 만든다. 슬라이드 내용은 전부 문서에 들어 있고
  * 트랙이 scroll-snap 가로 스크롤이라, 스크립트가 죽어도 손가락과 트랙패드로 넘어간다.
  * 배경은 캔버스 한 장이므로 없으면 어두운 면만 남는다.
+ * 도식은 초점이 가운데 칸에 멈춘 채로 그려진다 — 원래 그리던 그림 그대로다.
  */
 (function () {
   "use strict";
@@ -292,5 +293,94 @@
 
     sync();
     start();
+  })();
+
+  /* ==================================================================
+     3. 요약 도식의 초점 이동
+     Solution · Why metadata 두 구역의 도식은 흐름도인데, 초점이 가운데에
+     못 박혀 있으면 그림이 세 단계를 「거친다」 는 것을 말해 주지 못한다.
+     첫 칸부터 한 칸씩 내려가게 두어 읽는 순서를 그림이 직접 이끈다.
+
+     **시작은 그 구역이 화면에 들어왔을 때다.** 페이지를 열자마자 돌리면
+     방문자가 배너를 보는 동안 한 바퀴가 지나가 버려, 정작 내려왔을 때는
+     초점이 어디서 시작했는지 알 수 없다. 나갔다 다시 들어오면 첫 칸부터
+     다시 센다 — 「Legacy Systems 부터」 가 이 움직임의 약속이다.
+     ================================================================== */
+  (function diagrams() {
+    const list = Array.from(document.querySelectorAll("[data-flow-cycle]"));
+    if (!list.length) return;
+
+    list.forEach((svg) => {
+      const steps = Array.from(svg.querySelectorAll("[data-step]"));
+      if (steps.length < 2) return;
+
+      const INTERVAL = Number(svg.dataset.flowCycle) || 7000;
+      let index = 0;
+      let timer = null;
+      let inView = false;
+
+      function show(i) {
+        index = (i + steps.length) % steps.length;
+        steps.forEach((step, n) => step.classList.toggle("is-active", n === index));
+      }
+
+      function start() {
+        if (timer || reduced.matches) return;
+        timer = window.setInterval(() => show(index + 1), INTERVAL);
+      }
+
+      function stop() {
+        if (!timer) return;
+        window.clearInterval(timer);
+        timer = null;
+      }
+
+      /* 모션을 줄이도록 설정한 사용자에게는 손대지 않는다. 마크업이 들고 온
+         가운데 초점이 그대로 남아, 움직이지 않는 원래 도식이 된다. */
+      if (reduced.matches) return;
+
+      /* 구역에 닿기 전에 미리 첫 칸으로 옮겨 둔다. 화면에 들어온 뒤에 옮기면
+         가운데가 켜진 상태를 한 번 보여준 다음 첫 칸으로 튀는 것이 보인다. */
+      show(0);
+
+      /* 도식을 들여다보는 동안에는 멈춘다 — 읽던 칸이 눈앞에서 꺼지지 않게 */
+      svg.addEventListener("mouseenter", stop);
+      svg.addEventListener("mouseleave", () => {
+        if (inView && !document.hidden) start();
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stop();
+        else if (inView) start();
+      });
+
+      reduced.addEventListener("change", () => {
+        if (reduced.matches) stop();
+        else if (inView) start();
+      });
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              inView = entry.isIntersecting;
+              if (!inView) {
+                stop();
+                return;
+              }
+              /* 절반쯤 보일 때 시작하므로 첫 칸이 켜지는 순간을 놓치지 않는다 */
+              show(0);
+              start();
+            });
+          },
+          { threshold: 0.4 }
+        ).observe(svg);
+      } else {
+        /* 옛 브라우저 — 언제 화면에 들어왔는지 알 길이 없다.
+           멈춰 있는 것보다는 도는 편이 낫다 */
+        inView = true;
+        start();
+      }
+    });
   })();
 })();

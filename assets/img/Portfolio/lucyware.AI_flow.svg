@@ -3,22 +3,27 @@
      그쪽은 800x600 에 9px 글자까지 들어 있어 홈의 절반 폭(약 520px)에서는
      읽히지 않는다. 여기서는 단계 이름만 남기고 글자를 키웠다.
 
+     **이 파일은 img 로 불리지 않는다. 빌드가 index.html 안에 그대로 펴 넣는다**
+     (eleventy.config.js 의 inlineSvg). 초점이 7초마다 한 칸씩 내려가야 해서
+     바깥 JS 가 안쪽에 닿아야 하기 때문이다.
+
+     **초점은 클래스 하나로 표시한다.** 어느 칸이 켜져 있는지는 is-active 가
+     정하고, 켜진 모습이 어떤지는 site.css 의 dgm 규칙이 정한다. 두 곳이
+     아니라 한 곳이다 — 여기 박힌 색은 이 파일을 브라우저로 직접 열어 볼 때만
+     쓰이는 대비책이고, 페이지에서는 CSS 가 토큰 값으로 덮어쓴다.
+
      **톤은 홈 본문을 따른다.** 처음에 상세 페이지와 같은 어두운 판으로
      만들었더니, 바로 아래 두 구역의 밝은 격자 + 흰 카드와 나란히 놓여
      그 장만 딴 데서 온 것처럼 보였다. 배경을 비우고 흰 카드로 바꿔
      .alt__media 의 격자 위에 그대로 얹는다 — 아래 형제들과 같은 모양이다.
-     색은 base.css 의 토큰에서 실측한 값이다:
-       흰 카드 #FFFFFF · 테두리 #E3E7ED · 제목 #1B2432 · 본문 #6B7684
-       강조(가운데 단계·화살표) 브랜드 오렌지 #ED7D31
-     토큰이 바뀌면 이 값들도 함께 본다.
 
-     글꼴은 base.css 의 font-sans 토큰과 같은 스택을 적어 둔다. 이 파일은 img
-     태그로 불려서 사이트 CSS 가 닿지 않으므로, 여기 적지 않으면 본문과 다른
-     글꼴로 그려진다.
+     글꼴도 같은 이유로 남겨 둔다. 페이지 안에서는 본문 글꼴이 그대로
+     상속되지만, 파일을 직접 열면 그것이 없다.
      (XML 주석 안에는 하이픈 두 개를 연달아 쓸 수 없다. CSS 변수 이름을
       그대로 적으면 그 순간 파일 전체가 파싱 오류로 안 그려진다.) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" width="520" height="400"
-     role="img" aria-label="Lucyware.AI 3단계 흐름도"
+     class="alt__diagram dgm" data-flow-cycle="7000"
+     role="img" aria-label="레거시 시스템(정형 DB · 문서 · 업무 규칙)이 온톨로지 데이터 마트를 지나 신뢰할 수 있는 답으로 이어지는 세 단계 흐름도"
      style="font-family: 'Pretendard Variable', Pretendard, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;">
   <defs>
     <!-- 흰 카드를 격자 위에 살짝 띄운다. 아래 구역의 흰 카드와 같은 그림자다. -->
@@ -31,33 +36,46 @@
        아래 두 구역과 같은 바탕 위에 놓인 것으로 보인다. -->
 
   <!-- 1. 레거시 -->
-  <g filter="url(#flow-shadow)">
-    <rect x="14" y="28" width="492" height="84" rx="12" fill="#FFFFFF" stroke="#E3E7ED" stroke-width="1"/>
+  <g class="dgm__step" data-step="1">
+    <g filter="url(#flow-shadow)">
+      <rect class="dgm__card" x="14" y="28" width="492" height="84" rx="12"
+            fill="#FFFFFF" stroke="#E3E7ED" stroke-width="1"/>
+    </g>
+    <circle class="dgm__dot" cx="46" cy="70" r="7" fill="none" stroke="#8A94A6" stroke-width="2"/>
+    <text class="dgm__title" x="70" y="64" font-size="17" font-weight="700" fill="#1B2432">Legacy Systems</text>
+    <text class="dgm__desc" x="70" y="88" font-size="13" fill="#6B7684">정형 DB · 문서 · 업무 규칙</text>
   </g>
-  <circle cx="46" cy="70" r="7" fill="none" stroke="#8A94A6" stroke-width="2"/>
-  <text x="70" y="64" font-size="17" font-weight="700" fill="#1B2432">Legacy Systems</text>
-  <text x="70" y="88" font-size="13" fill="#6B7684">정형 DB · 문서 · 업무 규칙</text>
 
-  <path d="M 260 122 V 144" stroke="#ED7D31" stroke-width="2" stroke-dasharray="4 4"/>
-  <polygon points="260,152 254,142 266,142" fill="#ED7D31"/>
-
-  <!-- 2. 온톨로지 — 가운데가 핵심이라 테두리와 글자색에만 힘을 준다.
-       배경을 오렌지로 칠하지 않는다: 아래 구역의 흰 카드들과 무게가 어긋난다. -->
-  <g filter="url(#flow-shadow)">
-    <rect x="14" y="158" width="492" height="84" rx="12" fill="#FFFFFF" stroke="#ED7D31" stroke-width="2"/>
+  <g class="dgm__conn">
+    <path d="M 260 122 V 144" stroke="#ED7D31" stroke-width="2" stroke-dasharray="4 4"/>
+    <polygon points="260,152 254,142 266,142" fill="#ED7D31"/>
   </g>
-  <circle cx="46" cy="200" r="7" fill="#ED7D31"/>
-  <text x="70" y="194" font-size="17" font-weight="800" fill="#1B2432">Ontology Data Mart</text>
-  <text x="70" y="218" font-size="13" fill="#6B7684">지식 그래프 · 벡터 + 그래프 검색</text>
 
-  <path d="M 260 252 V 274" stroke="#ED7D31" stroke-width="2" stroke-dasharray="4 4"/>
-  <polygon points="260,282 254,272 266,272" fill="#ED7D31"/>
+  <!-- 2. 온톨로지 — 스크립트가 죽거나 모션을 줄여 달라는 설정이면 초점이
+       여기 멈춘다. 셋 중 이 칸이 이 그림의 핵심이라 정지 화면의 자리로 맞다. -->
+  <g class="dgm__step is-active" data-step="2">
+    <g filter="url(#flow-shadow)">
+      <rect class="dgm__card" x="14" y="158" width="492" height="84" rx="12"
+            fill="#FFFFFF" stroke="#ED7D31" stroke-width="2"/>
+    </g>
+    <circle class="dgm__dot" cx="46" cy="200" r="7" fill="#ED7D31" stroke="#ED7D31" stroke-width="2"/>
+    <text class="dgm__title" x="70" y="194" font-size="17" font-weight="800" fill="#1B2432">Ontology Data Mart</text>
+    <text class="dgm__desc" x="70" y="218" font-size="13" fill="#6B7684">지식 그래프 · 벡터 + 그래프 검색</text>
+  </g>
+
+  <g class="dgm__conn">
+    <path d="M 260 252 V 274" stroke="#ED7D31" stroke-width="2" stroke-dasharray="4 4"/>
+    <polygon points="260,282 254,272 266,272" fill="#ED7D31"/>
+  </g>
 
   <!-- 3. 신뢰할 수 있는 답 -->
-  <g filter="url(#flow-shadow)">
-    <rect x="14" y="288" width="492" height="84" rx="12" fill="#FFFFFF" stroke="#E3E7ED" stroke-width="1"/>
+  <g class="dgm__step" data-step="3">
+    <g filter="url(#flow-shadow)">
+      <rect class="dgm__card" x="14" y="288" width="492" height="84" rx="12"
+            fill="#FFFFFF" stroke="#E3E7ED" stroke-width="1"/>
+    </g>
+    <circle class="dgm__dot" cx="46" cy="330" r="7" fill="none" stroke="#8A94A6" stroke-width="2"/>
+    <text class="dgm__title" x="70" y="324" font-size="17" font-weight="700" fill="#1B2432">Trusted Output</text>
+    <text class="dgm__desc" x="70" y="348" font-size="13" fill="#6B7684">환각 없는 답 · 근거 추적 · 권한</text>
   </g>
-  <circle cx="46" cy="330" r="7" fill="none" stroke="#8A94A6" stroke-width="2"/>
-  <text x="70" y="324" font-size="17" font-weight="700" fill="#1B2432">Trusted Output</text>
-  <text x="70" y="348" font-size="13" fill="#6B7684">환각 없는 답 · 근거 추적 · 권한</text>
 </svg>
