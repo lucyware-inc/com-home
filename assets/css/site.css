@@ -2140,6 +2140,93 @@ textarea.field__control {
   height: auto;
 }
 
+/* --------------------------------------------------------------------------
+   요약 도식(.dgm) — 초점이 한 칸씩 내려간다
+
+   도식 SVG 는 img 로 부르지 않고 빌드가 본문에 펴 넣는다(inlineSvg). 그래서
+   여기 규칙이 그 안쪽까지 닿는다. **켜진 칸의 생김새는 이 파일에만 적는다** —
+   SVG 파일에 박힌 색은 그 파일을 직접 열어 볼 때의 대비책이고, 페이지에서는
+   전부 아래 규칙이 덮는다. 두 곳에 적어 두면 초점을 옮기는 순간 어긋난다.
+
+   끄고 켜는 두 상태를 모두 명시한다. 켜진 쪽만 적으면 초점이 지나간 칸이
+   SVG 에 박힌 강조색 그대로 남아, 세 칸이 전부 켜진 것처럼 보인다.
+
+   움직임은 assets/js/home.js 가 준다 — 구역이 화면에 들어오면 첫 칸부터
+   7초 간격으로 내려간다.
+   -------------------------------------------------------------------------- */
+.dgm {
+  --dgm-accent: var(--brand-orange);
+  /* 색만 천천히 갈아입는다. 자리가 움직이지 않아야 읽던 줄을 놓치지 않는다 */
+  --dgm-fade: 420ms var(--ease);
+}
+
+/* Why metadata 구역은 제품 하나를 가리키므로 제품색을 쓴다 */
+.dgm--md {
+  --dgm-accent: var(--md-cyan);
+}
+
+.dgm__card {
+  fill: #fff;
+  stroke: var(--border);
+  stroke-width: 1;
+  transition: stroke var(--dgm-fade), stroke-width var(--dgm-fade);
+}
+
+.dgm__step.is-active .dgm__card {
+  stroke: var(--dgm-accent);
+  stroke-width: 2;
+}
+
+.dgm__dot {
+  fill: none;
+  stroke: var(--text-muted);
+  transition: fill var(--dgm-fade), stroke var(--dgm-fade);
+}
+
+.dgm__step.is-active .dgm__dot {
+  fill: var(--dgm-accent);
+  stroke: var(--dgm-accent);
+}
+
+.dgm__title {
+  fill: var(--text-strong);
+  font-weight: 700;
+  transition: font-weight var(--dgm-fade);
+}
+
+/* 가변 글꼴이라 굵기가 사이값을 지나며 바뀐다. 글자 폭이 조금 늘지만
+   왼쪽 정렬이라 첫 글자는 제자리에 있다 */
+.dgm__step.is-active .dgm__title {
+  font-weight: 800;
+}
+
+.dgm__desc {
+  fill: var(--text-muted);
+}
+
+.dgm__num {
+  fill: var(--dgm-accent);
+}
+
+/* 화살표는 초점을 타지 않는다. 흐름 자체는 늘 같은 방향이라
+   함께 깜빡이면 무엇이 바뀐 것인지 흐려진다 */
+.dgm__conn path {
+  stroke: var(--dgm-accent);
+}
+
+.dgm__conn polygon {
+  fill: var(--dgm-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* 초점 이동 자체를 home.js 가 멈춘다. 여기서는 남은 전환만 끈다 */
+  .dgm__card,
+  .dgm__dot,
+  .dgm__title {
+    transition: none;
+  }
+}
+
 .alt__badge {
   position: absolute;
   left: 50%;

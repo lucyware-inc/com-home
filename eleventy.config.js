@@ -10,6 +10,9 @@
  * 산출물은 여전히 순수 정적 HTML 이다 — Cloudflare Pages 가 그대로 서빙하고,
  * 방문자 브라우저에는 프레임워크가 한 줄도 내려가지 않는다.
  */
+import fs from "node:fs";
+import path from "node:path";
+
 export default function (eleventyConfig) {
   // 정적 자산은 변환하지 않고 그대로 복사한다.
   // vendor/ 는 의도적으로 제외한다 — Bootstrap·AOS·Swiper 등 옛 템플릿 의존성이며
@@ -23,9 +26,12 @@ export default function (eleventyConfig) {
   // Cloudflare Pages Functions 는 빌드 산출물 루트에 있어야 인식된다.
   eleventyConfig.addPassthroughCopy("functions");
 
-  // CSS·JS 를 고치면 브라우저를 새로 고친다
+  // CSS·JS 를 고치면 브라우저를 새로 고친다.
+  // img 는 inlineSvg 로 본문에 펴 넣는 파일이 있어 함께 본다 — 파일만 고치고
+  // 페이지를 안 고치면 새로 찍히지 않아 화면이 그대로다.
   eleventyConfig.addWatchTarget("assets/css");
   eleventyConfig.addWatchTarget("assets/js");
+  eleventyConfig.addWatchTarget("assets/img");
 
   /**
    * 현재 페이지가 이 URL 트리 안에 있는가 — GNB 활성 표시에 쓴다.
@@ -72,6 +78,34 @@ export default function (eleventyConfig) {
    */
   eleventyConfig.addFilter("navGroup", function (nav, id) {
     return (nav || []).find((item) => item.id === id) || { children: [] };
+  });
+
+  /**
+   * SVG 를 img 로 부르지 않고 문서 안에 그대로 펴 넣는다.
+   *
+   *   {{ "assets/img/Portfolio/foo.svg" | inlineSvg | safe }}
+   *
+   * 왜 필요한가: `<img>` 로 부른 SVG 는 별도 문서라 사이트의 CSS 도 JS 도 그
+   * 안에 닿지 않는다. 홈의 요약 도식 둘은 초점이 7초마다 한 칸씩 내려가야 해서
+   * 바깥에서 클래스를 붙일 수 있어야 한다 — 그래서 펴 넣는다.
+   * 대신 파일의 색·글꼴이 사이트 토큰을 그대로 따르게 되는 이득도 함께 온다.
+   *
+   * 주석은 떼고 내보낸다. 이 파일들의 주석은 그리는 사람이 읽는 것이지
+   * 방문자에게 내려보낼 것이 아니다 — 원본에는 그대로 남는다.
+   *
+   * 파일이 없으면 빌드를 세운다. 조용히 빈 자리를 내보내면 도식이 통째로
+   * 사라진 것을 배포한 뒤에야 알게 된다.
+   */
+  eleventyConfig.addFilter("inlineSvg", function (relPath) {
+    const file = path.resolve(String(relPath || ""));
+    if (!fs.existsSync(file)) {
+      throw new Error(`inlineSvg: 파일이 없다 — ${relPath}`);
+    }
+    return fs
+      .readFileSync(file, "utf8")
+      .replace(/<\?xml[\s\S]*?\?>/g, "")
+      .replace(/<!--[\s\S]*?-->/g, "")
+      .trim();
   });
 
   /** 메뉴 항목(자식 포함)이 현재 페이지를 담고 있는가 */
