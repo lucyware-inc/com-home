@@ -1,0 +1,12 @@
+# Cloudflare Pages 리다이렉트
+#
+# 2026-08-17 메뉴를 Solution / Products 로 재편하면서 제품 네 개가
+# /solutions/ · /services/ 에서 /products/ 로 옮겨졌다. 옛 주소는 이미 밖에
+# 나가 있으므로(검색 색인·공유 링크) 끊지 않고 301 로 넘긴다.
+#
+# Lucyware.AI 는 옮기지 않았다 — 메뉴 라벨만 단수가 되었을 뿐이다.
+/solutions/metadrag/  /products/metadrag/  301
+/solutions/flexelf/   /products/flexelf/   301
+/services/ubiqloud/   /products/ubiqloud/  301
+/services/ubiqation/  /products/ubiqation/ 301
+/services/*           /products/:splat     301

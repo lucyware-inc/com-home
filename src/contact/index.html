@@ -1,11 +1,23 @@
 ---
 layout: layouts/page.njk
-title: 문의 · PoC 신청
+title: 영업문의
+titleEn: Contact
 eyebrow: Contact
 lead: 무엇을 풀어야 하는지부터 이야기해 주세요. 데이터 현황을 함께 보고 PoC 범위를 제안해 드립니다.
+leadEn: Tell us what you need to solve. We will look at your data together and propose a PoC scope.
 description: 루씨웨어에 문의하거나 데모·PoC 를 신청합니다. 데이터 현황을 함께 살펴보고 검증 범위를 제안해 드립니다.
 hideCta: true
 ---
+
+{#
+  이 페이지는 사이트에서 유일하게 방문자가 무언가를 「입력하는」 곳이라,
+  한국어로 남겨 두면 언어 전환 버튼이 헛돈다 (2026-08-17 사용자 지적).
+  그래서 머리글·연락처·폼을 통째로 번역했다.
+
+  글자는 `data-en`, 입력 안내는 `data-en-placeholder`,
+  **메일로 실제 보내지는 값은 `data-en-value`** 다 — 마지막 것을 빠뜨리면
+  화면은 영어인데 도착한 문의는 한국어 제목을 달고 온다.
+#}
 
 <section class="section">
   <div class="container contact__grid">
@@ -23,7 +35,16 @@ hideCta: true
         <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
         <div>
           <h3>Call</h3>
-          <p><a href="{{ site.contact.telHref }}">{{ site.contact.tel }}</a></p>
+          {# 번호 자체가 언어를 탄다. 국내에서는 `02-861-6190` 이 읽기 편하고,
+             해외에서는 국가번호가 없으면 걸 수 없다. 두 표기 모두 site.js 의
+             국내 번호 한 벌에서 계산해 만든다 — 같은 번호를 두 곳에 적어 두면
+             한쪽만 고쳤을 때 화면에 어느 것이 나올지 알 수 없다. #}
+          <p><a href="{{ site.contact.tel | telUri }}" data-en="{{ site.contact.tel | intlPhone }}">{{ site.contact.tel }}</a></p>
+          {# 팩스는 전화 아래에 붙인다. 아이콘 한 줄을 따로 주면 「팩스를 보낼 일」 이
+             전화·메일과 같은 무게로 보인다 — 실제로 오는 것은 세금계산서·공문 정도다. #}
+          {% if site.contact.fax %}
+            <p class="info-item__note" data-en="Fax {{ site.contact.fax | intlPhone }}">팩스 {{ site.contact.fax }}</p>
+          {% endif %}
         </div>
       </div>
 
@@ -31,7 +52,7 @@ hideCta: true
         <svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg>
         <div>
           <h3>Office</h3>
-          <p>{{ site.contact.address }}</p>
+          <p data-en="{{ site.contact.addressEn }}">{{ site.contact.address }}</p>
         </div>
       </div>
 
@@ -39,7 +60,7 @@ hideCta: true
         <svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>
         <div>
           <h3>Response</h3>
-          <p>영업일 기준 1~2일 안에 답변드립니다.</p>
+          <p data-en="We reply within 1–2 business days.">영업일 기준 1~2일 안에 답변드립니다.</p>
         </div>
       </div>
     </div>
@@ -51,62 +72,74 @@ hideCta: true
     #}
     <form class="form" id="contact-form" data-to="{{ site.contact.email }}" novalidate>
       <label class="field">
-        <span class="field__label">회사 · 기관 <span class="req" aria-hidden="true">*</span></span>
+        <span class="field__label" data-en="Company">회사 · 기관 <span class="req" aria-hidden="true">*</span></span>
         <input class="field__control" type="text" name="company" required
-               autocomplete="organization" placeholder="루씨웨어 주식회사">
+               autocomplete="organization" placeholder="루씨웨어 주식회사"
+               data-en-placeholder="Lucyware Inc.">
       </label>
 
       <label class="field">
-        <span class="field__label">담당자 <span class="req" aria-hidden="true">*</span></span>
+        <span class="field__label" data-en="Your name">담당자 <span class="req" aria-hidden="true">*</span></span>
         <input class="field__control" type="text" name="name" required
-               autocomplete="name" placeholder="홍길동">
+               autocomplete="name" placeholder="홍길동"
+               data-en-placeholder="Jane Doe">
       </label>
 
       <label class="field">
-        <span class="field__label">이메일 <span class="req" aria-hidden="true">*</span></span>
+        <span class="field__label" data-en="Email">이메일 <span class="req" aria-hidden="true">*</span></span>
         <input class="field__control" type="email" name="email" required
                autocomplete="email" placeholder="name@company.com">
       </label>
 
       <label class="field">
-        <span class="field__label">연락처</span>
+        <span class="field__label" data-en="Phone">연락처</span>
         <input class="field__control" type="tel" name="phone"
-               autocomplete="tel" placeholder="02-0000-0000">
+               autocomplete="tel" placeholder="02-0000-0000"
+               data-en-placeholder="+82-2-000-0000">
       </label>
 
+      {# option 은 글자와 value 를 둘 다 바꾼다. value 가 그대로면 영어로 고른
+         문의가 한국어 제목을 달고 도착한다 — 받는 쪽에서 어느 언어로 답해야
+         하는지 알 수 없게 된다. #}
       <label class="field form__row--full">
-        <span class="field__label">문의 유형 <span class="req" aria-hidden="true">*</span></span>
+        <span class="field__label" data-en="Topic">문의 유형 <span class="req" aria-hidden="true">*</span></span>
         <select class="field__control" name="topic" required>
-          <option value="PoC · 데모 신청">PoC · 데모 신청</option>
-          <option value="MetaDRAG™ 도입 문의">MetaDRAG™ 도입 문의</option>
-          <option value="Lucyware.AI 도입 문의">Lucyware.AI 도입 문의</option>
-          <option value="flexelf 문의">flexelf 문의</option>
-          <option value="ubiQloud 문의">ubiQloud 문의</option>
-          <option value="ubiQation 문의">ubiQation 문의</option>
-          <option value="SI · 컨설팅 문의">SI · 컨설팅 문의</option>
-          <option value="채용 · 제휴">채용 · 제휴</option>
-          <option value="기타">기타</option>
+          <option value="PoC · 데모 신청" data-en="PoC · Demo request" data-en-value="PoC · Demo request">PoC · 데모 신청</option>
+          <option value="MetaDRAG™ 도입 문의" data-en="MetaDRAG™ inquiry" data-en-value="MetaDRAG™ inquiry">MetaDRAG™ 도입 문의</option>
+          <option value="Lucyware.AI 도입 문의" data-en="Lucyware.AI inquiry" data-en-value="Lucyware.AI inquiry">Lucyware.AI 도입 문의</option>
+          <option value="flexelf 문의" data-en="flexelf inquiry" data-en-value="flexelf inquiry">flexelf 문의</option>
+          <option value="ubiQloud 문의" data-en="ubiQloud inquiry" data-en-value="ubiQloud inquiry">ubiQloud 문의</option>
+          <option value="ubiQation 문의" data-en="ubiQation inquiry" data-en-value="ubiQation inquiry">ubiQation 문의</option>
+          <option value="SI · 컨설팅 문의" data-en="SI · Consulting" data-en-value="SI · Consulting">SI · 컨설팅 문의</option>
+          <option value="채용 · 제휴" data-en="Careers · Partnership" data-en-value="Careers · Partnership">채용 · 제휴</option>
+          <option value="기타" data-en="Other" data-en-value="Other">기타</option>
         </select>
       </label>
 
       <label class="field form__row--full">
-        <span class="field__label">문의 내용 <span class="req" aria-hidden="true">*</span></span>
+        <span class="field__label" data-en="Message">문의 내용 <span class="req" aria-hidden="true">*</span></span>
         <textarea class="field__control" name="message" rows="7" required
-                  placeholder="현재 쓰고 계신 시스템과 데이터 상황, 풀고 싶은 문제를 적어 주세요. 구체적일수록 정확한 제안이 나옵니다."></textarea>
+                  placeholder="현재 쓰고 계신 시스템과 데이터 상황, 풀고 싶은 문제를 적어 주세요. 구체적일수록 정확한 제안이 나옵니다."
+                  data-en-placeholder="Tell us about the systems and data you work with today, and the problem you want to solve. The more specific you are, the more precise our proposal."></textarea>
       </label>
 
       <div class="form__row--full stack" style="--flow: var(--space-4)">
-        <button class="btn btn--primary btn--lg" type="submit">
+        <button class="btn btn--primary btn--lg" type="submit" data-en="Send inquiry">
           문의 보내기
           <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
         </button>
 
+        {# 이 안내는 링크를 품고 있어 문장이 두 도막이다. data-en 은 요소의 첫 글자
+           덩어리만 바꾸므로 앞도막·뒷도막에 각각 달아야 한다. #}
         <p class="form__note">
-          보내기를 누르면 작성하신 내용이 담긴 메일 창이 열립니다.
-          메일 앱이 열리지 않으면 <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> 으로 직접 보내 주세요.
+          <span data-en="Pressing send opens your mail app with the message filled in. If it does not open, write to">보내기를 누르면 작성하신 내용이 담긴 메일 창이 열립니다.
+          메일 앱이 열리지 않으면</span>
+          <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+          <span data-en="directly.">으로 직접 보내 주세요.</span>
         </p>
 
-        <p class="form__note" id="contact-form-note" hidden>
+        <p class="form__note" id="contact-form-note" hidden
+           data-en="Your mail app is open. Check the message and send it to reach us.">
           메일 앱을 열었습니다. 내용을 확인하고 보내 주시면 접수됩니다.
         </p>
       </div>

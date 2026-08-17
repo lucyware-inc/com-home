@@ -18,6 +18,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets/img");
   eleventyConfig.addPassthroughCopy("assets/js");
   eleventyConfig.addPassthroughCopy("_headers");
+  eleventyConfig.addPassthroughCopy("_redirects");
 
   // Cloudflare Pages Functions 는 빌드 산출물 루트에 있어야 인식된다.
   eleventyConfig.addPassthroughCopy("functions");
@@ -34,6 +35,43 @@ export default function (eleventyConfig) {
     if (!pageUrl || !sectionUrl) return false;
     if (sectionUrl === "/") return pageUrl === "/";
     return pageUrl === sectionUrl || pageUrl.startsWith(sectionUrl);
+  });
+
+  /**
+   * 전화번호 — 국내 표기 하나만 적어 두고 나머지는 여기서 만든다.
+   *
+   * 국제표기를 site.js 에 따로 적어 두었더니 같은 번호가 두 벌이 되었다.
+   * 한쪽만 고치면 화면에 어느 것이 나올지 사람이 알 수 없다 —
+   * 번호가 바뀌는 날 반드시 어긋난다.
+   *
+   *   "02-861-6190" | intlPhone  →  "+82-2-861-6190"   (영어 화면에 보이는 글자)
+   *   "02-861-6190" | telUri     →  "tel:+8228616190"  (눌러서 거는 링크)
+   *
+   * 국가번호를 붙일 때는 시외국번 앞의 0 을 뺀다. `+82 02-…` 는 어느 나라에서도
+   * 연결되지 않는 번호다.
+   */
+  eleventyConfig.addFilter("intlPhone", function (num) {
+    const s = String(num || "").trim();
+    if (!s) return "";
+    if (s.startsWith("+")) return s; // 이미 국제표기 — 두 번 붙이지 않는다
+    // 0 으로 시작하면 그 0 이 국내 전용 접두사이므로 뺀다.
+    // 1588·1544 같은 대표번호는 0 이 없고 그대로 국가번호 뒤에 온다.
+    return "+82-" + (s.startsWith("0") ? s.slice(1) : s);
+  });
+
+  eleventyConfig.addFilter("telUri", function (num) {
+    const digits = String(num || "").replace(/\D/g, "");
+    if (!digits) return "";
+    // tel: URI 에는 공백·괄호·하이픈을 넣지 않는다 — 모바일 다이얼러가 열리지 않는다
+    return "tel:+82" + digits.replace(/^0/, "");
+  });
+
+  /**
+   * GNB 그룹을 id 로 꺼낸다 — 홈이 Solution 구역과 Products 카드를 각각 그릴 때 쓴다.
+   * 목록을 홈에 다시 적지 않고 site.js 의 nav 하나만 읽게 하려는 것이다.
+   */
+  eleventyConfig.addFilter("navGroup", function (nav, id) {
+    return (nav || []).find((item) => item.id === id) || { children: [] };
   });
 
   /** 메뉴 항목(자식 포함)이 현재 페이지를 담고 있는가 */

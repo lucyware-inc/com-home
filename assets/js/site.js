@@ -22,6 +22,134 @@
   }
 
   /* ------------------------------------------------------------------
+     한국어 ↔ English
+
+     번역은 마크업에 붙여 둔다 — 영어가 필요한 자리에 속성을 달면 그것이 곧
+     사전이다. 사전 파일을 따로 두면 화면의 글과 번역이 다른 파일에 떨어져,
+     문구를 고칠 때 한쪽만 고치고 지나가게 된다.
+
+         <p data-en="We build...">우리는 ...</p>          글자
+         <input data-en-placeholder="Your name" ...>       속성
+         <option data-en-value="Other">기타</option>       보내지는 값
+
+     **속성까지 다루는 이유**: 폼은 글자만 바꿔서는 반쪽이다. placeholder 가
+     한국어로 남으면 영어 화면에서 입력칸 안내만 한글이고, `<option>` 의 value 를
+     그대로 두면 영어로 보낸 문의가 한국어 제목으로 도착한다 — 화면은 영어인데
+     결과물이 한국어인 상태가 된다.
+
+     `data-en*` 이 없는 요소는 한국어로 남는다. 지어낸 영어로 채우지 않는다 —
+     제품 설명은 영업 자리에서 그대로 약속이 되므로 사람이 확정한 문장만 들어간다.
+     지금 영어가 붙은 곳은 사이트 공통 UI 와 **Contact 페이지 전체**다.
+
+     선택은 localStorage 에 남는다. 서버·빌드가 관여하지 않으므로 정적 사이트
+     그대로다 — 언어별 URL(/en/)은 본문 번역이 확정된 뒤에 붙인다.
+     ------------------------------------------------------------------ */
+  const LANG_KEY = "lucyware-lang";
+  const langSwitch = document.querySelector("[data-lang-switch]");
+
+  // 지금 화면의 언어. 폼이 조립하는 메일도 이 값을 보고 말을 고른다.
+  const currentLang = () => (document.documentElement.lang === "en" ? "en" : "ko");
+
+  if (langSwitch) {
+    const langLabel = langSwitch.querySelector("[data-lang-label]");
+    // 원문은 DOM 이 아니라 여기에 담는다. data-ko 를 되받아 적으면 한국어 문장이
+    // 속성으로 한 벌 더 실려 나가고, 영어 상태에서 새로고침하면 그 값이 없다.
+    const original = new WeakMap();
+
+    const readLang = () => {
+      try {
+        return localStorage.getItem(LANG_KEY) === "en" ? "en" : "ko";
+      } catch (e) {
+        return currentLang();
+      }
+    };
+
+    // 요소 전체(textContent)가 아니라 「첫 글자 덩어리」 만 갈아 끼운다.
+    // 버튼 안에는 화살표 SVG 가 함께 들어 있는 경우가 많아, textContent 로 덮으면
+    // 그 아이콘이 조용히 사라진다. 앞뒤 공백은 그대로 두어 아이콘과의 간격도 지킨다.
+    const textNodeOf = (el) => {
+      for (const node of el.childNodes) {
+        if (node.nodeType === 3 && node.nodeValue.trim()) return node;
+      }
+      return null;
+    };
+
+    /* 번역 대상을 한 번만 훑어 모은다.
+       CSS 에는 「이름이 data-en- 으로 시작하는 속성」 을 고르는 선택자가 없어
+       전체를 한 번 훑는다. 페이지당 한 번뿐이라 값이 싸고, 이후 전환은
+       이 목록만 돈다 — 버튼을 누를 때마다 문서를 다시 뒤지지 않는다. */
+    const targets = Array.prototype.filter.call(
+      document.querySelectorAll("*"),
+      (el) =>
+        Array.prototype.some.call(
+          el.attributes,
+          (a) => a.name === "data-en" || a.name.indexOf("data-en-") === 0
+        )
+    );
+
+    /* 한국어 원본을 떠 둔다. 영어로 바꾼 뒤 되돌릴 곳이 여기뿐이다. */
+    function snapshot(el) {
+      const node = el.hasAttribute("data-en") ? textNodeOf(el) : null;
+      const text = node ? node.nodeValue : "";
+      // 앞뒤 공백을 따로 떼어 둔다 — 아이콘과의 사이 간격이 이 공백이다
+      const pad = node ? /^(\s*)[\s\S]*?(\s*)$/.exec(text) : null;
+
+      const attrs = [];
+      Array.prototype.forEach.call(el.attributes, (a) => {
+        if (a.name.indexOf("data-en-") !== 0) return;
+        const name = a.name.slice("data-en-".length);
+        attrs.push({ name: name, ko: el.getAttribute(name) || "" });
+      });
+
+      return { node: node, text: text, pad: pad, attrs: attrs };
+    }
+
+    function applyLang(lang) {
+      const en = lang === "en";
+      document.documentElement.lang = lang;
+
+      targets.forEach((el) => {
+        if (!original.has(el)) original.set(el, snapshot(el));
+        const base = original.get(el);
+
+        if (base.node) {
+          base.node.nodeValue = en
+            ? base.pad[1] + el.getAttribute("data-en") + base.pad[2]
+            : base.text;
+        }
+
+        base.attrs.forEach((attr) => {
+          el.setAttribute(
+            attr.name,
+            en ? el.getAttribute("data-en-" + attr.name) : attr.ko
+          );
+        });
+      });
+
+      // 버튼은 늘 「누르면 갈 언어」 를 그 나라 말로 보여준다
+      if (langLabel) langLabel.textContent = en ? "한국어" : "EN";
+      langSwitch.lang = en ? "ko" : "en";
+      langSwitch.setAttribute(
+        "aria-label",
+        en ? "한국어로 전환" : "Switch to English"
+      );
+    }
+
+    applyLang(readLang());
+    langSwitch.hidden = false;
+
+    langSwitch.addEventListener("click", () => {
+      const next = readLang() === "en" ? "ko" : "en";
+      try {
+        localStorage.setItem(LANG_KEY, next);
+      } catch (e) {
+        /* 저장이 막혀도 이번 페이지에서는 바뀌어야 한다 */
+      }
+      applyLang(next);
+    });
+  }
+
+  /* ------------------------------------------------------------------
      모바일 메뉴
      ------------------------------------------------------------------ */
   const navToggle = document.querySelector(".nav__toggle");
@@ -139,15 +267,39 @@
       const data = new FormData(contactForm);
       const get = (k) => String(data.get(k) || "").trim();
 
-      const subject = `[문의] ${get("company") || get("name")} — ${get("topic")}`;
+      /* 메일 본문도 화면 언어를 따라간다. 영어로 채운 폼이 한국어 제목·항목명으로
+         도착하면 보낸 사람은 자기가 무엇을 보냈는지 확인할 수 없다 —
+         메일 앱이 열리고 내용이 보이는 방식이라 이 화면이 곧 영수증이다. */
+      const en = currentLang() === "en";
+      const t = en
+        ? {
+            subject: "Inquiry",
+            company: "Company",
+            name: "Contact",
+            email: "Email",
+            phone: "Phone",
+            topic: "Topic",
+            message: "Message",
+          }
+        : {
+            subject: "문의",
+            company: "회사 · 기관",
+            name: "담당자",
+            email: "이메일",
+            phone: "연락처",
+            topic: "문의 유형",
+            message: "문의 내용",
+          };
+
+      const subject = `[${t.subject}] ${get("company") || get("name")} — ${get("topic")}`;
       const body = [
-        `회사 · 기관: ${get("company")}`,
-        `담당자: ${get("name")}`,
-        `이메일: ${get("email")}`,
-        `연락처: ${get("phone")}`,
-        `문의 유형: ${get("topic")}`,
+        `${t.company}: ${get("company")}`,
+        `${t.name}: ${get("name")}`,
+        `${t.email}: ${get("email")}`,
+        `${t.phone}: ${get("phone")}`,
+        `${t.topic}: ${get("topic")}`,
         "",
-        "문의 내용",
+        t.message,
         "----------------------------------------",
         get("message"),
       ].join("\n");
