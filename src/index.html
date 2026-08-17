@@ -271,20 +271,28 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
         자기 데이터가 무엇인지 정리되어 있지 않아서입니다. 줄임말 테이블 이름과
         뜻을 잃은 코드값을 아는 사람은 회사에 몇 명뿐입니다.
       </p>
+      {# 상세 페이지 머리와 같은 정의를 쓴다 — 홈에서 읽은 것과 들어가서 읽는
+         것이 다르면 무엇을 파는지 흐려진다. #}
       <p>
-        루씨웨어는 그 앞단을 다룹니다. 정리된 메타데이터가 있어야 AI 가 추측을 멈춥니다.
+        <strong>MetaDRAG®</strong> 는 데이터 표준화 설계부터 온톨로지 기반의 시맨틱
+        엔진 구현까지 <strong>3단계</strong>를 거쳐, 기업의 레거시 데이터를 지능형
+        비즈니스 객체로 전환하는
+        <strong>엔터프라이즈 데이터 엔지니어링 프레임워크</strong>입니다.
       </p>
       <a class="link-arrow" href="/products/metadrag/" data-en="What MetaDRAG does">
         MetaDRAG® 가 하는 일
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
       </a>
     </div>
-    <div class="alt__media" aria-hidden="true">
-      <div class="alt__badge">
-        <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
-        <strong>스키마 → 표준 → 질의</strong>
-        <span>정리된 구조 위에서만 답이 검증됩니다</span>
-      </div>
+    {# 위 Solution 구역과 같은 방식 — 도식이 배경을 들고 오지 않아
+       .alt__media 의 격자가 그대로 비친다. 강조색만 제품색(#0091AA)이다. #}
+    <div class="alt__media">
+      <img class="alt__diagram"
+           src="/assets/img/Portfolio/metadrag_flow.svg"
+           alt="MetaDRAG 3단계 파이프라인. 01 Design 이 Standard Metadata Repository 를,
+                02 Integration 이 M³ Dataset 을, 03 Implementation 이 Business Context
+                Object 를 만듭니다."
+           width="520" height="400" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
