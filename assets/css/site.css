@@ -1280,13 +1280,27 @@ textarea.field__control {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background-color: var(--bg);
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
 }
 
-/* 가운데 단계가 이 제품의 고유한 자리다. 색을 칠하지 않고 테두리로만 세운다 —
-   채우면 옆의 두 칸과 무게가 어긋나 셋이 한 묶음으로 읽히지 않는다. */
-.stage--core {
+/* 셋 중 하나를 미리 세워 두지 않는다 (2026-08-17 사용자 지시). 가운데 칸에
+   테두리를 박아 두었더니 나머지 둘이 곁가지로 읽혔는데, 세 단계는 순서일 뿐
+   어느 하나가 더 중요한 것이 아니다. 처음에는 셋이 같은 무게로 서 있고,
+   **마우스가 얹힌 칸**만 세운다 — 읽고 있는 자리를 화면이 따라와 준다.
+
+   들어 올리지 않고 테두리와 그림자만 준다. 카드가 뜨면 누를 수 있는 것처럼
+   보이는데 이 칸에는 눌러서 갈 곳이 없다 — .card 의 4px 들어올림과 브랜드
+   라인은 링크인 카드의 것이다.
+
+   :focus-within 을 함께 거는 것은, 나중에 이 칸 안에 링크가 들어와도 키보드로
+   훑는 사람이 같은 표시를 받게 하려는 것이다. 마우스에만 걸면 그때 다시 찾아
+   고쳐야 한다. */
+.stage:hover,
+.stage:focus-within {
   border-color: var(--accent-text);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
 }
 
 .stage__no {
