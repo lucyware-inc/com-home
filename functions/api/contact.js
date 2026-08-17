@@ -41,17 +41,37 @@ const LIMIT = {
   referer: 500,
 };
 
-const json = (body, status) =>
+const json = (body, status, extra) =>
   new Response(JSON.stringify(body), {
     status: status,
-    headers: { "Content-Type": "application/json; charset=utf-8" },
+    headers: Object.assign(
+      { "Content-Type": "application/json; charset=utf-8" },
+      extra || {}
+    ),
   });
+
+/**
+ * 모든 메서드가 여기로 들어온다.
+ *
+ * **메서드별 함수(onRequestPost)만 내보내면 안 된다.** 그러면 POST 아닌 요청을
+ * Pages 가 정적 사이트로 흘려보내, `/api/contact` 에 GET 했을 때 홈 화면이
+ * 200 으로 돌아온다 — 검색엔진이 홈의 사본으로 색인할 수 있고, 무엇보다 API
+ * 주소가 API 처럼 답하지 않는다. 하나만 내보내고 안에서 갈라 애매함을 없앤다.
+ */
+export async function onRequest(context) {
+  if (context.request.method !== "POST") {
+    return json({ ok: false, reason: "method_not_allowed" }, 405, {
+      Allow: "POST",
+    });
+  }
+  return handlePost(context);
+}
 
 function clean(value, max) {
   return String(value == null ? "" : value).trim().slice(0, max);
 }
 
-export async function onRequestPost(context) {
+async function handlePost(context) {
   const { request, env } = context;
 
   /* Hyperdrive 바인딩이 없으면 저장할 곳이 없다. 여기서 500 을 주면 화면이
