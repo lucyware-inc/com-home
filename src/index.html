@@ -97,13 +97,18 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
         {# 첫 화면에 바로 보이는 이미지라 lazy 로 미루지 않고 우선순위를 올린다.
            2.7MB 원본은 assets/_originals/ 에 두고, 여기서는 1200px 로 줄인
            WebP(64KB)·JPEG(96KB) 를 쓴다. width·height 를 적어 두어야
-           사진이 늦게 와도 자리가 미리 잡혀 글이 밀리지 않는다. #}
+           사진이 늦게 와도 자리가 미리 잡혀 글이 밀리지 않는다.
+
+           **적는 값은 파일의 실제 크기여야 한다.** 여기에 750 을 적어 두었을 때
+           파일은 675 였다 — CSS 의 aspect-ratio 가 이겨서 화면은 멀쩡했지만,
+           스타일이 늦거나 실패하면 그 순간 자리가 어긋난다. 사진을 바꾸면
+           이 숫자도 함께 바꾼다. #}
         <figure class="banner__media rise" style="--rise-delay: 300ms">
           <picture>
             <source srcset="/assets/img/Portfolio/AIKiosk_Event.webp" type="image/webp">
             <img src="/assets/img/Portfolio/AIKiosk_Event.jpg"
                  alt="전시회 현장에서 방문자가 손동작만으로 스마트 사이니지를 조작하는 모습"
-                 width="1200" height="750" fetchpriority="high" decoding="async">
+                 width="1200" height="675" fetchpriority="high" decoding="async">
           </picture>
           <figcaption class="banner__caption">
             시선·동작 인식 AI 사이니지 — 전시 현장 시연
