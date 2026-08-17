@@ -1,0 +1,207 @@
+<!-- width/height 를 100% 로 두면 <img> 로 불렀을 때 고유 크기가 없어 브라우저가
+     제멋대로 잡는다. 그린 크기 그대로 800×600 을 박아 둔다 — viewBox 와 비율이
+     같아야 CSS 로 폭만 줘도 세로가 따라온다. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Lucyware.AI 구조도" style="background-color: #0b0f19; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0D111D"/>
+    </linearGradient>
+
+    <!-- Brand Accent Gradient -->
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F2FE"/>
+      <stop offset="100%" stop-color="#4FACFE"/>
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Core Center Card Gradient -->
+    <linearGradient id="core-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+
+  <!-- Grid Pattern Overlay -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <path d="M 100 0 V 600 M 200 0 V 600 M 300 0 V 600 M 400 0 V 600 M 500 0 V 600 M 600 0 V 600 M 700 0 V 600" />
+    <path d="M 0 100 H 800 M 0 200 H 800 M 0 300 H 800 M 0 400 H 800 M 0 500 H 800" />
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(40, 45)">
+    <text x="0" y="22" font-size="26" font-weight="800" fill="url(#brand-grad)" letter-spacing="1">Lucyware AI</text>
+    <text x="0" y="44" font-size="13" font-weight="500" fill="#94A3B8" letter-spacing="0.5">Enterprise Ontology-based Hybrid RAG Platform</text>
+  </g>
+
+  <!-- Header Badge -->
+  <g transform="translate(610, 45)">
+    <rect width="150" height="30" rx="15" fill="#00F2FE" fill-opacity="0.1" stroke="#00F2FE" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="75" y="19" font-size="11" font-weight="600" fill="#00F2FE" text-anchor="middle">NEXT-GEN RAG</text>
+  </g>
+
+  <!-- Connection Flow Arrows (Background) -->
+  <path d="M 230 310 Q 255 310 275 310" stroke="#00F2FE" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.6"/>
+  <polygon points="278,310 270,305 270,315" fill="#00F2FE"/>
+
+  <path d="M 520 310 Q 545 310 565 310" stroke="#00F2FE" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.6"/>
+  <polygon points="568,310 560,305 560,315" fill="#00F2FE"/>
+
+  <!-- SECTION 1: LEGACY DATA SOURCES (LEFT) -->
+  <g transform="translate(40, 120)">
+    <rect width="190" height="380" rx="16" fill="url(#card-grad)" stroke="#334155" stroke-width="1.5"/>
+    <rect width="190" height="380" rx="16" fill="none" stroke="#00F2FE" stroke-opacity="0.2" stroke-width="1"/>
+    
+    <text x="20" y="35" font-size="14" font-weight="700" fill="#F8FAFC">Legacy Systems</text>
+    <text x="20" y="52" font-size="11" fill="#64748B">Heterogeneous Data Assets</text>
+    <line x1="20" y1="65" x2="170" y2="65" stroke="#334155" stroke-width="1"/>
+
+    <!-- DB Icon & Card -->
+    <g transform="translate(20, 80)">
+      <rect width="150" height="75" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <path d="M 15 20 C 15 15, 35 15, 35 15 C 35 15, 55 15, 55 20 C 55 25, 35 25, 35 25 C 35 25, 15 25, 15 20 Z M 15 20 V 40 C 15 45, 35 45, 35 45 C 35 45, 55 45, 55 40 V 20 M 15 30 C 15 35, 35 35, 35 35 C 35 35, 55 35, 55 30" 
+            fill="none" stroke="#38BDF8" stroke-width="1.5" transform="translate(5,5) scale(0.7)"/>
+      <text x="55" y="33" font-size="12" font-weight="600" fill="#E2E8F0">Structured DB</text>
+      <text x="55" y="48" font-size="10" fill="#94A3B8">RDBMS, ERP, CRM</text>
+    </g>
+
+    <!-- Document Icon & Card -->
+    <g transform="translate(20, 170)">
+      <rect width="150" height="75" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <path d="M 20 15 H 38 L 48 25 V 50 H 20 Z M 38 15 V 25 H 48" fill="none" stroke="#818CF8" stroke-width="1.5" transform="translate(0,2) scale(0.8)"/>
+      <text x="55" y="33" font-size="12" font-weight="600" fill="#E2E8F0">Documents</text>
+      <text x="55" y="48" font-size="10" fill="#94A3B8">PDF, Office, Logs</text>
+    </g>
+
+    <!-- Domain Logic Icon & Card -->
+    <g transform="translate(20, 260)">
+      <rect width="150" height="75" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <circle cx="32" cy="35" r="12" fill="none" stroke="#C084FC" stroke-width="1.5"/>
+      <path d="M 27 35 H 37 M 32 30 V 40" stroke="#C084FC" stroke-width="1.5"/>
+      <text x="55" y="33" font-size="12" font-weight="600" fill="#E2E8F0">Business Logic</text>
+      <text x="55" y="48" font-size="10" fill="#94A3B8">Rules &amp; Tacit Data</text>
+    </g>
+  </g>
+
+  <!-- SECTION 2: ONTOLOGY DATA MART (CENTER CORE) -->
+  <g transform="translate(280, 120)">
+    <rect width="240" height="380" rx="16" fill="url(#core-card)" stroke="#6366F1" stroke-width="2" filter="url(#glow-subtle)"/>
+    
+    <text x="120" y="35" font-size="15" font-weight="800" fill="#00F2FE" text-anchor="middle">Ontology Data Mart</text>
+    <text x="120" y="52" font-size="11" fill="#A5B4FC" text-anchor="middle">Semantic Knowledge Graph</text>
+    <line x1="30" y1="65" x2="210" y2="65" stroke="#4338CA" stroke-width="1"/>
+
+    <!-- Knowledge Graph Visualization Area -->
+    <g transform="translate(20, 80)">
+      <rect width="200" height="170" rx="12" fill="#090D16" stroke="#312E81" stroke-width="1"/>
+
+      <!-- Graph Connections -->
+      <line x1="50" y1="50" x2="100" y2="30" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.8"/>
+      <line x1="100" y1="30" x2="150" y2="60" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.8"/>
+      <line x1="50" y1="50" x2="80" y2="110" stroke="#00F2FE" stroke-width="1.5" stroke-opacity="0.8"/>
+      <line x1="100" y1="30" x2="100" y2="125" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.8"/>
+      <line x1="150" y1="60" x2="130" y2="115" stroke="#00F2FE" stroke-width="1.5" stroke-opacity="0.8"/>
+
+      <!-- Relationship Tag -->
+      <rect x="75" y="65" width="46" height="14" rx="4" fill="#1E1B4B"/>
+      <text x="98" y="75" font-size="8" fill="#A5B4FC" text-anchor="middle">relate_to</text>
+
+      <!-- Graph Nodes -->
+      <circle cx="50" cy="50" r="14" fill="#1E293B" stroke="#00F2FE" stroke-width="2"/>
+      <text x="50" y="53" font-size="9" font-weight="bold" fill="#00F2FE" text-anchor="middle">Entity</text>
+
+      <circle cx="100" cy="30" r="12" fill="#1E293B" stroke="#818CF8" stroke-width="2"/>
+      <text x="100" y="33" font-size="8" font-weight="bold" fill="#818CF8" text-anchor="middle">Schema</text>
+
+      <circle cx="150" cy="60" r="13" fill="#1E293B" stroke="#C084FC" stroke-width="2"/>
+      <text x="150" y="63" font-size="8" font-weight="bold" fill="#C084FC" text-anchor="middle">Doc</text>
+
+      <circle cx="100" cy="125" r="18" fill="#4338CA" stroke="#00F2FE" stroke-width="2" filter="url(#glow)"/>
+      <text x="100" y="129" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">Context</text>
+
+      <circle cx="80" cy="110" r="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+      <circle cx="130" cy="115" r="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    </g>
+
+    <!-- Sub Features -->
+    <g transform="translate(20, 265)">
+      <rect width="200" height="40" rx="8" fill="#1E1B4B" stroke="#4338CA" stroke-width="1"/>
+      <text x="100" y="19" font-size="11" font-weight="700" fill="#E0E7FF" text-anchor="middle">Hybrid Retrieval Engine</text>
+      <text x="100" y="31" font-size="9" fill="#818CF8" text-anchor="middle">Vector Search + Graph Traversal</text>
+    </g>
+
+    <g transform="translate(20, 315)">
+      <rect width="200" height="45" rx="8" fill="#0284C7" fill-opacity="0.2" stroke="#38BDF8" stroke-width="1"/>
+      <text x="100" y="21" font-size="11" font-weight="700" fill="#38BDF8" text-anchor="middle">Multi-hop Reasoning</text>
+      <text x="100" y="35" font-size="9" fill="#93C5FD" text-anchor="middle">Complex Semantic Inference</text>
+    </g>
+  </g>
+
+  <!-- SECTION 3: TRUSTED AI OUTPUT (RIGHT) -->
+  <g transform="translate(570, 120)">
+    <rect width="190" height="380" rx="16" fill="url(#card-grad)" stroke="#334155" stroke-width="1.5"/>
+    <rect width="190" height="380" rx="16" fill="none" stroke="#10B981" stroke-opacity="0.3" stroke-width="1"/>
+    
+    <text x="20" y="35" font-size="14" font-weight="700" fill="#F8FAFC">Trusted Output</text>
+    <text x="20" y="52" font-size="11" fill="#64748B">Enterprise AI Intelligence</text>
+    <line x1="20" y1="65" x2="170" y2="65" stroke="#334155" stroke-width="1"/>
+
+    <!-- Output Feature 1 -->
+    <!-- 칸을 12 넓히고(154 → 166) 설명을 두 줄로 나눴다. 한 줄로 두었더니
+         제일 긴 것이 202px 이라 154 짜리 칸을 60px 넘고 그림 밖까지 잘려 나갔다.
+         SVG 의 <text> 는 저절로 줄바꿈하지 않는다 — 글을 고치면 폭을 다시 잰다. -->
+    <g transform="translate(12, 80)">
+      <rect width="166" height="80" rx="10" fill="#0F172A" stroke="#10B981" stroke-opacity="0.4" stroke-width="1"/>
+      <circle cx="30" cy="28" r="11" fill="#10B981" fill-opacity="0.2"/>
+      <path d="M25 28 L28 31 L35 22" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+      <text x="48" y="32" font-size="10" font-weight="700" fill="#34D399">Zero Hallucination</text>
+      <text x="12" y="52" font-size="9" fill="#94A3B8">High accuracy through explicit<tspan x="12" dy="12">semantic grounding</tspan></text>
+    </g>
+
+    <!-- Output Feature 2 -->
+    <g transform="translate(12, 175)">
+      <rect width="166" height="80" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <circle cx="30" cy="28" r="11" fill="#38BDF8" fill-opacity="0.2"/>
+      <path d="M24 24 H36 M24 28 H32 M24 32 H36" stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="48" y="32" font-size="10" font-weight="700" fill="#E2E8F0">Data Lineage</text>
+      <text x="12" y="52" font-size="9" fill="#94A3B8">Full lineage tracking back to<tspan x="12" dy="12">source DB &amp; docs</tspan></text>
+    </g>
+
+    <!-- Output Feature 3 -->
+    <g transform="translate(12, 270)">
+      <rect width="166" height="80" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <circle cx="30" cy="28" r="11" fill="#F59E0B" fill-opacity="0.2"/>
+      <path d="M26 30 V26 C26 23.8 27.8 22 30 22 C32.2 22 34 23.8 34 26 V30 M24 30 H36 V35 H24 Z" fill="none" stroke="#FBBF24" stroke-width="1.5"/>
+      <text x="48" y="32" font-size="10" font-weight="700" fill="#E2E8F0">Security &amp; Governance</text>
+      <text x="12" y="52" font-size="9" fill="#94A3B8">Enterprise RBAC &amp; access<tspan x="12" dy="12">control compliance</tspan></text>
+    </g>
+  </g>
+
+  <!-- Bottom Catchphrase Bar -->
+  <g transform="translate(40, 525)">
+    <rect width="720" height="40" rx="10" fill="#1E293B" fill-opacity="0.6" stroke="#334155" stroke-width="1"/>
+    <text x="360" y="25" font-size="12" font-weight="600" fill="#F1F5F9" text-anchor="middle" letter-spacing="0.5">
+      "From legacy data to living intelligence!"
+    </text>
+  </g>
+</svg>
