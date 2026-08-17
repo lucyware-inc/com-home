@@ -5,6 +5,12 @@
 # 나가 있으므로(검색 색인·공유 링크) 끊지 않고 301 로 넘긴다.
 #
 # Lucyware.AI 는 옮기지 않았다 — 메뉴 라벨만 단수가 되었을 뿐이다.
+# Insights 는 2026-08-17 없앴다 — 실을 내용이 없었다. 페이지는 지웠지만 주소는
+# 이미 밖에 나가 있으므로 404 로 떨어뜨리지 않고 홈으로 넘긴다. 대신할 페이지가
+# 따로 없어 홈이다.
+/insights/    /  301
+/insights/*   /  301
+
 /solutions/metadrag/  /products/metadrag/  301
 /solutions/flexelf/   /products/flexelf/   301
 /services/ubiqloud/   /products/ubiqloud/  301

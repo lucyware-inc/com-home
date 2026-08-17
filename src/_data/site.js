@@ -119,7 +119,7 @@ export default {
         {
           label: "ubiQation®",
           url: "/products/ubiqation/",
-          desc: "세 제품을 받치는 엔터프라이즈 AI 개발 프레임워크",
+          desc: "엔터프라이즈 AI 개발 프레임워크",
           logo: "/assets/img/Logo/ubiQation_logo.svg",
           logoDark: "/assets/img/Logo/ubiQation_logo_reverse.svg",
         },
@@ -127,7 +127,9 @@ export default {
     },
     { label: "Company", labelKo: "회사소개", url: "/company/" },
     { label: "References", labelKo: "고객 사례", url: "/references/" },
-    { label: "Insights", labelKo: "인사이트", url: "/insights/" },
+    // Insights 는 뺐다 (2026-08-17 사용자 지시) — 실을 내용이 없었다. 채울 것이
+    // 없는 메뉴는 자리만 차지하면서 「들어가 봐야 빈 곳」 을 한 번 더 만든다.
+    // 옛 주소는 _redirects 가 홈으로 넘긴다.
     { label: "Careers", labelKo: "채용", url: "/careers/" },
     // 헤더 우측의 「문의 · PoC 신청」 버튼을 뺐다(2026-08-17 사용자 지시). 그 버튼이
     // 헤더에서 /contact/ 로 가는 유일한 길이었으므로 메뉴 항목으로 올린다 —
