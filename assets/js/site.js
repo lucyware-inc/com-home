@@ -126,6 +126,17 @@
         });
       });
 
+      /* 검증 문구는 여기서 지운다. data-en 으로 다룰 수 없는 글자라(제출할 때
+         JS 가 만들어 넣는다) 남겨 두면 화면은 영어인데 빨간 글자만 한국어로 남는다. */
+      document.querySelectorAll(".field__error").forEach((el) => {
+        const control = el.previousElementSibling;
+        if (control) {
+          control.removeAttribute("aria-invalid");
+          control.removeAttribute("aria-describedby");
+        }
+        el.remove();
+      });
+
       // 버튼은 늘 「누르면 갈 언어」 를 그 나라 말로 보여준다
       if (langLabel) langLabel.textContent = en ? "한국어" : "EN";
       langSwitch.lang = en ? "ko" : "en";
@@ -261,8 +272,83 @@
   const contactForm = document.getElementById("contact-form");
 
   if (contactForm) {
+    /* 브라우저 기본 검증(novalidate 를 떼는 것)을 쓰지 않는 이유:
+       기본 말풍선은 문구도 언어도 브라우저가 정해서, 영어 화면에서 한국어
+       문구가 뜨거나 그 반대가 된다. 이 페이지는 통째로 번역되는 유일한
+       페이지라 그 어긋남이 바로 보인다.
+
+       문구는 「무엇이 잘못됐는지 + 무엇을 하면 되는지」 순으로 적는다. */
+    const INVALID = {
+      ko: {
+        company: "회사 · 기관을 입력해 주세요.",
+        name: "담당자 이름을 입력해 주세요.",
+        email: "이메일 주소를 입력해 주세요.",
+        emailFormat: "이메일 주소를 다시 확인해 주세요. name@company.com 형식입니다.",
+        message: "문의 내용을 입력해 주세요.",
+      },
+      en: {
+        company: "Enter your company or organization.",
+        name: "Enter a contact name.",
+        email: "Enter your email address.",
+        emailFormat: "Check the email address — it should look like name@company.com.",
+        message: "Tell us what you need.",
+      },
+    };
+
+    const setError = (control, text) => {
+      let note = control.nextElementSibling;
+      if (!note || !note.classList.contains("field__error")) {
+        note = document.createElement("span");
+        note.className = "field__error";
+        note.id = "invalid-" + control.name;
+        control.insertAdjacentElement("afterend", note);
+      }
+      note.textContent = text;
+      control.setAttribute("aria-invalid", "true");
+      control.setAttribute("aria-describedby", note.id);
+    };
+
+    const clearError = (control) => {
+      const note = control.nextElementSibling;
+      if (note && note.classList.contains("field__error")) note.remove();
+      control.removeAttribute("aria-invalid");
+      control.removeAttribute("aria-describedby");
+    };
+
+    /* 고치는 순간 지운다. 다 채웠는데도 빨간 글자가 남아 있으면
+       무엇이 아직 모자란지 사람이 다시 세어야 한다. */
+    contactForm.addEventListener("input", (e) => {
+      if (e.target.classList.contains("field__control")) clearError(e.target);
+    });
+
+    const validate = () => {
+      const msg = INVALID[currentLang() === "en" ? "en" : "ko"];
+      const invalid = [];
+
+      ["company", "name", "email", "message"].forEach((field) => {
+        const control = contactForm.elements[field];
+        if (control && !control.value.trim()) {
+          setError(control, msg[field]);
+          invalid.push(control);
+        }
+      });
+
+      const email = contactForm.elements.email;
+      const value = email ? email.value.trim() : "";
+      if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        setError(email, msg.emailFormat);
+        invalid.push(email);
+      }
+
+      // 첫 번째 칸으로 데려간다 — 어디부터 봐야 하는지 알려주지 않으면
+      // 긴 폼에서 사람이 위아래로 훑어야 한다.
+      if (invalid.length) invalid[0].focus();
+      return invalid.length === 0;
+    };
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      if (!validate()) return;
 
       const data = new FormData(contactForm);
       const get = (k) => String(data.get(k) || "").trim();

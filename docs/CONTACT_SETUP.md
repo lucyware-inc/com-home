@@ -64,16 +64,80 @@ npx wrangler hyperdrive create lucyware-mariadb \
   --access-client-secret="<터널 서비스 토큰 Secret>"
 ```
 
-출력된 **id** 를 바인딩에 넣는다. 넣는 자리가 둘이니 **한쪽만 쓴다.**
+출력된 **id** 를 `wrangler.toml` 의 `[[hyperdrive]]` 블록에 넣고 주석을 푼다.
 
-| 어디 | 언제 |
-|---|---|
-| Cloudflare 대시보드 → `com-home` → Settings → Bindings | **지금 구성에서 실제로 먹는 자리.** GitHub 연동으로 배포하므로 이쪽을 권한다 |
-| `wrangler.toml` 의 `[[hyperdrive]]` 블록 | `wrangler` 로 직접 배포할 때 |
+```toml
+[[hyperdrive]]
+binding = "HYPERDRIVE"
+id = "<위에서 출력된 ID>"
+```
 
-두 곳이 어긋나면 어느 것이 참인지 알 수 없어진다.
+**대시보드가 아니라 이 파일이다** (2026-08-18 문서 확인으로 바로잡음). 저장소에
+`wrangler.toml` 이 있는 Pages 프로젝트에서는 이 파일이 단일 진실 공급원이 되어
+같은 항목을 대시보드에서 고칠 수 없다 — Cloudflare 문서의 말로는 "This file
+becomes the source of truth when used, meaning that you cannot edit the same
+fields in the dashboard" 다. 대시보드에만 걸어 두면 두 곳이 어긋나는 정도가
+아니라 **아예 먹지 않는다.**
+
+**id 는 비밀이 아니므로 커밋한다.** 자격증명(계정·비밀번호·Access 토큰)은 위
+`hyperdrive create` 명령이 Cloudflare 쪽 구성에 넣었고, 저장소에는 그 구성을
+가리키는 이름만 남는다. `localConnectionString` 은 적지 않는다 — 그 줄에는
+비밀번호가 들어가고 그대로 커밋된다.
 
 바인딩 이름은 **`HYPERDRIVE`** 여야 한다 — 함수가 `env.HYPERDRIVE` 로 읽는다.
+
+---
+
+## 4-1. 로컬에서 붙여 보기
+
+**운영에 걸기 전에 개발 PC 에서 같은 코드로 확인할 수 있다.** 로컬은 Hyperdrive
+를 지나지 않고 wrangler 가 접속 문자열로 직접 붙는다.
+
+```bash
+cp .env.example .env      # 그리고 <비밀번호> · <스키마> 두 곳을 채운다
+```
+
+`.env` 의 변수는 이것 하나다.
+
+```
+CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE="mysql://lucyware_web:<비밀번호>@127.0.0.1:13307/<스키마>"
+```
+
+- **`.dev.vars` 가 아니라 `.env` 다.** 이 값은 워커의 바인딩이 아니라 **wrangler
+  프로세스가 읽는 시스템 환경변수**이고, wrangler 는 `.env` 만 자기 `process.env`
+  에 얹는다. `.dev.vars` 에 적으면 아무 일도 일어나지 않는다.
+- 변수 이름 끝(`_HYPERDRIVE`)은 바인딩 이름과 같아야 한다.
+- **주소 자리에 DB 주소를 적지 않는다.** 붙는 곳은 터널의 이쪽 끝인 `127.0.0.1`
+  이고, 저쪽 끝을 DB 로 잇는 일은 `ssh -L` 이 한다. DB 주소를 그대로 적으면 그
+  대역으로 가는 라우트가 없어 `timed out` 으로 죽는다 — 값은 맞는데 길이 없는
+  것이라, 접속 문자열을 아무리 들여다봐도 원인이 보이지 않는다.
+- **비밀번호의 특수문자는 퍼센트 인코딩한다.** 주소 문법이라 그대로 넣으면
+  구분자로 읽힌다. 인코딩한 값은 wrangler 가 되돌려 주므로 안전하다
+  (`%40`→`@` · `%24`→`$` · `%23`→`#`, 2026-08-18 실제로 넣어 확인).
+  만드는 법: `node -e "console.log(encodeURIComponent('비밀번호'))"`
+- **`$` 는 특히 위험하다.** 날 `$` 를 적으면 dotenv 가 변수 이름으로 읽어 **거기서
+  값이 잘린다** — `pa$word9` 를 넣었더니 함수가 받은 비밀번호는 `pa` 였다. 그러면
+  `Access denied` 만 나오는데 접속 문자열은 눈으로 봐서 맞게 적혀 있으므로, 어디가
+  틀렸는지 보이지 않는다. `%24` 로 적는다.
+- `127.0.0.1:13307` 은 이 프로젝트의 SSH 터널 자리다. 터널을 먼저 띄운다 —
+  **개발자 개인 키**로만 뚫리고, CI 배포 키에는 `no-port-forwarding` 이 걸려 있다.
+
+```bash
+ssh -i ~/.ssh/Lucyware-net-SCP2-Keypair.pem -N -L 13307:<DB주소>:3306 <계정>@123.41.35.7
+npm run dev:api                     # http://localhost:8220
+```
+
+**바인딩 블록의 주석을 풀지 않으면 로컬에서도 503 이다** — 함수가 보는 것은
+`env.HYPERDRIVE` 이고, 그 바인딩은 `wrangler.toml` 이 만든다.
+
+응답으로 어디까지 갔는지 알 수 있다 (2026-08-18 로컬 확인).
+
+| 응답 | 어디까지 갔는가 |
+|---|---|
+| `405 method_not_allowed` | GET 으로 불렀다. 이 주소는 POST 만 받는다 |
+| `503 storage_unavailable` | 바인딩이 없다 — `[[hyperdrive]]` 주석을 풀지 않았다 |
+| `502 storage_failed` | 바인딩은 잡혔고 **DB 에 못 붙었다.** 터널·그란트·테이블을 본다. 원인은 wrangler 콘솔에 찍힌다 |
+| `200 {"ok":true}` | 저장됨. DB 에서 그 한 줄을 직접 확인한다 |
 
 ---
 
