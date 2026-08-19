@@ -1,35 +1,37 @@
 ---
 layout: layouts/page.njk
 title: Lucyware.AI
+titleEn: Lucyware.AI
 eyebrow: Solution
 productLogo: /assets/img/Logo/lucyware_ai_signature_gradient.svg
 accent: "#7B5BE6"
 lead: 레거시 DB와 문서 자산을 온톨로지 기반 지식 모델로 재구성해, 근거를 추적할 수 있는 엔터프라이즈 RAG 를 만드는 지식 인텔리전스 플랫폼입니다.
+leadEn: A knowledge intelligence platform that rebuilds legacy DBs and document assets into an ontology-based knowledge model, producing an enterprise RAG whose evidence can be traced.
 description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온톨로지 기반 지식 모델로 재구성해 고신뢰성 엔터프라이즈 RAG 를 구축하는 지식 인텔리전스 플랫폼입니다. 벡터 검색과 지식 그래프 탐색을 함께 써서 다단계 질의에 답하고, 답의 출처를 데이터 리니지로 되짚습니다.
 ---
 
 <section class="section">
   <div class="container prose stack">
-    <h2>무엇인가</h2>
-    <p>
+    <h2 data-en="What it is">무엇인가</h2>
+    <p data-en-html="<strong>Lucyware.AI</strong> rebuilds an enterprise's fragmented legacy DBs and its varied document assets into an ontology-based knowledge model, and on that basis builds a high-performance, high-reliability enterprise RAG (Retrieval-Augmented Generation) system. It is a <strong>knowledge intelligence platform</strong>.">
       <strong>Lucyware.AI</strong> 는 파편화된 기업의 레거시(Legacy) DB와 다양한 문서
       자산을 온톨로지(Ontology) 기반의 지식 모델로 재구성하여, 고성능·고신뢰성
       엔터프라이즈 RAG(Retrieval-Augmented Generation) 시스템을 구축하는
       <strong>지식 인텔리전스 플랫폼</strong>입니다.
     </p>
-    <p>
+    <p data-en-html="RAG built on vectors alone has inherent limits — loss of context, hallucination, and weak linkage between structured and unstructured data. The core mechanism for resolving them is to <strong>structure an enterprise's own business logic and the relationships between entities into a multidimensional data mart</strong>.">
       기존 벡터(Vector) 단독 기반 RAG 에는 고유한 한계가 있습니다 — 맥락 상실,
       환각(Hallucination), 정형·비정형 데이터 간 연계성 부족입니다. 이를 해결하기 위해
       기업 고유의 비즈니스 로직과 엔티티 간 관계(Relationship)를
       <strong>다차원적 데이터 마트로 구조화</strong>하는 것이 핵심 메커니즘입니다.
     </p>
 
-    <h2>현업과 데이터 사이의 거리</h2>
-    <p>
+    <h2 data-en="The distance between business users and data">현업과 데이터 사이의 거리</h2>
+    <p data-en="The data is there, but there is no way to ask. Checking a single number means filing a request, waiting for someone to write the SQL, and losing several days. In the meantime, the decision gets made on instinct.">
       데이터는 있는데 묻는 방법이 없습니다. 숫자 하나를 확인하려면 요청서를 쓰고
       담당자가 SQL 을 짜고 며칠을 기다립니다. 그 사이 판단은 감으로 내려집니다.
     </p>
-    <p>
+    <p data-en-html="Lucyware.AI removes that distance. Business users ask in the words they already use, and see <strong>which tables were read, and how, to produce the number</strong> alongside the answer. An answer with no visible evidence cannot be verified, and an answer that cannot be verified cannot be used in the business.">
       Lucyware.AI 는 그 거리를 없앱니다. 현업이 쓰던 말 그대로 묻고,
       <strong>어떤 테이블을 어떻게 읽어 나온 숫자인지</strong>를 답과 함께 봅니다.
       근거가 보이지 않는 답은 검증할 수 없고, 검증할 수 없는 답은 업무에 쓸 수 없습니다.
@@ -44,8 +46,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Architecture</span>
-      <h2>전체 구조</h2>
-      <p class="section-head__lead">
+      <h2 data-en="The full architecture">전체 구조</h2>
+      <p class="section-head__lead" data-en="The path from legacy to knowledge, and from knowledge to verified answers.">
         레거시에서 지식으로, 지식에서 검증된 답으로 가는 길입니다.
       </p>
     </div>
@@ -60,6 +62,7 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
                   그래프 탐색을 함께 쓰는 하이브리드 엔진이 다단계 추론을 거쳐,
                   오른쪽의 신뢰할 수 있는 결과 — 환각 없는 답, 데이터 리니지,
                   보안·거버넌스 — 로 이어집니다."
+             data-en-alt="Lucyware.AI architecture diagram. The legacy systems on the left — structured DBs, documents, and business rules — are rebuilt into a knowledge graph by the ontology data mart in the center; a hybrid engine that uses both vector search and graph traversal performs multi-step reasoning; and that leads to the trustworthy results on the right — answers without hallucination, data lineage, and security and governance."
              width="800" height="600" loading="lazy" decoding="async">
       </figure>
     </div>
@@ -70,8 +73,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Technology</span>
-      <h2>핵심 기술</h2>
-      <p class="section-head__lead">
+      <h2 data-en="Core technology">핵심 기술</h2>
+      <p class="section-head__lead" data-en="Ontology fills the places that vector search alone cannot reach.">
         벡터 검색 하나로는 닿지 않는 자리를 온톨로지가 메웁니다.
       </p>
     </div>
@@ -82,8 +85,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
         <div>
-          <h3>시맨틱 레거시 데이터 파이프라인</h3>
-          <p>
+          <h3 data-en="Semantic legacy data pipeline">시맨틱 레거시 데이터 파이프라인</h3>
+          <p data-en="It collects heterogeneous legacy DBs such as RDBMS, NoSQL, and ERP/CRM together with unstructured data such as PDF and Office documents, and automatically processes them into a semantic structure by mapping the data to one another.">
             RDBMS·NoSQL·ERP/CRM 등 이종의 레거시 DB와 PDF·Office 문서 같은 비정형
             데이터를 수집하고, 데이터 간의 매핑을 통해 의미론적(Semantic)
             구조로 자동 가공합니다.
@@ -94,8 +97,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
         <div>
-          <h3>온톨로지 기반 지식 그래프 데이터 마트</h3>
-          <p>
+          <h3 data-en="Ontology-based knowledge graph data mart">온톨로지 기반 지식 그래프 데이터 마트</h3>
+          <p data-en="It builds a domain-specific data mart in which entities, attributes, and relationships are defined explicitly. This becomes a foundation for semantic reasoning, not merely embedding.">
             엔티티(Entity)·속성(Attribute)·관계성(Relationship)을 명시적으로 정의한
             도메인 특화 데이터 마트를 구축합니다. 단순 임베딩이 아니라 의미론적
             추론(Reasoning)이 가능한 기반이 됩니다.
@@ -106,8 +109,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
         <div>
-          <h3>하이브리드 RAG 엔진</h3>
-          <p>
+          <h3 data-en="Hybrid RAG engine">하이브리드 RAG 엔진</h3>
+          <p data-en="It combines high-dimensional vector similarity search (Dense Retrieval) with ontology graph traversal (Graph Traversal). It supplies accurate context for complex multi-step questions (Multi-hop Query) that fragmentary search struggles to answer.">
             고차원 벡터 유사도 검색(Dense Retrieval)과 온톨로지 그래프
             탐색(Graph Traversal)을 결합합니다. 단편적 검색으로는 풀기 어려운 복잡한
             다단계 질문(Multi-hop Query)에 정확한 맥락을 제공합니다.
@@ -118,8 +121,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal" style="--reveal-delay: 240ms">
         <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
         <div>
-          <h3>추적 가능성과 거버넌스</h3>
-          <p>
+          <h3 data-en="Traceability and governance">추적 가능성과 거버넌스</h3>
+          <p data-en="It provides the exact source (Data Lineage) of the legacy data and documents that a generated answer rests on, and integrates with existing enterprise security schemes and role-based access control (RBAC).">
             생성된 답변의 근거가 되는 레거시 데이터와 문서의 정확한
             출처(Data Lineage)를 제공하며, 기존 기업 보안 체계 및 역할 기반 권한
             제어(RBAC)와 연동됩니다.
@@ -136,37 +139,37 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Comparison</span>
-      <h2>일반 Vector RAG 와 무엇이 다른가</h2>
+      <h2 data-en="How it differs from ordinary vector RAG">일반 Vector RAG 와 무엇이 다른가</h2>
     </div>
     <div class="scroll-x">
       <table class="compare">
         <thead>
           <tr>
-            <th scope="col">구분</th>
-            <th scope="col">일반 Vector 기반 RAG</th>
-            <th scope="col">Lucyware.AI (온톨로지 기반 RAG)</th>
+            <th scope="col" data-en="Category">구분</th>
+            <th scope="col" data-en="Ordinary vector-based RAG">일반 Vector 기반 RAG</th>
+            <th scope="col" data-en="Lucyware.AI (ontology-based RAG)">Lucyware.AI (온톨로지 기반 RAG)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">데이터 구조화</th>
-            <td>단순 텍스트 청킹(Chunking) 및 벡터화</td>
-            <td><strong>비즈니스 로직을 반영한 온톨로지 데이터 마트 구성</strong></td>
+            <th scope="row" data-en="Data structuring">데이터 구조화</th>
+            <td data-en="Plain text chunking and vectorization">단순 텍스트 청킹(Chunking) 및 벡터화</td>
+            <td data-en-html="<strong>An ontology data mart that reflects business logic</strong>"><strong>비즈니스 로직을 반영한 온톨로지 데이터 마트 구성</strong></td>
           </tr>
           <tr>
-            <th scope="row">맥락 이해도</th>
-            <td>단어 간 수학적 유사도 기반 — 단편적 정보</td>
-            <td><strong>엔티티 간 연관 관계 추론 기반 — 구조적·맥락적 정보</strong></td>
+            <th scope="row" data-en="Grasp of context">맥락 이해도</th>
+            <td data-en="Based on mathematical similarity between words — fragmentary information">단어 간 수학적 유사도 기반 — 단편적 정보</td>
+            <td data-en-html="<strong>Based on inference over relationships between entities — structural, contextual information</strong>"><strong>엔티티 간 연관 관계 추론 기반 — 구조적·맥락적 정보</strong></td>
           </tr>
           <tr>
-            <th scope="row">복잡 질의 대응</th>
-            <td>연관 데이터를 통합 탐색할 때 정보 유실이 생김</td>
-            <td><strong>지식 그래프 탐색을 통한 정확한 연계 답변</strong></td>
+            <th scope="row" data-en="Handling complex queries">복잡 질의 대응</th>
+            <td data-en="Information is lost when related data has to be explored together">연관 데이터를 통합 탐색할 때 정보 유실이 생김</td>
+            <td data-en-html="<strong>Accurate linked answers through knowledge graph traversal</strong>"><strong>지식 그래프 탐색을 통한 정확한 연계 답변</strong></td>
           </tr>
           <tr>
-            <th scope="row">신뢰성과 출처</th>
-            <td>환각 위험이 있고 출처 검증이 제한적</td>
-            <td><strong>데이터 리니지(Lineage) 기반의 높은 투명성과 검증 가능성</strong></td>
+            <th scope="row" data-en="Reliability and sources">신뢰성과 출처</th>
+            <td data-en="Risk of hallucination, with limited verification of sources">환각 위험이 있고 출처 검증이 제한적</td>
+            <td data-en-html="<strong>High transparency and verifiability based on data lineage (Lineage)</strong>"><strong>데이터 리니지(Lineage) 기반의 높은 투명성과 검증 가능성</strong></td>
           </tr>
         </tbody>
       </table>
@@ -178,55 +181,55 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Features</span>
-      <h2>무엇을 하는가</h2>
+      <h2 data-en="What it does">무엇을 하는가</h2>
     </div>
 
     <div class="grid" style="--col-min: 17rem">
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
         <div>
-          <h3>자연어 질의</h3>
-          <p>「지난 분기 거래처별 매출」 처럼 업무의 말로 묻습니다. SQL 을 배우지 않아도 됩니다.</p>
+          <h3 data-en="Natural-language query">자연어 질의</h3>
+          <p data-en="Ask in the words of the business — last quarter's sales by client. There is no need to learn SQL.">「지난 분기 거래처별 매출」 처럼 업무의 말로 묻습니다. SQL 을 배우지 않아도 됩니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
         <div>
-          <h3>근거가 붙은 답</h3>
-          <p>실행된 질의와 참조한 테이블을 함께 보여줍니다. 답을 믿을지 사람이 판단할 수 있습니다.</p>
+          <h3 data-en="Answers that carry their evidence">근거가 붙은 답</h3>
+          <p data-en="It shows the query that ran and the tables it referenced. A person can judge whether to trust the answer.">실행된 질의와 참조한 테이블을 함께 보여줍니다. 답을 믿을지 사람이 판단할 수 있습니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
         <div>
-          <h3>권한을 넘지 않는 답</h3>
-          <p>계정이 원래 볼 수 있는 범위 안에서만 답합니다. AI 를 통했다고 더 보이면 안 됩니다.</p>
+          <h3 data-en="Answers that stay within permissions">권한을 넘지 않는 답</h3>
+          <p data-en="It answers only within the range the account could already see. Going through AI must not reveal more.">계정이 원래 볼 수 있는 범위 안에서만 답합니다. AI 를 통했다고 더 보이면 안 됩니다.</p>
         </div>
       </div>
 
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
         <div>
-          <h3>읽기 전용이 기본</h3>
-          <p>질의는 조회로 제한합니다. 데이터를 바꾸는 일은 사람이 결재하는 경로로만 갑니다.</p>
+          <h3 data-en="Read-only by default">읽기 전용이 기본</h3>
+          <p data-en="Queries are restricted to reads. Changing data goes only through a path a person approves.">질의는 조회로 제한합니다. 데이터를 바꾸는 일은 사람이 결재하는 경로로만 갑니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
         <div>
-          <h3>문서와 데이터를 함께</h3>
-          <p>규정·매뉴얼 같은 문서도 같은 창구에서 찾습니다. 답의 출처가 표인지 문서인지 구분해 보여줍니다.</p>
+          <h3 data-en="Documents and data together">문서와 데이터를 함께</h3>
+          <p data-en="Documents such as regulations and manuals are searched from the same place. It shows whether an answer came from a table or from a document.">규정·매뉴얼 같은 문서도 같은 창구에서 찾습니다. 답의 출처가 표인지 문서인지 구분해 보여줍니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
         <div>
-          <h3>내부 설치 선택</h3>
-          <p>데이터를 밖으로 내보내기 어려운 곳을 위해 사내망 구성과 자체 모델 운영을 지원합니다.</p>
+          <h3 data-en="On-premises option">내부 설치 선택</h3>
+          <p data-en="For organizations that cannot move data outside, it supports an in-house network deployment and running your own models.">데이터를 밖으로 내보내기 어려운 곳을 위해 사내망 구성과 자체 모델 운영을 지원합니다.</p>
         </div>
       </div>
     </div>
@@ -237,15 +240,15 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Impact</span>
-      <h2>도입하면 무엇이 달라지는가</h2>
+      <h2 data-en="What changes when you adopt it">도입하면 무엇이 달라지는가</h2>
     </div>
 
     <div class="grid" style="--col-min: 18rem">
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
         <div>
-          <h3>수십 년 쌓인 암묵지의 자산화</h3>
-          <p>
+          <h3 data-en="Decades of tacit knowledge become an asset">수십 년 쌓인 암묵지의 자산화</h3>
+          <p data-en="It converts the large-scale DB and document data left idle in legacy systems into knowledge assets that AI can use directly.">
             레거시 시스템에 방치되어 있던 대용량 DB와 문서 데이터를 인공지능이 바로
             활용할 수 있는 지식 자산으로 전환합니다.
           </p>
@@ -255,8 +258,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
         <div>
-          <h3>환각 없는 답변 정확도</h3>
-          <p>
+          <h3 data-en="Answer accuracy without hallucination">환각 없는 답변 정확도</h3>
+          <p data-en="It produces high-quality answers without hallucination, even for questions about complex industry-specific data.">
             복잡한 산업 도메인 특화 데이터에 대한 질문에도 환각 없는 고품질 답변을
             만듭니다.
           </p>
@@ -266,8 +269,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
         <div>
-          <h3>다시 만들지 않는 확장</h3>
-          <p>
+          <h3 data-en="Expansion without rebuilding">다시 만들지 않는 확장</h3>
+          <p data-en="As the business widens, expansion is a matter of revising the ontology schema and the mart layer.">
             사업 영역이 넓어져도 온톨로지 스키마와 마트 레이어를 고치는 것으로
             확장합니다.
           </p>
@@ -279,8 +282,8 @@ description: Lucyware.AI 는 파편화된 레거시 DB와 문서 자산을 온�
 
 <section class="section">
   <div class="container prose stack">
-    <h2>MetaDRAG® 를 바탕으로 동작합니다</h2>
-    <p>
+    <h2 data-en="It runs on MetaDRAG®">MetaDRAG® 를 바탕으로 동작합니다</h2>
+    <p data-en-html="Before an ontology can be built, you have to know what data you already have. That foundation is the metadata organized by <a href='/products/metadrag/'>MetaDRAG®</a>. A model that learned without knowing the schema guesses at names; reading an organized structure and assembling a query from it gives a different result.">
       온톨로지를 세우려면 먼저 지금 있는 데이터가 무엇인지 알아야 합니다. 그 바탕이
       <a href="/products/metadrag/">MetaDRAG®</a> 가 정리한 메타데이터입니다.
       스키마를 모른 채 학습한 모델이 이름을 추측하는 것과, 정리된 구조를 읽고 질의를
