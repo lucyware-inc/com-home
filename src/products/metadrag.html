@@ -1,35 +1,37 @@
 ---
 layout: layouts/page.njk
 title: MetaDRAG®
+titleEn: MetaDRAG®
 eyebrow: Products
 productLogo: /assets/img/Logo/metadrag-wordmark-light.svg
 accent: "#0091AA"
 lead: 데이터 표준화 설계부터 온톨로지 기반 시맨틱 엔진 구현까지 세 단계를 거쳐, 레거시 데이터를 지능형 비즈니스 객체로 바꾸는 엔터프라이즈 데이터 엔지니어링 프레임워크입니다.
+leadEn: An enterprise data engineering framework that turns legacy data into intelligent business objects through three stages, from data standardization design to the implementation of an ontology-based semantic engine.
 description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 메타데이터를 설계하고, Master·Meta·Mart 를 M³ 데이터셋으로 합성한 뒤, 온톨로지로 비즈니스 맥락 객체를 만드는 엔터프라이즈 데이터 엔지니어링 프레임워크입니다.
 ---
 
 <section class="section">
   <div class="container prose stack">
-    <h2>무엇인가</h2>
-    <p>
+    <h2 data-en="What it is">무엇인가</h2>
+    <p data-en-html="<strong>MetaDRAG®</strong> is an <strong>enterprise data engineering framework</strong> that converts legacy enterprise data into intelligent business objects through <strong>three stages</strong>, from data standardization design to the implementation of an ontology-based semantic engine.">
       <strong>MetaDRAG®</strong> 는 데이터 표준화 설계부터 온톨로지 기반의 시맨틱 엔진
       구현까지 <strong>세 단계</strong>를 거쳐 기업의 레거시 데이터를 지능형 비즈니스
       객체로 전환하는 <strong>엔터프라이즈 데이터 엔지니어링 프레임워크</strong>입니다.
     </p>
 
-    <h2>왜 메타데이터부터인가</h2>
-    <p>
+    <h2 data-en="Why metadata comes first">왜 메타데이터부터인가</h2>
+    <p data-en-html="The first obstacle in connecting AI to a corporate database is not model performance but <strong>the fact that no one knows exactly what the data means</strong>. Table names are abbreviations, columns with the same meaning carry different names in each system, and the meaning of code values lives in the heads of long-serving staff.">
       기업 데이터베이스에 AI 를 붙일 때 가장 먼저 부딪히는 것은 모델의 성능이 아니라
       <strong>데이터가 무엇인지 아무도 정확히 모른다는 사실</strong>입니다.
       테이블 이름은 줄임말이고, 같은 뜻의 컬럼이 시스템마다 다른 이름으로 있으며,
       코드값의 의미는 오래 다닌 사람의 머릿속에 있습니다.
     </p>
-    <p>
+    <p data-en="Add natural language querying in that state and AI does not report what it does not know — it invents plausible SQL. A wrong number that looks right is the most expensive failure in a data project.">
       이 상태에서 자연어 질의를 붙이면 AI 는 모르는 것을 모른다고 하지 않고
       그럴듯한 SQL 을 지어냅니다. 틀린 숫자가 맞는 모양으로 나오는 것이
       데이터 프로젝트에서 가장 비싼 실패입니다.
     </p>
-    <p>
+    <p data-en-html="MetaDRAG® takes charge of that upstream work. It sets standards and organizes metadata, synthesizes scattered data into a single layer, and then <strong>converts it into objects with explicit meaning and relationships before handing them to AI.</strong>">
       MetaDRAG® 는 그 앞단을 맡습니다. 표준을 세워 메타데이터를 정리하고,
       흩어진 데이터를 하나의 층으로 합성한 다음,
       <strong>의미와 관계가 명시된 객체로 바꿔 AI 에 넘깁니다.</strong>
@@ -45,8 +47,8 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Workflow</span>
-      <h2>단계별로 무엇을 하는가</h2>
-      <p class="section-head__lead">
+      <h2 data-en="What happens at each stage">단계별로 무엇을 하는가</h2>
+      <p class="section-head__lead" data-en="The artifact of each stage becomes the input of the next. Any stage you skip has to be filled in later.">
         앞 단계의 산출물이 다음 단계의 입력이 됩니다. 건너뛴 단계는 뒤에서 다시 메워야 합니다.
       </p>
     </div>
@@ -54,23 +56,23 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
     <div class="grid" style="--col-min: 19rem">
       <div class="stage reveal">
         <span class="stage__no">01</span>
-        <h3>표준화</h3>
+        <h3 data-en="Standardization">표준화</h3>
         <p class="stage__engine">Design · Data Standardization Designer</p>
         <ul class="stage__list">
-          <li>
+          <li data-en-html="<strong>DAMA-DMBOK Architecture</strong> Designs the data governance structure on the basis of the global data management standard framework.">
             <strong>DAMA-DMBOK Architecture</strong>
             글로벌 데이터 관리 표준 프레임워크 체계를 기반으로 데이터 거버넌스 구조를 설계합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>Standard Data Modeling</strong> Performs standard data modeling that organizes terminology and domains across the enterprise.">
             <strong>Standard Data Modeling</strong>
             기업 전반의 용어와 도메인을 체계화하는 표준 데이터 모델링을 수행합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>OECD Data Quality Control</strong> Applies the OECD data quality management criteria to verify reliability, precision, and completeness.">
             <strong>OECD Data Quality Control</strong>
             OECD 데이터 품질 관리 기준을 적용해 신뢰성·정밀성·완전성을 검증합니다.
           </li>
         </ul>
-        <p class="stage__artifact">
+        <p class="stage__artifact" data-en-html="<span>Artifact</span> Standard Metadata Repository">
           <span>산출물</span>
           Standard Metadata Repository
         </p>
@@ -78,23 +80,23 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
 
       <div class="stage reveal" style="--reveal-delay: 80ms">
         <span class="stage__no">02</span>
-        <h3>데이터마트</h3>
+        <h3 data-en="Data Mart">데이터마트</h3>
         <p class="stage__engine">Integration · M<sup>3</sup> Synthesizer</p>
         <ul class="stage__list">
-          <li>
+          <li data-en-html="<strong>Master Data Integration</strong> Centrally manages master data, the core reference information of the enterprise.">
             <strong>Master Data Integration</strong>
             기업의 핵심 기준 정보인 마스터 데이터를 통합 관리합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>Meta Data Mapping</strong> Links to the Standard Metadata Repository to map the structural meaning between data.">
             <strong>Meta Data Mapping</strong>
             표준 메타데이터 저장소와 연계해 데이터 간의 구조적 의미를 매핑합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>Mart Data Structuring</strong> Synthesizes subject-oriented data marts optimized for analytics and RAG.">
             <strong>Mart Data Structuring</strong>
             분석과 RAG 에 최적화된 주제별 데이터 마트를 합성합니다.
           </li>
         </ul>
-        <p class="stage__artifact">
+        <p class="stage__artifact" data-en-html="<span>Artifact</span> M<sup>3</sup> Dataset — Master · Meta · Mart">
           <span>산출물</span>
           M<sup>3</sup> Dataset — Master · Meta · Mart
         </p>
@@ -102,23 +104,23 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
 
       <div class="stage reveal" style="--reveal-delay: 160ms">
         <span class="stage__no">03</span>
-        <h3>온톨로지</h3>
+        <h3 data-en="Ontology">온톨로지</h3>
         <p class="stage__engine">Implementation · Semantic Engine</p>
         <ul class="stage__list">
-          <li>
+          <li data-en-html="<strong>Ontology Classes</strong> Classifies data entities into semantic categories (Class).">
             <strong>Ontology Classes</strong>
             데이터 엔티티를 의미론적 범주(Class)로 분류합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>Ontology Relations</strong> Defines multidimensional associations (Relation) between entities to build a knowledge network.">
             <strong>Ontology Relations</strong>
             엔티티 간의 다차원 연관 관계(Relation)를 정의해 지식 네트워크를 구축합니다.
           </li>
-          <li>
+          <li data-en-html="<strong>Ontology Rules</strong> Reflects business logic and inference rules (Rule) to bring the data into a state that AI can understand.">
             <strong>Ontology Rules</strong>
             비즈니스 로직과 추론 규칙(Rule)을 반영해 인공지능이 이해할 수 있는 상태로 완성합니다.
           </li>
         </ul>
-        <p class="stage__artifact">
+        <p class="stage__artifact" data-en-html="<span>Artifact</span> Business Context Object">
           <span>산출물</span>
           Business Context Object
         </p>
@@ -131,36 +133,36 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Pipeline</span>
-      <h2>한 장으로 보는 파이프라인</h2>
+      <h2 data-en="The pipeline at a glance">한 장으로 보는 파이프라인</h2>
     </div>
 
     <div class="scroll-x">
       <table class="compare compare--plain">
         <thead>
           <tr>
-            <th scope="col">단계</th>
-            <th scope="col">전담 모듈</th>
-            <th scope="col">주요 프로세스</th>
-            <th scope="col">최종 산출물</th>
+            <th scope="col" data-en="Stage">단계</th>
+            <th scope="col" data-en="Module">전담 모듈</th>
+            <th scope="col" data-en="Key process">주요 프로세스</th>
+            <th scope="col" data-en="Final artifact">최종 산출물</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">01 표준화</th>
+            <th scope="row" data-en="01 Standardization">01 표준화</th>
             <td>Data Standardization Designer</td>
-            <td>DAMA-DMBOK 기반 설계 · 표준 모델링 · OECD 품질 제어</td>
+            <td data-en="DAMA-DMBOK based design · Standard modeling · OECD quality control">DAMA-DMBOK 기반 설계 · 표준 모델링 · OECD 품질 제어</td>
             <td><strong>Standard Metadata Repository</strong></td>
           </tr>
           <tr>
-            <th scope="row">02 데이터마트</th>
+            <th scope="row" data-en="02 Data Mart">02 데이터마트</th>
             <td>M<sup>3</sup> Synthesizer</td>
-            <td>Master Data + Meta Data + Mart Data 융합 합성</td>
+            <td data-en="Converged synthesis of Master Data + Meta Data + Mart Data">Master Data + Meta Data + Mart Data 융합 합성</td>
             <td><strong>M<sup>3</sup> Dataset</strong></td>
           </tr>
           <tr>
-            <th scope="row">03 온톨로지</th>
+            <th scope="row" data-en="03 Ontology">03 온톨로지</th>
             <td>Semantic Engine</td>
-            <td>Ontology Classes · Relations · Rules 시맨틱 구축</td>
+            <td data-en="Semantic build of Ontology Classes · Relations · Rules">Ontology Classes · Relations · Rules 시맨틱 구축</td>
             <td><strong>Business Context Object</strong></td>
           </tr>
         </tbody>
@@ -173,15 +175,15 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Why MetaDRAG®</span>
-      <h2>무엇이 다른가</h2>
+      <h2 data-en="What makes it different">무엇이 다른가</h2>
     </div>
 
     <div class="grid" style="--col-min: 18rem">
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
         <div>
-          <h3>표준화된 고품질 거버넌스</h3>
-          <p>
+          <h3 data-en="Standardized, high-quality governance">표준화된 고품질 거버넌스</h3>
+          <p data-en="Applies DAMA-DMBOK and OECD standard quality criteria to build a precise metadata foundation. Metadata gathered without a standard is just one more unsorted pile.">
             DAMA-DMBOK 과 OECD 표준 품질 기준을 적용해 정밀한 메타데이터 기반을
             세웁니다. 표준 없이 모은 메타데이터는 또 하나의 정리되지 않은 무더기입니다.
           </p>
@@ -191,8 +193,8 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
         <div>
-          <h3>M<sup>3</sup> 다차원 데이터 합성</h3>
-          <p>
+          <h3 data-en-html="M<sup>3</sup> multidimensional data synthesis">M<sup>3</sup> 다차원 데이터 합성</h3>
+          <p data-en="Connects Master, Meta, and Mart data into a single integrated layer with no data loss. If even one of the three is missing, context breaks at that point.">
             마스터·메타·마트 데이터를 하나로 연결해 데이터 유실 없는 통합 레이어를
             만듭니다. 셋 중 하나만 빠져도 그 자리에서 맥락이 끊깁니다.
           </p>
@@ -202,8 +204,8 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
         <div>
-          <h3>실시간 맥락 추론</h3>
-          <p>
+          <h3 data-en="Real-time context inference">실시간 맥락 추론</h3>
+          <p data-en="It does not stop at storing data — it converts data into objects with explicit business rules and relationships. This is where RAG hallucination is reduced at the root.">
             단순히 데이터를 저장하는 데서 그치지 않고 비즈니스 규칙과 관계성이 명시된
             객체로 바꿉니다. RAG 의 환각을 근본에서 줄이는 자리가 여기입니다.
           </p>
@@ -217,8 +219,8 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Features</span>
-      <h2>제품에서 하는 일</h2>
-      <p class="section-head__lead">
+      <h2 data-en="What you do in the product">제품에서 하는 일</h2>
+      <p class="section-head__lead" data-en="This is how a person works through the three stages above on screen.">
         위의 세 단계를 사람이 화면에서 밟아 나가는 방식입니다.
       </p>
     </div>
@@ -227,48 +229,48 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-database"></use></svg>
         <div>
-          <h3>스키마 수집과 동기화</h3>
-          <p>운영 중인 데이터베이스에서 테이블·컬럼·제약을 읽어 옵니다. 바뀌면 차이를 보여주고, 사람이 확인한 뒤 반영합니다.</p>
+          <h3 data-en="Schema collection and synchronization">스키마 수집과 동기화</h3>
+          <p data-en="Reads tables, columns, and constraints from databases in operation. When something changes, it shows the difference and applies it once a person has confirmed it.">운영 중인 데이터베이스에서 테이블·컬럼·제약을 읽어 옵니다. 바뀌면 차이를 보여주고, 사람이 확인한 뒤 반영합니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg>
         <div>
-          <h3>화면에서 하는 설계</h3>
-          <p>ERD 문서를 따로 그리고 실제 DB 와 어긋나게 두지 않습니다. 설계와 현물이 같은 자리에 있습니다.</p>
+          <h3 data-en="Design done on screen">화면에서 하는 설계</h3>
+          <p data-en="No separate ERD document left to drift out of step with the actual database. The design and the real thing sit in the same place.">ERD 문서를 따로 그리고 실제 DB 와 어긋나게 두지 않습니다. 설계와 현물이 같은 자리에 있습니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg>
         <div>
-          <h3>이름 · 도메인 표준</h3>
-          <p>같은 뜻에 같은 이름을 씁니다. 표준을 한 곳에 두면 새 시스템이 늘어도 갈라지지 않습니다.</p>
+          <h3 data-en="Naming and domain standards">이름 · 도메인 표준</h3>
+          <p data-en="The same meaning gets the same name. Keeping the standard in one place stops it from diverging as new systems are added.">같은 뜻에 같은 이름을 씁니다. 표준을 한 곳에 두면 새 시스템이 늘어도 갈라지지 않습니다.</p>
         </div>
       </div>
 
       <div class="feature reveal">
         <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
         <div>
-          <h3>의미 기반 검색</h3>
-          <p>「매출이 들어 있는 컬럼」 처럼 뜻으로 찾습니다. 이름을 정확히 알아야 찾을 수 있으면 검색이 아닙니다.</p>
+          <h3 data-en="Meaning-based search">의미 기반 검색</h3>
+          <p data-en="Search by meaning — for example, the columns that hold revenue. If you have to know the exact name to find something, that is not search.">「매출이 들어 있는 컬럼」 처럼 뜻으로 찾습니다. 이름을 정확히 알아야 찾을 수 있으면 검색이 아닙니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 80ms">
         <svg class="icon" aria-hidden="true"><use href="#i-cpu"></use></svg>
         <div>
-          <h3>AI 질의의 근거 공급</h3>
-          <p>정리된 메타데이터를 컨텍스트로 넘겨 질의를 만듭니다. 추측이 아니라 실제 구조 위에서 답합니다.</p>
+          <h3 data-en="Grounding for AI queries">AI 질의의 근거 공급</h3>
+          <p data-en="Passes organized metadata as context to build queries. Answers rest on the actual structure rather than on guesswork.">정리된 메타데이터를 컨텍스트로 넘겨 질의를 만듭니다. 추측이 아니라 실제 구조 위에서 답합니다.</p>
         </div>
       </div>
 
       <div class="feature reveal" style="--reveal-delay: 160ms">
         <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
         <div>
-          <h3>영향도 추적</h3>
-          <p>컬럼 하나를 바꾸면 어디가 깨지는지 먼저 봅니다. 바꾸고 나서 아는 것과는 치르는 값이 다릅니다.</p>
+          <h3 data-en="Impact tracking">영향도 추적</h3>
+          <p data-en="See what breaks before you change a single column. Finding out after the change costs a different price.">컬럼 하나를 바꾸면 어디가 깨지는지 먼저 봅니다. 바꾸고 나서 아는 것과는 치르는 값이 다릅니다.</p>
         </div>
       </div>
     </div>
@@ -277,23 +279,23 @@ description: MetaDRAG® 는 DAMA-DMBOK 과 OECD 품질 기준 위에서 표준 �
 
 <section class="section section--subtle">
   <div class="container prose stack">
-    <h2>이런 곳에 맞습니다</h2>
+    <h2 data-en="Where it fits">이런 곳에 맞습니다</h2>
     <ul class="checklist stack">
       <li>
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
-        <span>오래 운영한 시스템이 여러 개이고, 같은 데이터가 여기저기 다른 이름으로 있는 곳</span>
+        <span data-en="Organizations running several long-lived systems, where the same data appears under different names in different places">오래 운영한 시스템이 여러 개이고, 같은 데이터가 여기저기 다른 이름으로 있는 곳</span>
       </li>
       <li>
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
-        <span>데이터 요청을 받을 때마다 담당자가 SQL 을 새로 짜고 있는 곳</span>
+        <span data-en="Organizations where someone writes new SQL by hand for every data request">데이터 요청을 받을 때마다 담당자가 SQL 을 새로 짜고 있는 곳</span>
       </li>
       <li>
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
-        <span>AI 도입을 검토했으나 「우리 데이터로는 안 될 것 같다」 에서 멈춘 곳</span>
+        <span data-en="Organizations that looked at adopting AI but stopped at the conclusion that their own data was not ready">AI 도입을 검토했으나 「우리 데이터로는 안 될 것 같다」 에서 멈춘 곳</span>
       </li>
       <li>
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>
-        <span>차세대 · 마이그레이션을 앞두고 현행 구조를 정확히 파악해야 하는 곳</span>
+        <span data-en="Organizations facing a next-generation build or migration that need an accurate picture of the current structure">차세대 · 마이그레이션을 앞두고 현행 구조를 정확히 파악해야 하는 곳</span>
       </li>
     </ul>
   </div>

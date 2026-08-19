@@ -6,6 +6,7 @@ layout: layouts/page.njk
   빈 페이지를 두지 않는다 — 무엇을 준비하는지 알리고, 지금 필요한 사람에게는
   기다리지 않아도 되는 다음 걸음(문의)을 준다.
   front matter: soonBody (준비 내용 설명), soonHeading
+                soonBodyEn · soonHeadingEn (영어 화면. 없으면 한국어가 남는다)
 #}
 <section class="section">
   <div class="container soon">
@@ -14,16 +15,16 @@ layout: layouts/page.njk
     </div>
 
     <div class="soon__body">
-      <h2>{{ soonHeading or "준비하고 있습니다" }}</h2>
-      <p>{{ soonBody }}</p>
+      <h2 data-en="{{ soonHeadingEn or 'We are getting this ready' }}">{{ soonHeading or "준비하고 있습니다" }}</h2>
+      <p{% if soonBodyEn %} data-en="{{ soonBodyEn }}"{% endif %}>{{ soonBody }}</p>
     </div>
 
     <div class="cluster" style="justify-content:center">
-      <a class="btn btn--primary" href="/contact/">
+      <a class="btn btn--primary" href="/contact/" data-en="Get in touch first">
         먼저 문의하기
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
       </a>
-      <a class="btn btn--ghost" href="/">홈으로</a>
+      <a class="btn btn--ghost" href="/" data-en="Back to home">홈으로</a>
     </div>
   </div>
 </section>

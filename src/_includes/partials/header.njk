@@ -8,12 +8,14 @@
 
        width·height 는 viewBox 비율(2980:494 ≒ 6.03:1)에서 계산한 실제 값이다.
        어림수를 넣으면 글꼴·이미지가 늦게 올 때 헤더가 한 번 튄다. #}
-    <a class="header__logo" href="/" aria-label="{{ site.legalName }} 홈">
+    <a class="header__logo" href="/" aria-label="{{ site.legalName }} 홈"
+       data-en-aria-label="{{ site.legalNameEn }} home">
       <img src="{{ site.logo.light }}" alt="{{ site.name }}" width="169" height="28">
     </a>
 
     <button class="nav__toggle" type="button"
-            aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+            aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기"
+            data-en-aria-label="Open menu">
       <svg class="icon nav__toggle-open" aria-hidden="true"><use href="#i-menu"></use></svg>
       <svg class="icon nav__toggle-close" aria-hidden="true"><use href="#i-close"></use></svg>
     </button>
@@ -43,7 +45,7 @@
                       <a class="nav__sublink" href="{{ child.url }}"
                          {% if page.url | isUnder(child.url) %}aria-current="page"{% endif %}>
                         <span class="nav__sublink-name">{{ child.label }}</span>
-                        <span class="nav__sublink-desc">{{ child.desc }}</span>
+                        <span class="nav__sublink-desc" data-en="{{ child.descEn }}">{{ child.desc }}</span>
                       </a>
                     </li>
                   {% endfor %}

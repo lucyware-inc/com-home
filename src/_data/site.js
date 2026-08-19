@@ -21,7 +21,10 @@ export default {
   // 회사소개 페이지의 「기업 정보」 와 연혁이 함께 읽는다. 같은 날짜를 두 곳에
   // 적어 두면 한쪽만 고쳤을 때 어느 것이 참인지 알 수 없어진다.
   ceo: "정희석 (Tim CHUNG)",
+  ceoEn: "Tim CHUNG",
   founded: "2022년 11월 22일",
+  // 날짜 표기가 언어를 탄다. 같은 날을 두 벌 적는 것이라 **한쪽만 고치면 어긋난다**
+  foundedEn: "November 22, 2022",
   tagline: "Lumen cyberware everywhere!",
   description:
     "루씨웨어는 Metadata 기반 AI Transformation 전문 기업입니다. RDBMS 메타데이터를 AI 와 연결해 기업의 데이터 자산을 비즈니스 가치로 전환합니다.",
@@ -116,6 +119,7 @@ export default {
           label: "Lucyware.AI",
           url: "/solutions/lucyware-ai/",
           desc: "기업 데이터에 자연어로 묻는 AI 포털",
+          descEn: "Ask your enterprise data in plain language",
           logo: "/assets/img/Logo/lucyware_ai_signature_gradient.svg",
           logoDark: "/assets/img/Logo/lucyware_ai_signature_gradient_reverse.svg",
         },
@@ -130,6 +134,7 @@ export default {
           label: "MetaDRAG®",
           url: "/products/metadrag/",
           desc: "메타데이터 기반 설계·검색 플랫폼",
+          descEn: "Metadata-driven design and discovery platform",
           logo: "/assets/img/Logo/metadrag-wordmark-light.svg",
           logoDark: "/assets/img/Logo/metadrag-wordmark-dark.svg",
         },
@@ -137,6 +142,7 @@ export default {
           label: "flexelf™",
           url: "/products/flexelf/",
           desc: "시선을 읽는 온디바이스 AI 사이니지",
+          descEn: "On-device AI signage that reads where you look",
           logo: "/assets/img/Logo/flexelf_logo_TM.svg",
           logoDark: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
         },
@@ -144,6 +150,7 @@ export default {
           label: "ubiQloud®",
           url: "/products/ubiqloud/",
           desc: "맥락을 읽고 스스로 실행하는 Agentic ERP",
+          descEn: "Agentic ERP that reads context and acts on it",
           logo: "/assets/img/Logo/ubiQloud_MainLogo.svg",
           logoDark: "/assets/img/Logo/ubiQloud_DarkMode.svg",
         },
@@ -151,6 +158,7 @@ export default {
           label: "ubiQation®",
           url: "/products/ubiqation/",
           desc: "엔터프라이즈 AI 개발 프레임워크",
+          descEn: "Enterprise AI development framework",
           logo: "/assets/img/Logo/ubiQation_logo.svg",
           logoDark: "/assets/img/Logo/ubiQation_logo_reverse.svg",
         },

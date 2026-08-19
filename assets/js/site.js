@@ -87,9 +87,22 @@
         )
     );
 
-    /* 한국어 원본을 떠 둔다. 영어로 바꾼 뒤 되돌릴 곳이 여기뿐이다. */
+    /* 한국어 원본을 떠 둔다. 영어로 바꾼 뒤 되돌릴 곳이 여기뿐이다.
+
+       **data-en 과 data-en-html 은 쓰는 자리가 다르다.**
+       data-en 은 요소의 「첫 글자 덩어리」 만 바꾼다 — 버튼 안에 화살표 SVG 가
+       함께 든 경우가 많아 통째로 덮으면 그 아이콘이 조용히 사라지기 때문이다.
+       그래서 문장 안에 <strong> 이나 링크가 들어 있으면 뒷부분이 한국어로 남는다.
+       그런 자리는 data-en-html 로 요소 안을 통째로 갈아 끼운다 — 본문 블록의
+       3분의 1이 여기 해당한다 (2026-08-20 실측: 300개 중 104개).
+
+       **둘을 한 요소에 함께 쓰지 않는다.** innerHTML 을 갈아 끼우면 아래에서
+       떠 두는 텍스트 노드가 문서에서 떨어져 나가 data-en 쪽이 아무 일도 못 한다.
+       **data-en-html 을 단 요소 안에 다른 번역 대상을 두지도 않는다** — 같은
+       이유로 그 자식이 통째로 교체된다. */
     function snapshot(el) {
-      const node = el.hasAttribute("data-en") ? textNodeOf(el) : null;
+      const hasHtml = el.hasAttribute("data-en-html");
+      const node = !hasHtml && el.hasAttribute("data-en") ? textNodeOf(el) : null;
       const text = node ? node.nodeValue : "";
       // 앞뒤 공백을 따로 떼어 둔다 — 아이콘과의 사이 간격이 이 공백이다
       const pad = node ? /^(\s*)[\s\S]*?(\s*)$/.exec(text) : null;
@@ -98,10 +111,18 @@
       Array.prototype.forEach.call(el.attributes, (a) => {
         if (a.name.indexOf("data-en-") !== 0) return;
         const name = a.name.slice("data-en-".length);
+        // html 은 속성 이름이 아니라 「요소 안 전체」 를 가리키는 예약어다
+        if (name === "html") return;
         attrs.push({ name: name, ko: el.getAttribute(name) || "" });
       });
 
-      return { node: node, text: text, pad: pad, attrs: attrs };
+      return {
+        node: node,
+        text: text,
+        pad: pad,
+        attrs: attrs,
+        html: hasHtml ? el.innerHTML : null,
+      };
     }
 
     function applyLang(lang) {
@@ -112,7 +133,9 @@
         if (!original.has(el)) original.set(el, snapshot(el));
         const base = original.get(el);
 
-        if (base.node) {
+        if (base.html !== null) {
+          el.innerHTML = en ? el.getAttribute("data-en-html") : base.html;
+        } else if (base.node) {
           base.node.nodeValue = en
             ? base.pad[1] + el.getAttribute("data-en") + base.pad[2]
             : base.text;
@@ -170,14 +193,19 @@
     if (!nav || !navToggle) return;
     nav.classList.remove("is-open");
     navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "메뉴 열기");
+    const menuLabel = (open) =>
+      currentLang() === "en"
+        ? open ? "Close menu" : "Open menu"
+        : open ? "메뉴 닫기" : "메뉴 열기";
+
+    navToggle.setAttribute("aria-label", menuLabel(false));
   }
 
   if (navToggle && nav) {
     navToggle.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", String(open));
-      navToggle.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+      navToggle.setAttribute("aria-label", menuLabel(open));
     });
   }
 

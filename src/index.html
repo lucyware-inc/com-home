@@ -27,40 +27,52 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
 
 {% set slides = [
   {
-    key: "metadrag", label: "MetaDRAG®", tag: "Metadata Platform",
+    key: "metadrag", label: "MetaDRAG®", tag: "Metadata driven RAG",
     logo: "/assets/img/Logo/metadrag-wordmark-dark.svg",
     title: "데이터를 아는 AI 는 스키마부터 읽습니다",
+    titleEn: "AI that knows your data reads the schema first",
     lead: "테이블·컬럼·관계를 정리해 의미를 돌려주고, 그 위에서 질의가 만들어집니다. 정리 없이 올린 AI 는 그럴듯한 오답을 냅니다.",
+    leadEn: "We organize tables, columns and relationships so the data carries meaning again, and queries are built on that. AI dropped onto unorganized data returns plausible wrong answers.",
     url: "/products/metadrag/",
     accent: "#0091AA", glow: "rgb(0 145 170 / 0.20)",
-    cards: ["표준화", "데이터마트", "온톨로지"]
+    cards: ["표준화", "데이터마트", "온톨로지"],
+    cardsEn: ["Standardization", "Data Mart", "Ontology"]
   },
   {
-    key: "flexelf", label: "flexelf™", tag: "AI Signage",
+    key: "flexelf", label: "flexelf™", tag: "AI Smart Signage",
     logo: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
     title: "바라보는 것만으로 반응합니다",
+    titleEn: "It responds to a glance",
     lead: "시선과 행동, 음성과 객체를 함께 읽어 보는 사람에게 맞는 화면을 띄웁니다. 판단은 기기 안에서 끝나므로 기다림이 없습니다.",
+    leadEn: "It reads gaze, motion, voice and objects together, then shows the screen that fits the person in front of it. Inference finishes on the device, so there is no waiting.",
     url: "/products/flexelf/",
     accent: "#7D9EC9", glow: "rgb(125 158 201 / 0.20)",
-    cards: ["패키지", "알고리즘", "플랫폼"]
+    cards: ["패키지", "알고리즘", "플랫폼"],
+    cardsEn: ["Package", "Algorithm", "Platform"]
   },
   {
     key: "ubiqloud", label: "ubiQloud®", tag: "Agentic ERP",
     logo: "/assets/img/Logo/ubiQloud_DarkMode.svg",
     title: "찾아 들어가지 않아도 됩니다",
+    titleEn: "No more digging through menus",
     lead: "무엇을 보고 있는지 시스템이 먼저 읽습니다. 발주 승인도 재고 예측도 에이전트가 스스로 합니다.",
+    leadEn: "The system reads what you are looking at first. Purchase approvals and inventory forecasts are carried out by agents on their own.",
     url: "/products/ubiqloud/",
     accent: "#4F74B3", glow: "rgb(79 116 179 / 0.22)",
-    cards: ["거버넌스", "인터랙션", "에이전트"]
+    cards: ["거버넌스", "인터랙션", "에이전트"],
+    cardsEn: ["Governance", "Interaction", "Agent"]
   },
   {
-    key: "ubiqation", label: "ubiQation®", tag: "Dev Framework",
+    key: "ubiqation", label: "ubiQation®", tag: "AI Development Framework",
     logo: "/assets/img/Logo/ubiQation_logo_reverse.svg",
     title: "따로 만든 것을 잇는 데 시간을 쓰지 않습니다",
+    titleEn: "No time lost wiring separate builds together",
     lead: "데이터·엣지·앱이 하나의 규약 위에서 만들어집니다. 사이를 메우는 코드가 프로젝트마다 새로 생기지 않습니다.",
+    leadEn: "Data, edge and applications are built on one shared contract. The glue code between them is not rewritten for every project.",
     url: "/products/ubiqation/",
     accent: "#ED7D31", glow: "rgb(237 125 49 / 0.18)",
-    cards: ["데이터", "엣지", "앱"]
+    cards: ["데이터", "엣지", "앱"],
+    cardsEn: ["Data", "Edge", "App"]
   }
 ] %}
 
@@ -80,11 +92,13 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
         <div class="banner__copy stack">
           <span class="banner__tag rise">Lumen cyberware everywhere!</span>
 
-          <h1 class="banner__title rise" style="--rise-delay: 120ms">
+          <h1 class="banner__title rise" style="--rise-delay: 120ms"
+              data-en-html="<em>AI</em> that understands people">
             인간을 이해하는 <em>AI</em>
           </h1>
 
-          <p class="banner__lead rise" style="--rise-delay: 240ms">
+          <p class="banner__lead rise" style="--rise-delay: 240ms"
+             data-en-html="Lucyware restores meaning to enterprise data through metadata,<br>then builds AI that reads human intent on top of it.">
             루씨웨어는 메타데이터로 기업의 데이터에 의미를 돌려주고,<br>그 위에서 사람의 의도를 읽는 AI 를 만듭니다.
           </p>
 
@@ -98,9 +112,9 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
 
           <div class="banner__facts rise" style="--rise-delay: 480ms">
             <div class="banner__fact"><b>4+1</b><span data-en="products and solution">제품과 솔루션</span></div>
-            <div class="banner__fact"><b>4주</b><span data-en="typical PoC cycle">PoC 기본 주기</span></div>
+            <div class="banner__fact"><b data-en="4 weeks">4주</b><span data-en="typical PoC cycle">PoC 기본 주기</span></div>
             <div class="banner__fact"><b>100%</b><span data-en="on-premise data option">데이터 사내 보관 구성</span></div>
-            <div class="banner__fact"><b>1~2일</b><span data-en="reply to inquiries">문의 회신</span></div>
+            <div class="banner__fact"><b data-en="1–2 days">1~2일</b><span data-en="reply to inquiries">문의 회신</span></div>
           </div>
         </div>
 
@@ -120,7 +134,7 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
                  alt="전시회 현장에서 방문자가 손동작만으로 스마트 사이니지를 조작하는 모습"
                  width="1200" height="675" fetchpriority="high" decoding="async">
           </picture>
-          <figcaption class="banner__caption">
+          <figcaption class="banner__caption" data-en="Gaze and gesture recognition AI signage — live demo at a trade show">
             시선·동작 인식 AI 사이니지 — 전시 현장 시연
           </figcaption>
         </figure>
@@ -141,8 +155,8 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
                적을 수 없고, 세로만 잡혀 있으면 아래 글이 밀리지 않는다.
                높이를 바꿀 때는 site.css 의 .banner__logo 와 함께 고친다. #}
             <img class="banner__logo" src="{{ s.logo }}" alt="{{ s.label }}" height="50">
-            <h2 class="banner__title">{{ s.title }}</h2>
-            <p class="banner__lead">{{ s.lead }}</p>
+            <h2 class="banner__title" data-en="{{ s.titleEn }}">{{ s.title }}</h2>
+            <p class="banner__lead" data-en="{{ s.leadEn }}">{{ s.lead }}</p>
             <div class="cluster">
               <a class="btn btn--primary" href="{{ s.url }}" data-en="Learn more">
                 자세히 보기
@@ -160,7 +174,7 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
             </svg>
             {% for c in s.cards %}
               <div class="banner__card banner__card--{{ loop.index }}">
-                <h4>{{ c }}</h4>
+                <h4 data-en="{{ s.cardsEn[loop.index0] }}">{{ c }}</h4>
                 <div class="banner__rows">
                   <span class="banner__row banner__row--w70"></span>
                   <span class="banner__row banner__row--hot banner__row--w45"></span>
@@ -177,7 +191,7 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
   </div>
 
   <div class="banner__controls">
-    <button class="banner__btn" type="button" data-banner-prev aria-label="이전 슬라이드">
+    <button class="banner__btn" type="button" data-banner-prev aria-label="이전 슬라이드" data-en-aria-label="Previous slide">
       <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
     </button>
 
@@ -188,12 +202,12 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
       {% endfor %}
     </div>
 
-    <button class="banner__btn" type="button" data-banner-next aria-label="다음 슬라이드">
+    <button class="banner__btn" type="button" data-banner-next aria-label="다음 슬라이드" data-en-aria-label="Next slide">
       <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
     </button>
 
     <button class="banner__btn banner__pause" type="button" data-banner-pause
-            aria-pressed="false" aria-label="배너 자동 넘김 멈추기">
+            aria-pressed="false" aria-label="배너 자동 넘김 멈추기" data-en-aria-label="Pause automatic slides">
       <svg class="icon banner__icon-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
       <svg class="icon banner__icon-play" aria-hidden="true"><use href="#i-play"></use></svg>
     </button>
@@ -212,16 +226,16 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
       <span class="section-head__eyebrow">Solution</span>
       <img src="{{ lucyai.logo }}" alt="{{ lucyai.label }}" height="34"
            style="height: 2.125rem; width: auto; align-self: start">
-      <h2>온톨로지 기반의<br>기업 맞춤형 RAG 플랫폼</h2>
+      <h2 data-en-html="An ontology-based RAG platform<br>tailored to your enterprise">온톨로지 기반의<br>기업 맞춤형 RAG 플랫폼</h2>
       {# 회사가 정한 Lucyware.AI 의 정의다. 제품 페이지 머리와 같은 문장을 쓴다 —
          홈에서 읽은 것과 들어가서 읽는 것이 다르면 무엇을 파는지 흐려진다. #}
-      <p>
+      <p data-en-html="<strong>Lucyware.AI</strong> is a <strong>knowledge intelligence platform</strong> that restructures fragmented legacy databases and document assets into an ontology-based knowledge model, and builds a high-performance, high-reliability enterprise RAG (Retrieval-Augmented Generation) system on that foundation.">
         <strong>Lucyware.AI</strong> 는 파편화된 기업의 레거시(Legacy) DB와 다양한 문서
         자산을 온톨로지(Ontology) 기반의 지식 모델로 재구성하여, 고성능·고신뢰성
         엔터프라이즈 RAG(Retrieval-Augmented Generation) 시스템을 구축하는
         <strong>지식 인텔리전스 플랫폼</strong>입니다.
       </p>
-      <p>
+      <p data-en-html="<strong>Trust without hallucination — ontology-based enterprise hybrid RAG</strong>">
         <strong>「환각 없는 신뢰, 온톨로지 기반의 엔터프라이즈 하이브리드 RAG」</strong>
       </p>
       <a class="link-arrow" href="{{ lucyai.url }}" data-en="Explore Lucyware.AI">
@@ -249,8 +263,8 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
   <div class="container">
     <div class="section-head">
       <span class="section-head__eyebrow">Products</span>
-      <h2>Lucyware.AI 를 완성하는 네 가지</h2>
-      <p class="section-head__lead">
+      <h2 data-en="The four that make up Lucyware.AI">Lucyware.AI 를 완성하는 네 가지</h2>
+      <p class="section-head__lead" data-en="Take a look at each product and technology below.">
         아래의 각 제품 및 기술들을 확인하세요.
       </p>
     </div>
@@ -260,7 +274,7 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
         <a class="card reveal" href="{{ child.url }}" style="--reveal-delay: {{ loop.index0 * 60 }}ms">
           <img class="card__logo" src="{{ child.logo }}" alt="" height="22">
           <h3 class="sr-only">{{ child.label }}</h3>
-          <p>{{ child.desc }}</p>
+          <p data-en="{{ child.descEn }}">{{ child.desc }}</p>
           <span class="link-arrow" style="margin-block-start: auto" data-en="Learn more">
             자세히 보기
             <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
@@ -275,21 +289,21 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
   <div class="container alt">
     <div class="alt__copy stack">
       <span class="section-head__eyebrow">Why metadata</span>
-      <h2>기업 내 데이터를 AI 친화적 데이터로 변환해야 합니다</h2>
-      <p>
+      <h2 data-en="Enterprise data has to become AI-ready data">기업 내 데이터를 AI 친화적 데이터로 변환해야 합니다</h2>
+      <p data-en="Enterprise data has to be standardized around meaning before AI can understand it. Yet almost no one inside a company can standardize and integrate data across the whole organization and convert it into a form AI can read.">
         기업 내 데이터는 AI 가 이해할 수 있게 의미 기반으로 표준화되어야 합니다.
         하지만, 전사 데이터를 표준화하고 통합해서 AI 가 이해할 수 있도록
         전환할 수 있는 사람은 회사에 거의 없습니다.
       </p>
       {# 상세 페이지 머리와 같은 정의를 쓴다 — 홈에서 읽은 것과 들어가서 읽는
          것이 다르면 무엇을 파는지 흐려진다. #}
-      <p>
+      <p data-en-html="<strong>MetaDRAG®</strong> is an <strong>enterprise data engineering framework</strong> that turns legacy enterprise data into intelligent business objects through <strong>three stages</strong>, from data standardization design to the implementation of an ontology-based semantic engine.">
         <strong>MetaDRAG®</strong> 는 데이터 표준화 설계부터 온톨로지 기반의 시맨틱
         엔진 구현까지 <strong>세 단계</strong>를 거쳐, 기업의 레거시 데이터를 지능형
         비즈니스 객체로 전환하는
         <strong>엔터프라이즈 데이터 엔지니어링 프레임워크</strong>입니다.
       </p>
-      <a class="link-arrow" href="/products/metadrag/" data-en="What MetaDRAG does">
+      <a class="link-arrow" href="/products/metadrag/" data-en="What MetaDRAG® does">
         MetaDRAG® 가 하는 일
         <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
       </a>
@@ -307,12 +321,12 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
   <div class="container alt alt--flip">
     <div class="alt__copy stack">
       <span class="section-head__eyebrow">How we work</span>
-      <h2>전사 계획보다 시급한 업무 하나부터</h2>
-      <p>
+      <h2 data-en="Start with one urgent task, not a company-wide plan">전사 계획보다 시급한 업무 하나부터</h2>
+      <p data-en="Draw a company-wide plan for too long and the situation changes before the work even begins. We pick the most urgent task, build it in a short cycle, confirm the result on a working screen, and then widen the scope.">
         전사 단위로 계획을 오래 그리면 착수 전에 상황이 바뀝니다. 가장 시급한 업무 하나를
         골라 짧은 기간에 구축하고, 실제 화면으로 결과를 확인한 뒤 범위를 넓힙니다.
       </p>
-      <p>
+      <p data-en="Because only what has been proven gets extended, the risk drops sharply.">
         검증된 것만 확장하기 때문에 리스크를 확연히 줄일 수 있습니다.
       </p>
       <a class="link-arrow" href="/contact/" data-en="Discuss a PoC scope">
@@ -323,8 +337,8 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
     <div class="alt__media" aria-hidden="true">
       <div class="alt__badge">
         <svg class="icon" aria-hidden="true"><use href="#i-workflow"></use></svg>
-        <strong>진단 · 설계 · PoC · 확장</strong>
-        <span>되는 것을 확인한 뒤에 넓힙니다</span>
+        <strong data-en="Assess · Design · PoC · Scale">진단 · 설계 · PoC · 확장</strong>
+        <span data-en="We widen the scope only after it works">되는 것을 확인한 뒤에 넓힙니다</span>
       </div>
     </div>
   </div>
@@ -334,19 +348,19 @@ description: 루씨웨어는 RDBMS 메타데이터를 AI 와 연결하는 Metada
   <div class="container figures">
     <div>
       <span class="figure__num">4+1</span>
-      <span class="figure__label">제품과 솔루션</span>
+      <span class="figure__label" data-en="products and solution">제품과 솔루션</span>
     </div>
     <div>
-      <span class="figure__num">4주</span>
-      <span class="figure__label">PoC 기본 주기</span>
+      <span class="figure__num" data-en="4 weeks">4주</span>
+      <span class="figure__label" data-en="typical PoC cycle">PoC 기본 주기</span>
     </div>
     <div>
       <span class="figure__num">100%</span>
-      <span class="figure__label">데이터 사내 보관 구성</span>
+      <span class="figure__label" data-en="on-premise data option">데이터 사내 보관 구성</span>
     </div>
     <div>
-      <span class="figure__num">1~2일</span>
-      <span class="figure__label">문의 회신</span>
+      <span class="figure__num" data-en="1–2 days">1~2일</span>
+      <span class="figure__label" data-en="reply to inquiries">문의 회신</span>
     </div>
   </div>
 </section>

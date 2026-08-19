@@ -4,8 +4,13 @@
     <div class="footer__about">
       {# 푸터는 늘 어두우므로 한글 로고타이프의 반전판을 쓴다.
          874:126 ≒ 6.94:1 — 높이 28px 에 맞춘 폭이 194px 이다. #}
-      <a class="footer__logo" href="/" aria-label="{{ site.legalName }} 홈">
-        <img src="{{ site.logo.krReverse }}" alt="{{ site.legalName }}" width="194" height="28">
+      <a class="footer__logo" href="/" aria-label="{{ site.legalName }} 홈"
+         data-en-aria-label="{{ site.legalNameEn }} home">
+        {# 영어 화면에서는 영문 시그니처로 바꾼다. width 를 함께 넘기는 이유는
+           두 파일의 가로세로비가 달라서다 — 한글 로고타이프 874:126(≒6.94:1),
+           영문 시그니처 2980:494(≒6.03:1). src 만 갈면 폭이 그대로 남아 글자가 늘어난다. #}
+        <img src="{{ site.logo.krReverse }}" alt="{{ site.legalName }}" width="194" height="28"
+             data-en-src="{{ site.logo.dark }}" data-en-alt="{{ site.legalNameEn }}" data-en-width="169">
       </a>
       <p data-en="{{ site.descriptionEn }}">{{ site.description }}</p>
     </div>
