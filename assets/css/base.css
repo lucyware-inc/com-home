@@ -49,6 +49,9 @@
   --border-strong: #CBD2DC;
   --accent: var(--brand-orange);
   --accent-text: var(--orange-text);
+  /* 오류 — 강조색(주황)과 붙어 보이지 않게 붉은 쪽으로 충분히 뗀다.
+     주황 위에 주황으로 오류를 그리면 「강조」 와 「잘못됐다」 가 구분되지 않는다. */
+  --danger-text: #B3261E;
 
   /* 타이포 — 뷰포트 320~1280px 사이에서 선형 보간.
      브레이크포인트마다 font-size 를 다시 잡지 않아도 된다. */

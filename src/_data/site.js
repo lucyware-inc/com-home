@@ -45,14 +45,16 @@ export default {
    * 링크는 빌드가 계산해서 만든다(eleventy.config.js 의 intlPhone · telUri).
    *
    *   여기 적는 값        한국어 화면      영어 화면          누르면
-   *   "02-861-6190"  →  02-861-6190  ·  +82-2-861-6190  ·  +8228616190
+   *   "02-6465-2112"  →  02-6465-2112  ·  +82-2-6465-2112  ·  +8264652112
    *
    * 국제표기를 여기 따로 적어 두었더니 같은 번호가 두 벌이 되어, 한쪽만 고치면
    * 화면에 어느 것이 나올지 알 수 없었다 (2026-08-17). 번호를 바꿀 때는 이 줄만 고친다.
    */
   contact: {
     email: "info@lucyware.com",
-    tel: "02-861-6190",
+    // 채용 지원은 대표 메일이 아니라 이 주소로 받는다 (채용 페이지에서만 쓴다)
+    recruitEmail: "recruit@lucyware.com",
+    tel: "02-6465-2112",
     fax: "02-6499-6175",
     address: "서울 강남구 영동대로 602, 6층 n205호",
 
@@ -139,14 +141,14 @@ export default {
           logoDark: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
         },
         {
-          label: "ubiQloud®",
+          label: "ubiQloud",
           url: "/products/ubiqloud/",
           desc: "맥락을 읽고 스스로 실행하는 Agentic ERP",
           logo: "/assets/img/Logo/ubiQloud_MainLogo.svg",
           logoDark: "/assets/img/Logo/ubiQloud_DarkMode.svg",
         },
         {
-          label: "ubiQation®",
+          label: "ubiQation",
           url: "/products/ubiqation/",
           desc: "엔터프라이즈 AI 개발 프레임워크",
           logo: "/assets/img/Logo/ubiQation_logo.svg",

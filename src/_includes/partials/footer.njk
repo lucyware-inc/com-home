@@ -45,9 +45,9 @@
         {# 전화와 팩스는 생김새가 같아 둘 다 라벨을 붙인다. 한쪽에만 붙이면
            라벨 없는 쪽이 무엇인지 알 수 없다 — 「팩스」 만 있고 전화는 맨숭맨숭한
            상태였다 (2026-08-17 사용자 지적). #}
-        <li data-en="Tel">
-          전화 <a href="{{ site.contact.tel | telUri }}"
-                  data-en="{{ site.contact.tel | intlPhone }}">{{ site.contact.tel }}</a>
+        <li>
+          Tel <a href="{{ site.contact.tel | telUri }}"
+                 data-en="{{ site.contact.tel | intlPhone }}">{{ site.contact.tel }}</a>
         </li>
 
         {# 팩스는 링크로 걸지 않는다 — 누를 수 있게 보이면 눌러 보게 되는데,
@@ -55,7 +55,7 @@
            값이 없으면 행 자체를 만들지 않는다 — 빈 칸은 「없다」 가 아니라
            「관리가 안 된다」 로 읽힌다. #}
         {% if site.contact.fax %}
-          <li data-en="Fax {{ site.contact.fax | intlPhone }}">팩스 {{ site.contact.fax }}</li>
+          <li data-en="Fax {{ site.contact.fax | intlPhone }}">Fax {{ site.contact.fax }}</li>
         {% endif %}
         <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
       </ul>

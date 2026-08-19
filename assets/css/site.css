@@ -1086,6 +1086,30 @@ textarea.field__control {
   color: var(--text-muted);
 }
 
+/* 검증 문구.
+   브라우저 기본 말풍선을 쓰지 않는다 — 말투도 언어도 우리 것이 아니라,
+   영어 화면에서 한국어 문구가 뜨거나 그 반대가 된다.
+   자리는 그 칸 바로 아래다. 폼 맨 위에 모아 두면 어느 칸 얘기인지
+   사람이 다시 찾아야 한다. */
+.field__error {
+  display: block;
+  margin-block-start: var(--space-2);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--danger-text);
+}
+
+/* 색만으로 알리지 않는다 — 테두리가 바뀌어도 글자가 함께 있어야 한다.
+   위 .field__error 가 그 글자다. */
+.field__control[aria-invalid="true"] {
+  border-color: var(--danger-text);
+}
+
+.field__control[aria-invalid="true"]:focus {
+  border-color: var(--danger-text);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.16);
+}
+
 /* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
