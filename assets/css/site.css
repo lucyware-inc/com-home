@@ -580,6 +580,7 @@
   margin-block-start: var(--space-4);
   font-size: var(--text-lead);
   color: var(--text-muted);
+  text-wrap: balance;
 }
 
 .section-head--start {
@@ -846,6 +847,7 @@
   font-weight: 600;
   line-height: var(--leading-snug);
   color: var(--text-strong);
+  text-wrap: balance;
 }
 
 /* 서명. 이름과 직함을 두 줄로 나눈다 — 한 줄로 이으면 어디까지가 직함인지
@@ -1305,6 +1307,8 @@ textarea.field__control {
   font-size: var(--text-lead);
   line-height: var(--leading-snug);
   color: var(--text-muted);
+  /* 줄 나누는 자리 — 이유는 base.css 의 h1~h4 규칙에 적었다 */
+  text-wrap: balance;
 }
 
 /* 제품 페이지 머리의 로고 — 홈 배너와 **같은 50px** 로 둔다.
@@ -2103,6 +2107,7 @@ textarea.field__control {
   max-width: 44ch;
   font-size: var(--text-lead);
   color: #B6C0D0;
+  text-wrap: balance;
 }
 
 /* 첫 장 아래 붙는 요약 숫자 */

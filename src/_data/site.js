@@ -141,14 +141,14 @@ export default {
           logoDark: "/assets/img/Logo/flexelf_logo_TM_reverse.svg",
         },
         {
-          label: "ubiQloud",
+          label: "ubiQloud®",
           url: "/products/ubiqloud/",
           desc: "맥락을 읽고 스스로 실행하는 Agentic ERP",
           logo: "/assets/img/Logo/ubiQloud_MainLogo.svg",
           logoDark: "/assets/img/Logo/ubiQloud_DarkMode.svg",
         },
         {
-          label: "ubiQation",
+          label: "ubiQation®",
           url: "/products/ubiqation/",
           desc: "엔터프라이즈 AI 개발 프레임워크",
           logo: "/assets/img/Logo/ubiQation_logo.svg",

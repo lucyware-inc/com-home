@@ -82,8 +82,8 @@ HTML 을 생성해 그 중복을 없앤다. **방문자에게 내려가는 것�
 | `lucyware_ai_signature_gradient` | `..._gradient_reverse` | Lucyware.AI |
 | `metadrag-wordmark-light` | `metadrag-wordmark-dark` | MetaDRAG® |
 | `flexelf_logo_TM` | `flexelf_logo_TM_reverse` | flexelf |
-| `ubiQloud_MainLogo` | `ubiQloud_DarkMode` | ubiQloud |
-| `ubiQation_logo` | `ubiQation_logo_reverse` | ubiQation |
+| `ubiQloud_MainLogo` | `ubiQloud_DarkMode` | ubiQloud® |
+| `ubiQation_logo` | `ubiQation_logo_reverse` | ubiQation® |
 | `lucyware_logotype-kr_color` | `lucyware_logotype-kr_reverse` | 한글 로고타이프 (푸터) |
 
 - **짝은 `src/_data/site.js` 의 `nav[].children[]` 에 `logo` / `logoDark` 로 물려 있다.**
@@ -92,8 +92,8 @@ HTML 을 생성해 그 중복을 없앤다. **방문자에게 내려가는 것�
 ### 같은 `height` 를 줘도 크기가 같아지지 않는다 (2026-08-17)
 
 **로고 SVG 안에는 파일마다 다른 여백이 박혀 있다.** 배너 제품 로고 넷에
-`height="32"` 를 똑같이 줬더니 실제 글자 높이가 ubiQloud 15.6px · flexelf 16.3px ·
-MetaDRAG 18.1px · ubiQation 29.0px 로 거의 두 배가 벌어졌다. `height` 는 그림틀의
+`height="32"` 를 똑같이 줬더니 실제 글자 높이가 ubiQloud® 15.6px · flexelf 16.3px ·
+MetaDRAG 18.1px · ubiQation® 29.0px 로 거의 두 배가 벌어졌다. `height` 는 그림틀의
 높이일 뿐이고, 그 안에서 글자가 차지하는 비율은 파일이 정한다.
 
 - **height 를 키워도 소용없다.** 비율이 그대로 따라가므로 작아 보이던 것은 계속
@@ -190,8 +190,8 @@ CSS 도 닿지 않기 때문이다.
 | Solution › Lucyware.AI | `/solutions/lucyware-ai/` | |
 | Products › MetaDRAG® | `/products/metadrag/` | |
 | Products › flexelf | `/products/flexelf/` | |
-| Products › ubiQloud | `/products/ubiqloud/` | |
-| Products › ubiQation | `/products/ubiqation/` | |
+| Products › ubiQloud® | `/products/ubiqloud/` | |
+| Products › ubiQation® | `/products/ubiqation/` | |
 | Company | `/company/` | 비전·핵심가치 + 오시는 길·기업정보 |
 | References | `/references/` | 본문 준비중 |
 | Careers | `/careers/` | 본문 준비중 |
@@ -214,7 +214,7 @@ CSS 도 닿지 않기 때문이다.
   - **한 층에 이름을 둘 달지 않는다.** 「추천 대체 용어」 표를 그대로 화면에 옮기면
     방문자는 두 이름이 서로 다른 것인지 판단해야 한다. 그 표는 이름을 고르라는
     안내이지 페이지에 실을 내용이 아니다.
-- **ubiQloud 는 클라우드 ERP 가 아니라 Agentic ERP 다** (2026-08-17 내용 확정).
+- **ubiQloud® 는 클라우드 ERP 가 아니라 Agentic ERP 다** (2026-08-17 내용 확정).
   **우리 제품 둘을 부품으로 쓴다** — 뒤는 MetaDRAG®(시맨틱 데이터 거버넌스),
   앞은 flexelf™(멀티모달 인터랙션)이고, 둘이 맞물려 AI 에이전트가 발주 승인·재고
   예측·리포트 작성 같은 트랜잭션을 자율 실행한다.
@@ -228,27 +228,27 @@ CSS 도 닿지 않기 때문이다.
   파는 물건 하나가 아니라 **네 제품이 모여 이루는 그림**이고, 나머지 넷은 그 그림을
   이루는 물건이다. 그래서 상위 메뉴가 단수(Solution)이고 아래에 하나만 있다 —
   「항목이 하나뿐이니 드롭다운을 없애자」 는 판단을 하지 않는다. 층이 사라진다.
-- **`/services/` 는 없어졌다.** ubiQloud·ubiQation 이 `/products/` 로 옮겨졌고,
+- **`/services/` 는 없어졌다.** ubiQloud®·ubiQation® 이 `/products/` 로 옮겨졌고,
   MetaDRAG®·flexelf 도 `/solutions/` 에서 함께 넘어왔다. 옛 주소는 저장소 루트의
   `_redirects` 가 301 로 넘긴다 — 이미 밖에 나간 링크를 끊지 않기 위한 것이므로
   **지우지 않는다.** Cloudflare Pages 가 산출물 루트의 이 파일을 읽는다.
 - **Lucyware.AI 의 URL 만은 `/solutions/` 그대로다.** 메뉴 라벨이 단수가 되었다고
   이미 나가 있는 주소를 바꾸면 얻는 것 없이 링크만 끊긴다.
-- **ubiQation 은 Lucyware.AI 와 별개 서비스다** (2026-08-16 사용자 확인). 상위
+- **ubiQation® 은 Lucyware.AI 와 별개 서비스다** (2026-08-16 사용자 확인). 상위
   `C:\VSCode_Source\CLAUDE.md` 의 「lucyware.ai 는 ubiqation 에서 개명」 은 사내 AI Portal
-  **프로젝트** 이야기이며 이 홈페이지의 ubiQation 서비스와 다르다. 헷갈리기 쉬운 자리다.
-- **ubiQation 은 구축·운영 서비스가 아니라 개발 프레임워크다** (2026-08-17 내용 확정).
-  MetaDRAG®·flexelf™·ubiQloud 를 개발·배포·운영하는 **Foundation Layer** 이고,
+  **프로젝트** 이야기이며 이 홈페이지의 ubiQation® 서비스와 다르다. 헷갈리기 쉬운 자리다.
+- **ubiQation® 은 구축·운영 서비스가 아니라 개발 프레임워크다** (2026-08-17 내용 확정).
+  MetaDRAG®·flexelf™·ubiQloud® 를 개발·배포·운영하는 **Foundation Layer** 이고,
   모듈 넷(SDK·API 메쉬 · 에이전트 오케스트레이션 런타임 · MLOps·DataOps 파이프라인 ·
   보안·거버넌스 코어)으로 세 제품을 한 개발 환경에서 조율한다.
   - 옛 문구(「설계와 구축을 지나 운영까지」 · `Build & Operate` 태그 · 라벨
     설계·구축·운영)를 다시 보게 되면 그것이 오래된 쪽이다.
-  - **네 제품은 나란하지 않다 — 층이 있다.** ubiQation 이 맨 아래이고 그 위에
-    MetaDRAG®(데이터) → flexelf™(엣지) → ubiQloud(앱)가 쌓인다. 홈의 Products 격자는
+  - **네 제품은 나란하지 않다 — 층이 있다.** ubiQation® 이 맨 아래이고 그 위에
+    MetaDRAG®(데이터) → flexelf™(엣지) → ubiQloud®(앱)가 쌓인다. 홈의 Products 격자는
     지금도 넷을 나란히 놓지만, 그것은 「살 수 있는 물건 넷」 이라는 뜻이지 같은 층이라는
-    뜻이 아니다. 층 관계는 ubiQation 페이지의 Ecosystem 표가 들고 있다.
+    뜻이 아니다. 층 관계는 ubiQation® 페이지의 Ecosystem 표가 들고 있다.
   - **Lucyware.AI 와 층이 다르다.** Lucyware.AI 는 네 제품이 모여 이루는 **그림**이고
-    ubiQation 은 그 제품들을 **만드는 바닥**이다. 둘 다 「전체를 아우른다」 고 말하므로
+    ubiQation® 은 그 제품들을 **만드는 바닥**이다. 둘 다 「전체를 아우른다」 고 말하므로
     같은 것으로 묶기 쉬운데, 하나는 파는 그림이고 하나는 짓는 도구다.
 - **GNB·푸터에 「준비중」 배지를 달지 않는다** (2026-08-16 사용자 지시). 메뉴는 다 같은
   무게로 보이고, 아직 채워지지 않은 것은 페이지에 들어가서 알게 된다. 대신 그 페이지를
