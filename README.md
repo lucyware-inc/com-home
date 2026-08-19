@@ -31,16 +31,31 @@ Claude Design → Claude Code → GitHub (단일 진실 공급원)
 | `/functions/api` | Phase 2 API 예약 (현재 비움) |
 | `wrangler.toml` | Pages 설정 (단일 진실 공급원) |
 | `_headers` | 보안 헤더 |
-| `.dev.vars.example` | 로컬 시크릿 템플릿 (`.dev.vars`로 복사) |
+| `.env.example` | 로컬 환경변수 템플릿 (`.env` 로 복사. DB 접속은 여기서 온다) |
 | `CLAUDE.md` | Claude Code 자동 로드 컨텍스트·가드레일·한국어 지침 |
 
 ## 개발
 
 ```bash
 npm install          # 최초 1회
-npm run dev          # http://localhost:8080 — 파일을 고치면 자동 반영
+npm run dev          # http://localhost:5820 — 파일을 고치면 자동 반영
+npm run dev:api      # http://localhost:8220 — /api/* 까지 함께 (Functions·DB 확인용)
 npm run build        # dist/ 에 정적 HTML 생성
 ```
+
+**포트는 프로젝트마다 갈라 둔 자리다** — 이 저장소는 프론트 5820 · 백엔드 8220 을
+쓴다(배분표는 상위 `C:\VSCode_Source\CLAUDE.md`). 프레임워크 기본값을 쓰면 다른
+시스템을 함께 띄웠을 때 나중에 뜬 쪽이 죽고, 그때 나오는 에러가 포트 얘기라
+원인이 가려진다.
+
+**두 명령은 하는 일이 다르다.** `npm run dev` 는 정적 파일만 내보내므로
+`/api/*` 가 없다 — 문의 폼을 눌러도 아무 일이 없다. Functions 까지 태우려면
+`npm run dev:api` 를 쓴다(11ty 로 한 번 찍고 wrangler 가 그 산출물을 이어받는다.
+대신 파일을 고쳐도 자동 반영되지 않으니 다시 실행한다).
+
+DB 접속이 필요한 것은 `/api/contact` 하나뿐이다. `.env.example` 을 `.env` 로
+복사해 채우고, SSH 터널을 띄운 뒤 `npm run dev:api` 로 확인한다 — 순서와 함정은
+[docs/CONTACT_SETUP.md](docs/CONTACT_SETUP.md) 에 있다.
 
 ## 내용을 직접 고치려면
 
